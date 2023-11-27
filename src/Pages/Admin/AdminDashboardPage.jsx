@@ -66,7 +66,6 @@ const AdminDashboardPage = () => {
             <div className="grid grid-cols-2 ">
               <div className="text-3xl font-bold">Status Pembayaran</div>
               <div className="flex justify-end">
-                <button className=" bg-[#6148FF] text-white rounded-2xl px-5 mx-2 border-2 border-black hover:bg-white hover:text-[#6148FF] duration-150">Tambah</button>
                 <button className=" bg-[#6148FF] text-white rounded-2xl px-5 mx-2 border-2 border-black hover:bg-white hover:text-[#6148FF] duration-150">Filter</button>
               </div>
             </div>
