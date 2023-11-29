@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 import logoImage from "../../assets/img/Register/Belajar_white2.png";
 
 const Register = () => {
-  //   const navigate = useNavigate();
-
   return (
     <>
       <div
