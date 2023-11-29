@@ -3,6 +3,7 @@ import Home from "./Pages/Home";
 import KelolaKelasPage from "./Pages/Admin/KelolaKelasPage";
 import AdminDashboardPage from "./Pages/Admin/AdminDashboardPage";
 import BerandaKelasSayaPage from "./Pages/UserLogin/BerandaKelasSayaPage";
+import BerandaTopikKelasPage from "./Pages/BerandaTopikKelasPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="adminkelolakelas" element={<KelolaKelasPage />} />
           <Route path="admindashboard" element={<AdminDashboardPage />} />
           <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
+          <Route path="topikkelas" element={<BerandaTopikKelasPage />} />
         </Routes>
       </BrowserRouter>
     </>
