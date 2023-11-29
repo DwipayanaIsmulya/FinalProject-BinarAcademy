@@ -5,6 +5,7 @@ import AdminDashboardPage from "./Pages/Admin/AdminDashboardPage";
 import Register from "./Pages/Register/Register";
 import BerandaKelasSayaPage from "./Pages/UserLogin/BerandaKelasSayaPage";
 import BerandaTopikKelasPage from "./Pages/BerandaTopikKelasPage";
+import Beranda from "./Pages/UserLogin/Beranda";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
           <Route path="topikkelas" element={<BerandaTopikKelasPage />} />
+          <Route path="beranda" element={<Beranda />} />
         </Routes>
       </BrowserRouter>
     </>
