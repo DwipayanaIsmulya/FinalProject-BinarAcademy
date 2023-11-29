@@ -1,29 +1,28 @@
-import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
+import NavbarComponent from "../Components/UserLogin/NavbarComponent";
 import { useState } from "react";
 
-const BerandaKelasSayaPage = () => {
+const BerandaTopikKelasPage = () => {
   const [all, setAll] = useState(true);
-  const [inProgress, setInProgress] = useState(false);
-  const [selesai, setSelesai] = useState(false);
+  const [kelasPremium, setKelasPremium] = useState(false);
+  const [kelasGratis, setKelasGratis] = useState(false);
   const [filterBox, setFilterBox] = useState(false);
   const handleAll = () => {
     setAll(true);
-    setInProgress(false);
-    setSelesai(false);
+    setKelasPremium(false);
+    setKelasGratis(false);
   };
-  const handleInProgress = () => {
-    setInProgress(true);
+  const handleKelasPremium = () => {
+    setKelasPremium(true);
     setAll(false);
-    setSelesai(false);
+    setKelasGratis(false);
   };
-  const handleSelesai = () => {
-    setSelesai(true);
+  const handleKelasGratis = () => {
+    setKelasGratis(true);
     setAll(false);
-    setInProgress(false);
+    setKelasPremium(false);
   };
   const handleFilterBox = () => {
     setFilterBox(!filterBox);
-    console.log(filterBox);
   };
   return (
     <>
@@ -141,13 +140,13 @@ const BerandaKelasSayaPage = () => {
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleInProgress} className={`p-2 w-[150px] md:p-3 md:w-[388px] ${inProgress ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"}  rounded-2xl`}>
-                    In Progress
+                  <button onClick={handleKelasPremium} className={`p-2 w-[150px] md:p-3 md:w-[388px] ${kelasPremium ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"}  rounded-2xl`}>
+                    Kelas Premium
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleSelesai} className={`p-2 w-[100px] md:p-3 md:w-[250px] ${selesai ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl`}>
-                    Selesai
+                  <button onClick={handleKelasGratis} className={`p-2 w-[150px] md:p-3 md:w-[250px] ${kelasGratis ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl`}>
+                    Kelas Gratis
                   </button>
                 </div>
               </div>
@@ -172,4 +171,4 @@ const BerandaKelasSayaPage = () => {
   );
 };
 
-export default BerandaKelasSayaPage;
+export default BerandaTopikKelasPage;

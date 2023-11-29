@@ -24,19 +24,19 @@ const NavbarComponent = () => {
   };
   return (
     <>
-      <div className=" bg-[#6148FF] w-full flex h-28">
-        <div className="flex w-[80%] mx-auto">
-          <div className=" flex-auto w-64">
-            <div className="flex items-center h-full">
-              <div className=" text-white text-4xl pr-5 items-center">Belajar</div>
-              <div className=" ml-6">
-                <input className="py-5 px-8 w-[526px] rounded-2xl" type="text" placeholder="Cari kursus terbaik.." />
+      <div className="md:w-full md:flex md:h-28 bg-[#6148FF]">
+        <div className="md:flex md:w-[80%] md:mx-auto">
+          <div className=" md:flex-auto md:w-64">
+            <div className="md:flex md:items-center h-full">
+              <div className="text-white text-4xl pr-5 items-center">Belajar</div>
+              <div className=" md:ml-6">
+                <input className="md:py-5 md:px-8 md:w-[526px] md:rounded-2xl md:text-md invisible md:visible" type="text" placeholder="Cari kursus terbaik.." />
               </div>
             </div>
           </div>
           <div className="flex-auto">
             <div className="flex justify-end items-center h-full">
-              <div className="px-3">
+              <div className="px-">
                 <div className={`px-6 py-2 rounded-xl ${toggleKelas && "bg-[#489CFF]"}`}>
                   <button className="flex text-white text-xl items-center" onClick={handleKelas}>
                     <img src={filist} className={` ${toggleKelas && "pr-2 "} pt-[-2px]`} />
@@ -44,7 +44,7 @@ const NavbarComponent = () => {
                   </button>
                 </div>
               </div>
-              <div className="px-3">
+              <div className="px-">
                 <div className={`px-6 py-2 rounded-xl ${toggleNotif && "bg-[#489CFF] "} `}>
                   <button className="flex text-white text-xl items-center" onClick={handleNotif}>
                     <img src={fibell} className={`${toggleNotif && "pr-2 "}  my-[-3px] pt-[2px]`} />
@@ -52,7 +52,7 @@ const NavbarComponent = () => {
                   </button>
                 </div>
               </div>
-              <div className="px-3">
+              <div className="px-">
                 <div className={`px-6 py-2 rounded-xl ${toggleAkun && "bg-[#489CFF]"} `}>
                   <button className="flex text-white text-xl items-center" onClick={handleAkun}>
                     <img src={fiuser} className={`${toggleAkun && "pr-2"} pt-[2px]`} />
