@@ -1,4 +1,5 @@
 import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
+import CardKelasComponent from "../../Components/CardKelasComponent";
 import { useState } from "react";
 
 const BerandaKelasSayaPage = () => {
@@ -23,7 +24,6 @@ const BerandaKelasSayaPage = () => {
   };
   const handleFilterBox = () => {
     setFilterBox(!filterBox);
-    console.log(filterBox);
   };
   return (
     <>
@@ -151,18 +151,22 @@ const BerandaKelasSayaPage = () => {
                   </button>
                 </div>
               </div>
-              <div className="md:grid grid-cols-2">
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
+              <div className="md:grid grid-cols-2 md:gap-7 pt-6">
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
               </div>
             </div>
           </div>
