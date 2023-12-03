@@ -9,6 +9,8 @@ import Beranda from "./Pages/UserLogin/Beranda";
 import CardKelasComponent from "./Components/CardKelasComponent";
 import NotifikasiPage from "./Pages/UserLogin/NotifikasiPage";
 import AkunPage from "./Pages/UserLogin/AkunPage";
+import PembayaranPage from "./Pages/UserLogin/PembayaranPage";
+import PembayaranDonePage from "./Pages/UserLogin/PembayaranDonePage";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="card" element={<CardKelasComponent />} />
           <Route path="notifikasi" element={<NotifikasiPage />} />
           <Route path="akun" element={<AkunPage />} />
+          <Route path="pembayaran" element={<PembayaranPage />} />
+          <Route path="pembayarandone" element={<PembayaranDonePage />} />
         </Routes>
       </BrowserRouter>
     </>
