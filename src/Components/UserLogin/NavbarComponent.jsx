@@ -1,27 +1,10 @@
 import filist from "../../assets/img/UserLogin/fi_list.png";
 import fibell from "../../assets/img/UserLogin/fi_bell.png";
 import fiuser from "../../assets/img/UserLogin/fi_user.png";
-import { useState } from "react";
+
+import { NavLink } from "react-router-dom";
 
 const NavbarComponent = () => {
-  const [toggleKelas, setToggleKelas] = useState(true);
-  const [toggleNotif, setToggleNotif] = useState(false);
-  const [toggleAkun, setToggleAkun] = useState(false);
-  const handleKelas = () => {
-    setToggleKelas(true);
-    setToggleNotif(false);
-    setToggleAkun(false);
-  };
-  const handleNotif = () => {
-    setToggleNotif(true);
-    setToggleKelas(false);
-    setToggleAkun(false);
-  };
-  const handleAkun = () => {
-    setToggleAkun(true);
-    setToggleKelas(false);
-    setToggleNotif(false);
-  };
   return (
     <>
       <div className="md:w-full md:flex md:h-28 bg-[#6148FF]">
@@ -36,28 +19,40 @@ const NavbarComponent = () => {
           </div>
           <div className="flex-auto">
             <div className="flex justify-end items-center h-full">
-              <div className="px-">
-                <div className={`px-6 py-2 rounded-xl ${toggleKelas && "bg-[#489CFF]"}`}>
-                  <button className="flex text-white text-xl items-center" onClick={handleKelas}>
-                    <img src={filist} className={` ${toggleKelas && "pr-2 "} pt-[-2px]`} />
-                    {toggleKelas && "Kelas"}
-                  </button>
+              <div className="px-2">
+                <div className={``}>
+                  <NavLink to="/kelassaya" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
+                    {({ isActive }) => (
+                      <>
+                        <img src={filist} alt="Fibell" className="w- h-8" />
+                        {isActive ? <span className="ml-2 text-xl">Kelas</span> : null}
+                      </>
+                    )}
+                  </NavLink>
                 </div>
               </div>
-              <div className="px-">
-                <div className={`px-6 py-2 rounded-xl ${toggleNotif && "bg-[#489CFF] "} `}>
-                  <button className="flex text-white text-xl items-center" onClick={handleNotif}>
-                    <img src={fibell} className={`${toggleNotif && "pr-2 "}  my-[-3px] pt-[2px]`} />
-                    {toggleNotif && "Notifikasi"}
-                  </button>
+              <div className="px-2">
+                <div className={``}>
+                  <NavLink to="/notifikasi" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
+                    {({ isActive }) => (
+                      <>
+                        <img src={fibell} alt="Fibell" className="w- h-8" />
+                        {isActive ? <span className="ml-2 text-xl">Notifikasi</span> : null}
+                      </>
+                    )}
+                  </NavLink>
                 </div>
               </div>
-              <div className="px-">
-                <div className={`px-6 py-2 rounded-xl ${toggleAkun && "bg-[#489CFF]"} `}>
-                  <button className="flex text-white text-xl items-center" onClick={handleAkun}>
-                    <img src={fiuser} className={`${toggleAkun && "pr-2"} pt-[2px]`} />
-                    {toggleAkun && "Akun"}
-                  </button>
+              <div className="px-2">
+                <div className={``}>
+                  <NavLink to="/akun" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
+                    {({ isActive }) => (
+                      <>
+                        <img src={fiuser} alt="Fibell" className="w- h-8" />
+                        {isActive ? <span className="ml-2 text-xl">Akun</span> : null}
+                      </>
+                    )}
+                  </NavLink>
                 </div>
               </div>
             </div>

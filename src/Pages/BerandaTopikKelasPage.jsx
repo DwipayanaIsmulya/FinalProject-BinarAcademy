@@ -1,3 +1,4 @@
+import CardKelasComponent from "../Components/CardKelasComponent";
 import NavbarComponent from "../Components/UserLogin/NavbarComponent";
 import { useState } from "react";
 
@@ -32,7 +33,7 @@ const BerandaTopikKelasPage = () => {
         {/* Body */}
         <div className="md:w-[1340px] md:mx-auto">
           <div className="flex justify-around py-6 md:flex md:justify-between md:pt-16 md:pb-12">
-            <div className="text-xl font-bold md:text-3xl">Kelas Berjalan</div>
+            <div className="text-xl font-bold md:text-3xl">Topik Kelas</div>
             <div className="">
               <input className="rounded-3xl border-2 text-sm border-[#6148FF] py-1 px-2 md:py-2 md:px-3" type="text" placeholder="Cari Kelas" />
             </div>
@@ -150,18 +151,22 @@ const BerandaTopikKelasPage = () => {
                   </button>
                 </div>
               </div>
-              <div className="md:grid grid-cols-2">
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
-                <div>Kelas</div>
+              <div className="md:grid grid-cols-2 md:gap-7 pt-6">
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
+                <div className="py-2 flex justify-around">
+                  <CardKelasComponent />
+                </div>
               </div>
             </div>
           </div>
