@@ -1,7 +1,7 @@
 import logoImage from "../../assets/img/Register/Belajar_white2.png";
 import { Link } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
-import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
+// import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
 
 const Beranda = () => {
