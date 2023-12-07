@@ -4,6 +4,7 @@ import logoImage from "../../assets/img/Register/Belajar_white2.png";
 const Register = () => {
   return (
     <>
+
       <div className="flex sm:flex-col-2 h-screen w-full" style={{ fontFamily: "poppins" }}>
         {/* Ini Kiri */}
         <div className="flex flex-initial w-[100%] sm:w-[60%]">
