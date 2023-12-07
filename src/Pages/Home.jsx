@@ -1,5 +1,7 @@
 const Home = () => {
-  return <div>Nyoba Staging</div>;
+  return <div className="flex justify-center">
+    <h1 className="text-xl font-bold">Production</h1>
+  </div>;
 };
 
 export default Home;
