@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import activeImage from "../../assets/img/icon.png";
+import axios from "axios";
 
 const KelolaKelasPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -13,14 +14,29 @@ const KelolaKelasPage = () => {
     harga: 0,
     materi: "",
   });
+  const [courseItem, setCourseItem] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/course", {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJNdWx5YTI2QHlhaG9vLmNvbSIsImlhdCI6MTcwMjIzMDQ5OX0.Firorna3YFlxqNSaquzk5qlM8Hp7GHLoHgAbQUJT7AY",
+          },
+        });
+
+        const { data } = response.data;
+        setCourseItem(data);
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    getData();
+  }, []);
+
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
-  // Ini fungsi untuk tambah data nanti
-  // const tambahkanData = (data) => {
-  //   console.log(data);
-  // };
   const navigate = useNavigate();
   return (
     <>
@@ -95,6 +111,7 @@ const KelolaKelasPage = () => {
               <table className="w-full">
                 <thead className="bg-[#EBF3FC]">
                   <tr>
+                    <th>No</th>
                     <th>Kode Kelas</th>
                     <th>Kategori</th>
                     <th>Nama Kelas</th>
@@ -105,18 +122,21 @@ const KelolaKelasPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="text-center">UIUX0123</td>
-                    <td className="text-center">UI/UX Design</td>
-                    <td className="text-center">Belajar Web Designer dengan Figma</td>
-                    <td className="text-center">GRATIS</td>
-                    <td className="text-center">Beginner</td>
-                    <td className="text-center">Rp 0</td>
-                    <div className="grid grid-cols-2">
-                      <button>Ubah</button>
-                      <button>Hapus</button>
-                    </div>
-                  </tr>
+                  {courseItem.map((course) => (
+                    <tr key={course?.id}>
+                      <td className="text-center">{course.id}</td>
+                      <td className="text-center">{course.courseCode}</td>
+                      <td className="text-center">{course.categoryId}</td>
+                      <td className="text-center">{course.name}</td>
+                      <td className="text-center">{course.isPremium ? "Premium" : "Gratis"}</td>
+                      <td className="text-center">{course.level}</td>
+                      <td className="text-center">Rp {course.price}</td>
+                      <div className="grid grid-cols-2">
+                        <button>Ubah</button>
+                        <button>Hapus</button>
+                      </div>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
