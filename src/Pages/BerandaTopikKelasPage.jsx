@@ -1,12 +1,15 @@
 import CardKelasComponent from "../Components/CardKelasComponent";
 import NavbarComponent from "../Components/UserLogin/NavbarComponent";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const BerandaTopikKelasPage = () => {
   const [all, setAll] = useState(true);
   const [kelasPremium, setKelasPremium] = useState(false);
   const [kelasGratis, setKelasGratis] = useState(false);
   const [filterBox, setFilterBox] = useState(false);
+  const [allCourse, setAllCourse] = useState([]);
+  const [filteredCourses, setFilteredCourses] = useState([]);
   const handleAll = () => {
     setAll(true);
     setKelasPremium(false);
@@ -25,6 +28,39 @@ const BerandaTopikKelasPage = () => {
   const handleFilterBox = () => {
     setFilterBox(!filterBox);
   };
+  useEffect(() => {
+    const filterCourses = () => {
+      let filtered = allCourse;
+
+      if (kelasPremium) {
+        filtered = filtered.filter((course) => course.isPremium);
+      } else if (kelasGratis) {
+        filtered = filtered.filter((course) => !course.isPremium);
+      }
+
+      setFilteredCourses(filtered);
+    };
+    filterCourses();
+  }, [allCourse, kelasPremium, kelasGratis]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/course", {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJNdWx5YTI2QHlhaG9vLmNvbSIsImlhdCI6MTcwMjIzMDQ5OX0.Firorna3YFlxqNSaquzk5qlM8Hp7GHLoHgAbQUJT7AY",
+          },
+        });
+
+        const { data } = response.data;
+        setAllCourse(data);
+        console.log(allCourse);
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    getData();
+  }, []);
   return (
     <>
       <div className=" h-full bg-[#EBF3FC] pb-32 md:w-full ">
@@ -152,21 +188,11 @@ const BerandaTopikKelasPage = () => {
                 </div>
               </div>
               <div className="md:grid grid-cols-2 md:gap-7 pt-6">
-                <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
-                </div>
-                <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
-                </div>
-                <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
-                </div>
-                <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
-                </div>
-                <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
-                </div>
+                {filteredCourses.map((course) => (
+                  <div className="py-2 flex justify-around" key={course.id}>
+                    <CardKelasComponent name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} categoryId={course.categoryId} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
