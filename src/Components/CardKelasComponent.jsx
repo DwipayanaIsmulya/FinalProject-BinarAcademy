@@ -54,6 +54,7 @@ const CardKelasComponent = ({ name, level, price, isPremium, categoryId }) => {
               <div className="my-auto px-1">
                 <img src={isPremium ? premium : null} />
               </div>
+
               <div className="text-white">{isPremium ? `Rp ${formattedPrice}` : "Mulai Kelas"}</div>
             </div>
           </div>
