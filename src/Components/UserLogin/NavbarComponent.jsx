@@ -21,7 +21,7 @@ const NavbarComponent = () => {
             <div className="flex justify-end items-center h-full">
               <div className="px-2">
                 <div className={``}>
-                  <NavLink to="/kelassaya" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
+                  <NavLink to="/topikkelas" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
                     {({ isActive }) => (
                       <>
                         <img src={filist} alt="Fibell" className="w- h-8" />
@@ -33,10 +33,10 @@ const NavbarComponent = () => {
               </div>
               <div className="px-2">
                 <div className={``}>
-                  <NavLink to="/notifikasi" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
+                  <NavLink to="/notifikasi" className={({ isActive }) => `flex items-center px-6 py-1 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
                     {({ isActive }) => (
                       <>
-                        <img src={fibell} alt="Fibell" className="w- h-8" />
+                        <img src={fibell} alt="Fibell" className="mt-2 h-8" />
                         {isActive ? <span className="ml-2 text-xl">Notifikasi</span> : null}
                       </>
                     )}
