@@ -11,6 +11,8 @@ import NotifikasiPage from "./Pages/UserLogin/NotifikasiPage";
 import AkunPage from "./Pages/UserLogin/AkunPage";
 import PembayaranPage from "./Pages/UserLogin/PembayaranPage";
 import PembayaranDonePage from "./Pages/UserLogin/PembayaranDonePage";
+import MobileNavbar from "./Components/UserLogin/MobileNavbar";
+import ProgressCardKelasComponent from "./Components/ProgressCardKelasComponent";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path="akun" element={<AkunPage />} />
           <Route path="pembayaran" element={<PembayaranPage />} />
           <Route path="pembayarandone" element={<PembayaranDonePage />} />
+          <Route path="mobilenavbar" element={<MobileNavbar />} />
+          <Route path="progresscard" element={<ProgressCardKelasComponent />} />
         </Routes>
       </BrowserRouter>
     </>

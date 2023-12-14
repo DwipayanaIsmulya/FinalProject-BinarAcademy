@@ -1,7 +1,9 @@
 import CardKelasComponent from "../Components/CardKelasComponent";
+import MobileNavbar from "../Components/UserLogin/MobileNavbar";
 import NavbarComponent from "../Components/UserLogin/NavbarComponent";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BerandaTopikKelasPage = () => {
   const [all, setAll] = useState(true);
@@ -65,11 +67,22 @@ const BerandaTopikKelasPage = () => {
     <>
       <div className=" h-full bg-[#EBF3FC] pb-32 md:w-full ">
         {/* Navbar */}
-        <NavbarComponent />
+        <div className="hidden md:block">
+          <NavbarComponent />
+        </div>
+        <div className="md:hidden">
+          <MobileNavbar />
+        </div>
+
         {/* Body */}
         <div className="md:w-[1340px] md:mx-auto">
           <div className="flex justify-around py-6 md:flex md:justify-between md:pt-16 md:pb-12">
-            <div className="text-xl font-bold md:text-3xl">Topik Kelas</div>
+            <div className="text-xl font-bold md:text-3xl">
+              Topik Kelas
+              <Link to="/kelassaya">
+                <div className="text-sm pt-2 text-[#6148FF] border-b-2 border-[#6148FF]">Lihat kelas yang sedang diikuti</div>
+              </Link>
+            </div>
             <div className="">
               <input className="rounded-3xl border-2 text-sm border-[#6148FF] py-1 px-2 md:py-2 md:px-3" type="text" placeholder="Cari Kelas" />
             </div>

@@ -1,6 +1,7 @@
 import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
-import CardKelasComponent from "../../Components/CardKelasComponent";
 import { useState } from "react";
+import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
+import ProgressCardKelasComponent from "../../Components/ProgressCardKelasComponent";
 
 const BerandaKelasSayaPage = () => {
   const [all, setAll] = useState(true);
@@ -29,7 +30,13 @@ const BerandaKelasSayaPage = () => {
     <>
       <div className=" h-full bg-[#EBF3FC] pb-32 md:w-full ">
         {/* Navbar */}
-        <NavbarComponent />
+        <div className="hidden md:block">
+          <NavbarComponent />
+        </div>
+        <div className="md:hidden">
+          <MobileNavbar />
+        </div>
+
         {/* Body */}
         <div className="md:w-[1340px] md:mx-auto">
           <div className="flex justify-around py-6 md:flex md:justify-between md:pt-16 md:pb-12">
@@ -153,19 +160,19 @@ const BerandaKelasSayaPage = () => {
               </div>
               <div className="md:grid grid-cols-2 md:gap-7 pt-6">
                 <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
+                  <ProgressCardKelasComponent />
                 </div>
                 <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
+                  <ProgressCardKelasComponent />
                 </div>
                 <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
+                  <ProgressCardKelasComponent />
                 </div>
                 <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
+                  <ProgressCardKelasComponent />
                 </div>
                 <div className="py-2 flex justify-around">
-                  <CardKelasComponent />
+                  <ProgressCardKelasComponent />
                 </div>
               </div>
             </div>
