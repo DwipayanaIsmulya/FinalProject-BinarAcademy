@@ -11,6 +11,7 @@ import NotifikasiPage from "./Pages/UserLogin/NotifikasiPage";
 import AkunPage from "./Pages/UserLogin/AkunPage";
 import PembayaranPage from "./Pages/UserLogin/PembayaranPage";
 import PembayaranDonePage from "./Pages/UserLogin/PembayaranDonePage";
+import DetailKelas from "./Pages/UserLogin/DetailKelas";
 
 function App() {
   return (
@@ -20,7 +21,14 @@ function App() {
           <Route path="/" element={<Home />} />
 
           {/* The page for not found url path */}
-          <Route path="*" element={<h1 className="d-flex flex-row justify-content-center align-items-center vh-100">404 Page Not Found</h1>} />
+          <Route
+            path="*"
+            element={
+              <h1 className="d-flex flex-row justify-content-center align-items-center vh-100">
+                404 Page Not Found
+              </h1>
+            }
+          />
           <Route path="adminkelolakelas" element={<KelolaKelasPage />} />
           <Route path="admindashboard" element={<AdminDashboardPage />} />
           <Route path="register" element={<Register />} />
@@ -32,6 +40,7 @@ function App() {
           <Route path="akun" element={<AkunPage />} />
           <Route path="pembayaran" element={<PembayaranPage />} />
           <Route path="pembayarandone" element={<PembayaranDonePage />} />
+          <Route path="detailkelas" element={<DetailKelas />} />
         </Routes>
       </BrowserRouter>
     </>
