@@ -1,10 +1,10 @@
 import CardKelasComponent from "../Components/CardKelasComponent";
 import MobileNavbar from "../Components/UserLogin/MobileNavbar";
 import NavbarComponent from "../Components/UserLogin/NavbarComponent";
+import filter from "../assets/img/UserLogin/filter.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 
 const BerandaTopikKelasPage = () => {
   const [all, setAll] = useState(true);
@@ -81,16 +81,21 @@ const BerandaTopikKelasPage = () => {
             <div className="text-xl font-bold md:text-3xl">
               Topik Kelas
               <Link to="/kelassaya">
-                <div className="text-sm pt-2 text-[#6148FF] border-b-2 border-[#6148FF]">Lihat kelas yang sedang diikuti</div>
+                <div className="text-sm pt-2 text-[#6148FF] border-b-2 border-[#6148FF] hidden md:block">Lihat kelas yang sedang diikuti</div>
               </Link>
             </div>
-            <div className="">
-              <input className="rounded-3xl border-2 text-sm border-[#6148FF] py-1 px-2 md:py-2 md:px-3" type="text" placeholder="Cari Kelas" />
+            <div className="ml-auto">
+              <input className="rounded-3xl border-2 text-xs border-[#6148FF] py-1 px-2 md:text-sm md:py-2 md:px-3 md:mt-0 " type="text" placeholder="Cari Kelas" />
             </div>
-            <button onClick={handleFilterBox} className="md:hidden">
-              Filter
-            </button>
+            <div>
+              <img onClick={handleFilterBox} src={filter} className="w-4 mt-1 mx-1 md:hidden" />
+            </div>
           </div>
+          <Link to="/kelassaya" className="md:hidden">
+            <div className="text-center pb-3">
+              <p className="text-xs text-[#6148FF] font-bold">Lihat kelas yang diikuti</p>
+            </div>
+          </Link>
           <div className="md:flex">
             {/* Filter */}
             <div className={`${filterBox ? "hidden" : ""}`}>
@@ -102,19 +107,19 @@ const BerandaTopikKelasPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Paling Baru</div>
+                      <div className="text-sm md:text-base">Paling Baru</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Paling Popular</div>
+                      <div className="text-sm md:text-base">Paling Popular</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Promo</div>
+                      <div className="text-sm md:text-base">Promo</div>
                     </div>
                   </div>
                   <div className="font-bold  md:text-xl">Kategori</div>
@@ -123,31 +128,31 @@ const BerandaTopikKelasPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">UI/UX Design</div>
+                      <div className="text-sm md:text-base">UI/UX Design</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Web Development</div>
+                      <div className="text-sm md:text-base">Web Development</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Android Development</div>
+                      <div className="text-sm md:text-base">Android Development</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Data Science</div>
+                      <div className="text-sm md:text-base">Data Science</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Business Intelligence</div>
+                      <div className="text-sm md:text-base">Business Intelligence</div>
                     </div>
                   </div>
                   <div className="font-bold  md:text-xl">Level Kesulitan</div>
@@ -156,29 +161,29 @@ const BerandaTopikKelasPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Semua Level</div>
+                      <div className="text-sm md:text-base">Semua Level</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Beginner Level</div>
+                      <div className="text-sm md:text-base">Beginner Level</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Intermediate Level</div>
+                      <div className="text-sm md:text-base">Intermediate Level</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="">Advance Level</div>
+                      <div className="text-sm md:text-base">Advance Level</div>
                     </div>
                   </div>
                   <div className="pt-5 pb-3 text-center">
-                    <button className="text-[#FF0000] hover:text-[#ff0000]">Hapus Filter</button>
+                    <button className="text-[#FF0000] hover:text-[#ff0000] text-sm md:text-base">Hapus Filter</button>
                   </div>
                 </div>
               </div>
@@ -186,17 +191,17 @@ const BerandaTopikKelasPage = () => {
             <div className="pt-4 md:w-[970px] md:ml-auto md:pt-0">
               <div className="flex justify-around md:justify-between">
                 <div>
-                  <button onClick={handleAll} className={`p-2 w-[100px] md:p-3 md:w-[200px] ${all ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl`}>
+                  <button onClick={handleAll} className={`p-2 w-[110px] md:p-3 md:w-[200px] ${all ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl text-xs md:text-base`}>
                     All
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleKelasPremium} className={`p-2 w-[150px] md:p-3 md:w-[388px] ${kelasPremium ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"}  rounded-2xl`}>
+                  <button onClick={handleKelasPremium} className={`p-2 w-[110px] md:p-3 md:w-[388px] ${kelasPremium ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} text-xs md:text-base rounded-2xl`}>
                     Kelas Premium
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleKelasGratis} className={`p-2 w-[150px] md:p-3 md:w-[250px] ${kelasGratis ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl`}>
+                  <button onClick={handleKelasGratis} className={`p-2 w-[110px] md:p-3 md:w-[250px] ${kelasGratis ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl text-xs md:text-base`}>
                     Kelas Gratis
                   </button>
                 </div>
