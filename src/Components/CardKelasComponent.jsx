@@ -5,8 +5,10 @@ import time from "../assets/img/Card/time.png";
 import premium from "../assets/img/Card/premium.png";
 import PropType from "prop-types";
 
+
+
 const CardKelasComponent = ({ name, level, price, isPremium, categoryId }) => {
-  const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
+   const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
 
   const formatNumber = (num) => {
     return num.toLocaleString("id-ID");
@@ -54,7 +56,9 @@ const CardKelasComponent = ({ name, level, price, isPremium, categoryId }) => {
               <div className="my-auto px-1">
                 <img src={isPremium ? premium : null} />
               </div>
+
               <div className="text-white">{isPremium ? `Rp ${formattedPrice}` : "Mulai Kelas"}</div>
+
             </div>
           </div>
         </div>
