@@ -15,14 +15,13 @@ const NotifikasiPage = () => {
         <div className="md:hidden">
           <MobileNavbar />
         </div>
-
+        <div className="flex py-4 md:pl-48">
+          <img src={arrowPurple} />
+          <Link to="/beranda">
+            <p className="md:text-xl pl-2 text-[#6148FF] font-bold">Kembali ke Beranda</p>
+          </Link>
+        </div>
         <div className="md:w-[1240px] w-[320px] mx-auto py-4">
-          <div className="flex pb-4">
-            <img src={arrowPurple} />
-            <Link to="/beranda">
-              <p className="md:text-xl pl-2 text-[#6148FF] font-bold">Kembali ke Beranda</p>
-            </Link>
-          </div>
           <div className="w-full border-2 border-[#6148FF] rounded-xl bg-white ">
             <div className="bg-[#6148FF] rounded-t-xl py-4 text-center mx-auto">
               <p className="text-white font-bold text-xl">Notifikasi</p>

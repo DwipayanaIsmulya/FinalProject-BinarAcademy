@@ -13,6 +13,7 @@ import PembayaranPage from "./Pages/UserLogin/PembayaranPage";
 import PembayaranDonePage from "./Pages/UserLogin/PembayaranDonePage";
 import MobileNavbar from "./Components/UserLogin/MobileNavbar";
 import ProgressCardKelasComponent from "./Components/ProgressCardKelasComponent";
+import EditProfileComponent from "./Components/UserLogin/EditProfileComponent";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="pembayarandone" element={<PembayaranDonePage />} />
           <Route path="mobilenavbar" element={<MobileNavbar />} />
           <Route path="progresscard" element={<ProgressCardKelasComponent />} />
+          <Route path="editprofile" element={<EditProfileComponent />} />
         </Routes>
       </BrowserRouter>
     </>
