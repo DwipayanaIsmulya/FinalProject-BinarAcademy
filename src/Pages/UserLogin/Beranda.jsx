@@ -125,7 +125,7 @@ const Beranda = () => {
         </div>
         {/* right main-content */}
         <div className="flex md:z-10 w-[100%] items-center justify-center pt-14 flex-initial md:bg-gradient-to-l from-[#6148FF] from-35% to-85%">
-          <div className="flex md:text-start pt-24 md:absolute md:pt-0 right-32 top-20 md:w-auto md:h-auto w-full h-full flex-col text-white text-center text-xl font-bold text-[#6148FF] bg-[#6148FF]">
+          <div className="flex md:text-start pt-24 md:absolute md:pt-0 right-32 top-20 md:w-auto md:h-auto w-full h-full flex-col  text-center text-xl font-bold text-[#6148FF] bg-[#6148FF]">
             <h1 className="my-1">Belajar</h1>
             <h1 className="my-1">dari Praktisi Terbaik!</h1>
             <Link to="/kelassaya">
