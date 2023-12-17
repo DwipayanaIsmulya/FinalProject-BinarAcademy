@@ -22,7 +22,7 @@ const Beranda = () => {
     setWeb(false);
     setIos(false);
     setBusiness(false);
-  }
+  };
 
   const handleDataScience = () => {
     setAll(false);
@@ -32,7 +32,7 @@ const Beranda = () => {
     setWeb(false);
     setIos(false);
     setBusiness(false);
-  }
+  };
 
   const handleDesign = () => {
     setAll(false);
@@ -42,7 +42,7 @@ const Beranda = () => {
     setWeb(false);
     setIos(false);
     setBusiness(false);
-  }
+  };
 
   const handleAndroid = () => {
     setAll(false);
@@ -52,7 +52,7 @@ const Beranda = () => {
     setWeb(false);
     setIos(false);
     setBusiness(false);
-  }
+  };
 
   const handleWeb = () => {
     setAll(false);
@@ -62,7 +62,7 @@ const Beranda = () => {
     setWeb(true);
     setIos(false);
     setBusiness(false);
-  }
+  };
 
   const handleIos = () => {
     setAll(false);
@@ -72,7 +72,7 @@ const Beranda = () => {
     setWeb(false);
     setIos(true);
     setBusiness(false);
-  }
+  };
 
   const handleBusiness = () => {
     setAll(false);
@@ -82,7 +82,7 @@ const Beranda = () => {
     setWeb(false);
     setIos(false);
     setBusiness(true);
-  }
+  };
 
   return (
     <>
@@ -92,18 +92,10 @@ const Beranda = () => {
           {/* left Nav */}
           <div className="flex w-[60%] h-full">
             <div className="flex md:justify-center md:items-center h-full w-[100%] sm:w-[30%]">
-              <img
-                className="flex ms-6 mt-1 w-[100px] h-[100px] md:w-[150px] md:h-[150px] md:mt-0"
-                src={logoImage}
-                alt=""
-              />
+              <img className="flex ms-6 mt-1 w-[100px] h-[100px] md:w-[150px] md:h-[150px] md:mt-0" src={logoImage} alt="" />
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-              <input
-                className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible"
-                type="text"
-                placeholder="Cari kursus terbaik.."
-              />
+              <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
             </div>
           </div>
           {/* Right Nav */}
@@ -117,11 +109,7 @@ const Beranda = () => {
                   color: "white",
                 }}
               >
-                <img
-                  className="flex w-[20px] h-[20px]"
-                  src={loginImage}
-                  alt=""
-                />
+                <img className="flex w-[20px] h-[20px]" src={loginImage} alt="" />
                 <p>&nbsp; Masuk</p>
               </Link>
             </div>
@@ -141,9 +129,7 @@ const Beranda = () => {
             <h1 className="my-1">Belajar</h1>
             <h1 className="my-1">dari Praktisi Terbaik!</h1>
             <Link to="/kelassaya">
-              <button className="my-1 bg-[#fff] w-[250px] font-bold text-[#6148FF] rounded-xl p-1">
-                IKUTI KELAS
-              </button>
+              <button className="my-1 bg-[#fff] w-[250px] font-bold text-[#6148FF] rounded-xl p-1">IKUTI KELAS</button>
             </Link>
           </div>
         </div>
@@ -152,10 +138,10 @@ const Beranda = () => {
       {/* kategori belajar */}
       <div className="flex items-center flex-col flex-initial w-[100%] px-3 bg-[#EBF3FC]">
         <div className="flex justify-between items-center w-[100%] md:w-[80%] mb-5 mt-3">
-            <div className="flex text-xl font-bold">Kategori Belajar</div>
-            <Link to="/kelassaya">
-              <p className="font-bold text-[#6148FF]">Lihat Semua</p>
-            </Link>
+          <div className="flex text-xl font-bold">Kategori Belajar</div>
+          <Link to="/kelassaya">
+            <p className="font-bold text-[#6148FF]">Lihat Semua</p>
+          </Link>
         </div>
         <div className="flex flex-wrap justify-around flex-col-2 flex-initial w-[80%] h-full mb-5">
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
@@ -188,45 +174,45 @@ const Beranda = () => {
       {/* kursus populer */}
       <div className="flex items-center flex-col flex-initial w-[100%] px-3">
         <div className="flex justify-between items-center w-[100%] md:w-[80%] mb-5 mt-3">
-            <div className="flex text-xl font-bold">Kursus Populer</div>
-            <Link to="/kelassaya">
-              <p className="font-bold text-[#6148FF]">Lihat Semua</p>
-            </Link>
+          <div className="flex text-xl font-bold">Kursus Populer</div>
+          <Link to="/kelassaya">
+            <p className="font-bold text-[#6148FF]">Lihat Semua</p>
+          </Link>
         </div>
         <div className="flex justify-center flex-wrap flex-initial w-[100%]">
           <div>
             <button onClick={handleAll} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${all ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    All
+              All
             </button>
           </div>
           <div>
             <button onClick={handleDataScience} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${dataScience ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    Data Science
+              Data Science
             </button>
           </div>
           <div>
             <button onClick={handleDesign} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${design ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    UI/UX Design
+              UI/UX Design
             </button>
           </div>
           <div>
             <button onClick={handleAndroid} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    Android Development
+              Android Development
             </button>
           </div>
           <div>
             <button onClick={handleWeb} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    Web Development
+              Web Development
             </button>
           </div>
           <div>
             <button onClick={handleIos} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${ios ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    IOS Development
+              IOS Development
             </button>
           </div>
           <div>
             <button onClick={handleBusiness} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${business ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-                    Business Intelligence
+              Business Intelligence
             </button>
           </div>
         </div>
