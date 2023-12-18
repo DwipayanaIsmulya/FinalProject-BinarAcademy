@@ -13,20 +13,72 @@ const BerandaTopikKelasPage = () => {
   const [filterBox, setFilterBox] = useState(false);
   const [allCourse, setAllCourse] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const [uiUxFilter, setUiUxFilter] = useState(false);
+  const [webDevFilter, setWebDevFilter] = useState(false);
+  const [androidDevFilter, setAndroidDevFilter] = useState(false);
+  const [dataScienceFilter, setDataScienceFilter] = useState(false);
+  const [biFilter, setBiFilter] = useState(false);
+
+  useEffect(() => {
+    const filterCourses = () => {
+      let filtered = allCourse;
+
+      if (kelasPremium) {
+        filtered = filtered.filter((course) => course.isPremium);
+      } else if (kelasGratis) {
+        filtered = filtered.filter((course) => !course.isPremium);
+      }
+
+      // Update filtering logic to consider category checkboxes
+      if (uiUxFilter) {
+        filtered = filtered.filter((course) => course.category === "UI/UX Design");
+      }
+      if (webDevFilter) {
+        filtered = filtered.filter((course) => course.category === "Web Development");
+      }
+      if (androidDevFilter) {
+        filtered = filtered.filter((course) => course.category === "Android Development");
+      }
+      if (dataScienceFilter) {
+        filtered = filtered.filter((course) => course.category === "Data Science");
+      }
+      if (biFilter) {
+        filtered = filtered.filter((course) => course.category === "Business Intelligence");
+      }
+
+      setFilteredCourses(filtered);
+    };
+    filterCourses();
+  }, [allCourse, kelasPremium, kelasGratis, uiUxFilter, webDevFilter, androidDevFilter, dataScienceFilter, biFilter]);
   const handleAll = () => {
     setAll(true);
     setKelasPremium(false);
     setKelasGratis(false);
+    setUiUxFilter(false);
+    setWebDevFilter(false);
+    setAndroidDevFilter(false);
+    setDataScienceFilter(false);
+    setBiFilter(false);
   };
   const handleKelasPremium = () => {
     setKelasPremium(true);
     setAll(false);
     setKelasGratis(false);
+    setUiUxFilter(false);
+    setWebDevFilter(false);
+    setAndroidDevFilter(false);
+    setDataScienceFilter(false);
+    setBiFilter(false);
   };
   const handleKelasGratis = () => {
     setKelasGratis(true);
     setAll(false);
     setKelasPremium(false);
+    setUiUxFilter(false);
+    setWebDevFilter(false);
+    setAndroidDevFilter(false);
+    setDataScienceFilter(false);
+    setBiFilter(false);
   };
   const handleFilterBox = () => {
     setFilterBox(!filterBox);
@@ -49,11 +101,7 @@ const BerandaTopikKelasPage = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/course", {
-          headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJNdWx5YTI2QHlhaG9vLmNvbSIsImlhdCI6MTcwMjIzMDQ5OX0.Firorna3YFlxqNSaquzk5qlM8Hp7GHLoHgAbQUJT7AY",
-          },
-        });
+        const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/course", {});
 
         const { data } = response.data;
         setAllCourse(data);
@@ -126,31 +174,31 @@ const BerandaTopikKelasPage = () => {
                   <div className="p-2">
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" />
+                        <input className=" accent-[#6148FF]" type="checkbox" checked={uiUxFilter} onChange={() => setUiUxFilter(!uiUxFilter)} />
                       </div>
                       <div className="text-sm md:text-base">UI/UX Design</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" />
+                        <input className=" accent-[#6148FF]" type="checkbox" checked={webDevFilter} onChange={() => setWebDevFilter(!webDevFilter)} />
                       </div>
                       <div className="text-sm md:text-base">Web Development</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" />
+                        <input className=" accent-[#6148FF]" type="checkbox" checked={androidDevFilter} onChange={() => setAndroidDevFilter(!androidDevFilter)} />
                       </div>
                       <div className="text-sm md:text-base">Android Development</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" />
+                        <input className=" accent-[#6148FF]" type="checkbox" checked={dataScienceFilter} onChange={() => setDataScienceFilter(!dataScienceFilter)} />
                       </div>
                       <div className="text-sm md:text-base">Data Science</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" />
+                        <input className=" accent-[#6148FF]" type="checkbox" checked={biFilter} onChange={() => setBiFilter(!biFilter)} />
                       </div>
                       <div className="text-sm md:text-base">Business Intelligence</div>
                     </div>
@@ -209,7 +257,7 @@ const BerandaTopikKelasPage = () => {
               <div className="md:grid grid-cols-2 md:gap-7 pt-6">
                 {filteredCourses.map((course) => (
                   <div className="py-2 flex justify-around" key={course.id}>
-                    <CardKelasComponent name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} categoryId={course.categoryId} />
+                    <CardKelasComponent name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} category={course.category} />
                   </div>
                 ))}
               </div>
