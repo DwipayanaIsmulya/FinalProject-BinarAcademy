@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setToken } from "../reducers/authReducer";
+import { setToken, setUser } from "../reducers/authReducer";
 
 // Login
 export const login = (email, password, navigate) => async (dispatch) => {
@@ -18,4 +18,10 @@ export const login = (email, password, navigate) => async (dispatch) => {
       alert(error);
     }
   }
+};
+
+// Logout
+export const logout = () => async (dispatch) => {
+  dispatch(setToken(null));
+  dispatch(setUser(null));
 };
