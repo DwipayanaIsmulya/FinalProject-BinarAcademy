@@ -5,7 +5,7 @@ import time from "../assets/img/Card/time.png";
 import premium from "../assets/img/Card/premium.png";
 import PropType from "prop-types";
 
-const CardKelasComponent = ({ name, level, price, isPremium, categoryId }) => {
+const CardKelasComponent = ({ name, level, price, isPremium, category }) => {
   const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
 
   const formatNumber = (num) => {
@@ -19,7 +19,7 @@ const CardKelasComponent = ({ name, level, price, isPremium, categoryId }) => {
         <div className=" bg-gray-500 w-full h-[40%] rounded-t-xl"></div>
         <div className="p-2">
           <div className="flex justify-between w-full">
-            <div className="font-medium text-[#6148FF] md:text-xl">{categoryId}</div>
+            <div className="font-medium text-[#6148FF] md:text-xl">{category}</div>
             <div className="flex">
               <div className=" my-auto">
                 <img src={star} className="" />
@@ -68,7 +68,7 @@ CardKelasComponent.propTypes = {
   level: PropType.string,
   price: PropType.any,
   isPremium: PropType.any,
-  categoryId: PropType.any,
+  category: PropType.any,
 };
 
 export default CardKelasComponent;
