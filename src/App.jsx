@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
 import KelolaKelasPage from "./Pages/Admin/KelolaKelasPage";
 import AdminDashboardPage from "./Pages/Admin/AdminDashboardPage";
 import Register from "./Pages/Register/Register";
@@ -11,12 +10,16 @@ import NotifikasiPage from "./Pages/UserLogin/NotifikasiPage";
 import AkunPage from "./Pages/UserLogin/AkunPage";
 import PembayaranPage from "./Pages/UserLogin/PembayaranPage";
 import PembayaranDonePage from "./Pages/UserLogin/PembayaranDonePage";
+import DetailKelas from "./Pages/UserLogin/DetailKelas";
 import MobileNavbar from "./Components/UserLogin/MobileNavbar";
 import ProgressCardKelasComponent from "./Components/ProgressCardKelasComponent";
 import EditProfileComponent from "./Components/UserLogin/EditProfileComponent";
 import LoginPage from "./Pages/Login/LoginPage";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
+import MulaiBelajar from "./Components/Popup/MulaiBelajar";
+// import NoAccessToken from "./Components/Protected/NoAccessToken";
 
 function App() {
   return (
@@ -24,25 +27,54 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Beranda />} />
 
             {/* The page for not found url path */}
-            <Route path="*" element={<h1 className="d-flex flex-row justify-content-center align-items-center vh-100">404 Page Not Found</h1>} />
+            <Route
+              path="*"
+              element={
+                <h1 className="d-flex flex-row justify-content-center align-items-center vh-100">
+                  404 Page Not Found
+                </h1>
+              }
+            />
             <Route path="adminkelolakelas" element={<KelolaKelasPage />} />
             <Route path="admindashboard" element={<AdminDashboardPage />} />
-            <Route path="register" element={<Register />} />
             <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
             <Route path="topikkelas" element={<BerandaTopikKelasPage />} />
-            <Route path="beranda" element={<Beranda />} />
+            <Route path="detailkelas" element={<DetailKelas />} />
             <Route path="card" element={<CardKelasComponent />} />
             <Route path="notifikasi" element={<NotifikasiPage />} />
             <Route path="akun" element={<AkunPage />} />
             <Route path="pembayaran" element={<PembayaranPage />} />
             <Route path="pembayarandone" element={<PembayaranDonePage />} />
             <Route path="mobilenavbar" element={<MobileNavbar />} />
-            <Route path="progresscard" element={<ProgressCardKelasComponent />} />
+            <Route path="mulaibelajar" element={<MulaiBelajar />} />
+            <Route
+              path="progresscard"
+              element={<ProgressCardKelasComponent />}
+            />
+
             <Route path="editprofile" element={<EditProfileComponent />} />
-            <Route path="login" element={<LoginPage />} />
+            <Route
+              path="/login"
+              element={
+                // <NoAccessToken>
+                <LoginPage />
+                // </NoAccessToken>
+              }
+            />
+
+            <Route
+              path="/register"
+              element={
+                // <NoAccessToken>
+                <Register />
+                // </NoAccessToken>
+              }
+            />
+
+            <Route path="belimateripremium" element={<BeliMateriPremium />} />
           </Routes>
         </BrowserRouter>
       </Provider>
