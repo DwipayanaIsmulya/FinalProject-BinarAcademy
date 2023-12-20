@@ -6,7 +6,7 @@ import book from "../../assets/img/Card/book.png";
 import time from "../../assets/img/Card/time.png";
 import chat from "../../assets/img/UserLogin/gridicons_chat.png";
 import oval from "../../assets/img/UserLogin/Oval.png";
-import play from "../../assets/img/UserLogin/group6.png";
+import play from "../../assets/img/UserLogin/Group6.png";
 import { Link } from "react-router-dom";
 import checklist from "../../assets/img/UserLogin/checklist.png";
 import fill1 from "../../assets/img/UserLogin/Fill1.png";
