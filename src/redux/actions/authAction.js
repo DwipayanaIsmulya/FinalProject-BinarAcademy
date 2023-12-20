@@ -12,7 +12,7 @@ export const login = (email, password, navigate) => async (dispatch) => {
 
     console.log(token);
     dispatch(setToken(token));
-    navigate("/beranda");
+    navigate("/");
   } catch (error) {
     if (axios.isAxiosError(error)) {
       alert(error);

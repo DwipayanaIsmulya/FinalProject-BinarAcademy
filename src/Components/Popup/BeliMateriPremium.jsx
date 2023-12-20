@@ -1,10 +1,10 @@
-import exit from "../assets/img/BeliPremium/exit.png";
-import arrowright from "../assets/img/BeliPremium/arrowright.png";
-import star from "../assets/img/Card/star.png";
-import levelBadge from "../assets/img/Card/levelBadge.png";
-import book from "../assets/img/Card/book.png";
-import time from "../assets/img/Card/time.png";
-import premium from "../assets/img/Card/premium.png";
+import exit from "../../assets/img/BeliPremium/exit.png";
+import arrowright from "../../assets/img/BeliPremium/arrowright.png";
+import star from "../../assets/img/Card/star.png";
+import levelBadge from "../../assets/img/Card/levelBadge.png";
+import book from "../../assets/img/Card/book.png";
+import time from "../../assets/img/Card/time.png";
+import premium from "../../assets/img/Card/premium.png";
 import PropType from "prop-types";
 
 const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
@@ -23,7 +23,7 @@ const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
         <div className="flex items-center flex-col relative w-[320px] h-[350px] md:w-[420px] md:h-[385px] bg-[#fff] rounded-xl">
           <button className="absolute right-3 top-3">
             <img
-              className="w-[14px] h-[14px] md:w-[20px] md:h-[20px]"
+              className="w-[14px] h-[14px] md:w-[18px] md:h-[18px]"
               src={exit}
               alt=""
             />

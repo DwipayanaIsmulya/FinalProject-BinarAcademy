@@ -2,54 +2,24 @@ import CardKelasComponent from "../Components/CardKelasComponent";
 import MobileNavbar from "../Components/UserLogin/MobileNavbar";
 import NavbarComponent from "../Components/UserLogin/NavbarComponent";
 import filter from "../assets/img/UserLogin/filter.png";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCourse } from "../redux/actions/tkCourseAction";
 
 const BerandaTopikKelasPage = () => {
+  const { allCourse } = useSelector((state) => state.tkCourse);
+  const dispatch = useDispatch();
+  const [filteredCourses, setFilteredCourses] = useState([]);
   const [all, setAll] = useState(true);
   const [kelasPremium, setKelasPremium] = useState(false);
   const [kelasGratis, setKelasGratis] = useState(false);
   const [filterBox, setFilterBox] = useState(false);
-  const [allCourse, setAllCourse] = useState([]);
-  const [filteredCourses, setFilteredCourses] = useState([]);
   const [uiUxFilter, setUiUxFilter] = useState(false);
   const [webDevFilter, setWebDevFilter] = useState(false);
   const [androidDevFilter, setAndroidDevFilter] = useState(false);
   const [dataScienceFilter, setDataScienceFilter] = useState(false);
   const [biFilter, setBiFilter] = useState(false);
-
-  useEffect(() => {
-    const filterCourses = () => {
-      let filtered = allCourse;
-
-      if (kelasPremium) {
-        filtered = filtered.filter((course) => course.isPremium);
-      } else if (kelasGratis) {
-        filtered = filtered.filter((course) => !course.isPremium);
-      }
-
-      // Update filtering logic to consider category checkboxes
-      if (uiUxFilter) {
-        filtered = filtered.filter((course) => course.category === "UI/UX Design");
-      }
-      if (webDevFilter) {
-        filtered = filtered.filter((course) => course.category === "Web Development");
-      }
-      if (androidDevFilter) {
-        filtered = filtered.filter((course) => course.category === "Android Development");
-      }
-      if (dataScienceFilter) {
-        filtered = filtered.filter((course) => course.category === "Data Science");
-      }
-      if (biFilter) {
-        filtered = filtered.filter((course) => course.category === "Business Intelligence");
-      }
-
-      setFilteredCourses(filtered);
-    };
-    filterCourses();
-  }, [allCourse, kelasPremium, kelasGratis, uiUxFilter, webDevFilter, androidDevFilter, dataScienceFilter, biFilter]);
   const handleAll = () => {
     setAll(true);
     setKelasPremium(false);
@@ -93,25 +63,44 @@ const BerandaTopikKelasPage = () => {
         filtered = filtered.filter((course) => !course.isPremium);
       }
 
+      if (uiUxFilter) {
+        filtered = filtered.filter((course) => course.category === "UI/UX Design");
+      }
+      if (webDevFilter) {
+        filtered = filtered.filter((course) => course.category === "Web Development");
+      }
+      if (androidDevFilter) {
+        filtered = filtered.filter((course) => course.category === "Android Development");
+      }
+      if (dataScienceFilter) {
+        filtered = filtered.filter((course) => course.category === "Data Science");
+      }
+      if (biFilter) {
+        filtered = filtered.filter((course) => course.category === "Business Intelligence");
+      }
+
+      setFilteredCourses(filtered);
+    };
+    filterCourses();
+  }, [allCourse, kelasPremium, kelasGratis, uiUxFilter, webDevFilter, androidDevFilter, dataScienceFilter, biFilter]);
+  useEffect(() => {
+    const filterCourses = () => {
+      let filtered = allCourse;
+
+      if (kelasPremium) {
+        filtered = filtered.filter((course) => course.isPremium);
+      } else if (kelasGratis) {
+        filtered = filtered.filter((course) => !course.isPremium);
+      }
+
       setFilteredCourses(filtered);
     };
     filterCourses();
   }, [allCourse, kelasPremium, kelasGratis]);
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/course", {});
-
-        const { data } = response.data;
-        setAllCourse(data);
-        console.log(allCourse);
-      } catch (error) {
-        alert(error.message);
-      }
-    };
-    getData();
-  }, []);
+    dispatch(getAllCourse());
+  }, [dispatch]);
   return (
     <>
       <div className=" h-full bg-[#EBF3FC] pb-32 md:w-full ">

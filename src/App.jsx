@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/Home";
 import KelolaKelasPage from "./Pages/Admin/KelolaKelasPage";
 import AdminDashboardPage from "./Pages/Admin/AdminDashboardPage";
 import Register from "./Pages/Register/Register";
@@ -18,7 +17,8 @@ import EditProfileComponent from "./Components/UserLogin/EditProfileComponent";
 import LoginPage from "./Pages/Login/LoginPage";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import BeliMateriPremium from "./Components/BeliMateriPremium";
+import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
+import MulaiBelajar from "./Components/Popup/MulaiBelajar";
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Beranda />} />
 
             {/* The page for not found url path */}
             <Route
@@ -43,13 +43,13 @@ function App() {
             <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
             <Route path="topikkelas" element={<BerandaTopikKelasPage />} />
             <Route path="detailkelas" element={<DetailKelas />} />
-            <Route path="beranda" element={<Beranda />} />
             <Route path="card" element={<CardKelasComponent />} />
             <Route path="notifikasi" element={<NotifikasiPage />} />
             <Route path="akun" element={<AkunPage />} />
             <Route path="pembayaran" element={<PembayaranPage />} />
             <Route path="pembayarandone" element={<PembayaranDonePage />} />
             <Route path="mobilenavbar" element={<MobileNavbar />} />
+            <Route path="mulaibelajar" element={<MulaiBelajar />} />
             <Route
               path="progresscard"
               element={<ProgressCardKelasComponent />}
