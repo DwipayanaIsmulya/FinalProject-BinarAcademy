@@ -1,4 +1,4 @@
-import logoImage from "../../assets/img/Register/Belajar_white2.png";
+import digilearn_align from "../../assets/img/Digilearn/digilearn_align_white.png";
 import { Link } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
@@ -91,19 +91,11 @@ const Beranda = () => {
         <div className="flex flex-col-2 w-[100%] sm:w-[90%]">
           {/* left Nav */}
           <div className="flex w-[60%] h-full">
-            <div className="flex md:justify-center md:items-center h-full w-[100%] sm:w-[30%]">
-              <img
-                className="flex ms-6 mt-1 w-[100px] h-[100px] md:w-[150px] md:h-[150px] md:mt-0"
-                src={logoImage}
-                alt=""
-              />
+            <div className="flex md:justify-center md:items-center items-center h-full w-[100%] sm:w-[30%]">
+              <img className="flex ms-6 mt-1 w-[80%] md:w-[70%]" src={digilearn_align} alt="" />
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-              <input
-                className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible"
-                type="text"
-                placeholder="Cari kursus terbaik.."
-              />
+              <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
             </div>
           </div>
           {/* Right Nav */}
@@ -117,11 +109,7 @@ const Beranda = () => {
                   color: "white",
                 }}
               >
-                <img
-                  className="flex w-[20px] h-[20px]"
-                  src={loginImage}
-                  alt=""
-                />
+                <img className="flex w-[20px] h-[20px]" src={loginImage} alt="" />
                 <p>&nbsp; Masuk</p>
               </Link>
             </div>
@@ -133,11 +121,7 @@ const Beranda = () => {
       <div className="flex relative flex-wrap flex-initial w-[100%] h-[300px]">
         {/* left main-content */}
         <div className="flex">
-          <img
-            className="absolute top-0 right-0 left-0 bottom-0"
-            src={mainImage}
-            alt=""
-          />
+          <img className="absolute top-0 right-0 left-0 bottom-0" src={mainImage} alt="" />
         </div>
         {/* right main-content */}
         <div className="flex md:z-10 w-[100%] items-center justify-center pt-14 flex-initial md:bg-gradient-to-l from-[#6148FF] from-35% to-85%">
@@ -145,9 +129,7 @@ const Beranda = () => {
             <h1 className="my-1">Belajar</h1>
             <h1 className="my-1">dari Praktisi Terbaik!</h1>
             <Link to="/kelassaya">
-              <button className="my-1 bg-[#fff] w-[250px] font-bold text-[#6148FF] rounded-xl p-1">
-                IKUTI KELAS
-              </button>
+              <button className="my-1 bg-[#fff] w-[250px] font-bold text-[#6148FF] rounded-xl p-1">IKUTI KELAS</button>
             </Link>
           </div>
         </div>
@@ -163,51 +145,27 @@ const Beranda = () => {
         </div>
         <div className="flex flex-wrap justify-around flex-col-2 flex-initial w-[80%] h-full mb-5">
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
-            <img
-              className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl"
-              src=""
-              alt=""
-            />
+            <img className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl" src="" alt="" />
             <div className="flex text-l font">UI-UX Design</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
-            <img
-              className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl"
-              src=""
-              alt=""
-            />
+            <img className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl" src="" alt="" />
             <div className="flex text-l font">Product Management</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
-            <img
-              className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl"
-              src=""
-              alt=""
-            />
+            <img className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl" src="" alt="" />
             <div className="flex text-l font">Web Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
-            <img
-              className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl"
-              src=""
-              alt=""
-            />
+            <img className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl" src="" alt="" />
             <div className="flex text-l font">Android Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
-            <img
-              className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl"
-              src=""
-              alt=""
-            />
+            <img className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl" src="" alt="" />
             <div className="flex text-l font">IOS Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1">
-            <img
-              className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl"
-              src=""
-              alt=""
-            />
+            <img className="flex w-[140px] h-[100px] bg-[#443254] rounded-2xl" src="" alt="" />
             <div className="flex text-l font">Data Science</div>
           </div>
         </div>
@@ -223,72 +181,37 @@ const Beranda = () => {
         </div>
         <div className="flex justify-center flex-wrap flex-initial w-[100%]">
           <div>
-            <button
-              onClick={handleAll}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                all ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleAll} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${all ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               All
             </button>
           </div>
           <div>
-            <button
-              onClick={handleDataScience}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                dataScience ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleDataScience} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${dataScience ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               Data Science
             </button>
           </div>
           <div>
-            <button
-              onClick={handleDesign}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                design ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleDesign} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${design ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               UI/UX Design
             </button>
           </div>
           <div>
-            <button
-              onClick={handleAndroid}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleAndroid} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               Android Development
             </button>
           </div>
           <div>
-            <button
-              onClick={handleWeb}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleWeb} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               Web Development
             </button>
           </div>
           <div>
-            <button
-              onClick={handleIos}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                ios ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleIos} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${ios ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               IOS Development
             </button>
           </div>
           <div>
-            <button
-              onClick={handleBusiness}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                business ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
+            <button onClick={handleBusiness} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${business ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               Business Intelligence
             </button>
           </div>

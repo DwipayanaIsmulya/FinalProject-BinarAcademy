@@ -19,6 +19,8 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
+import NavbarBlankComponent from "./Components/UserLogin/NavbarBlankComponent";
+
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
 
 function App() {
@@ -30,14 +32,7 @@ function App() {
             <Route path="/" element={<Beranda />} />
 
             {/* The page for not found url path */}
-            <Route
-              path="*"
-              element={
-                <h1 className="d-flex flex-row justify-content-center align-items-center vh-100">
-                  404 Page Not Found
-                </h1>
-              }
-            />
+            <Route path="*" element={<h1 className="d-flex flex-row justify-content-center align-items-center vh-100">404 Page Not Found</h1>} />
             <Route path="adminkelolakelas" element={<KelolaKelasPage />} />
             <Route path="admindashboard" element={<AdminDashboardPage />} />
             <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
@@ -50,10 +45,8 @@ function App() {
             <Route path="pembayarandone" element={<PembayaranDonePage />} />
             <Route path="mobilenavbar" element={<MobileNavbar />} />
             <Route path="mulaibelajar" element={<MulaiBelajar />} />
-            <Route
-              path="progresscard"
-              element={<ProgressCardKelasComponent />}
-            />
+            <Route path="navblank" element={<NavbarBlankComponent />} />
+            <Route path="progresscard" element={<ProgressCardKelasComponent />} />
 
             <Route path="editprofile" element={<EditProfileComponent />} />
             <Route
