@@ -1,24 +1,26 @@
+import digilearn_align from "../../assets/img/Digilearn/digilearn_align_white.png";
 import filist from "../../assets/img/UserLogin/fi_list.png";
 import fibell from "../../assets/img/UserLogin/fi_bell.png";
 import fiuser from "../../assets/img/UserLogin/fi_user.png";
-
 import { NavLink } from "react-router-dom";
 
-const NavbarComponent = () => {
+const NavbarBerandaComponent = () => {
   return (
     <>
-      <div className="md:w-full md:flex md:h-28 bg-[#6148FF]">
-        <div className="md:flex md:w-[80%] md:mx-auto">
-          <div className=" md:flex-auto md:w-64">
-            <div className="md:flex md:items-center h-full">
-              <div className="text-white text-4xl pr-5 items-center">Belajar</div>
-              <div className=" md:ml-6">
-                <input className="md:py-5 md:px-8 md:w-[526px] md:rounded-2xl md:text-md invisible md:visible" type="text" placeholder="Cari kursus terbaik.." />
-              </div>
+      <div className="px-0 mx-0 w-screen justify-center flex flex-initial h-28 bg-[#6148FF]">
+        <div className="flex flex-col-2 w-[100%] sm:w-[90%]">
+          {/* left Nav */}
+          <div className="flex w-[60%] h-full">
+            <div className="flex md:justify-center md:items-center h-full w-[100%] sm:w-[30%]">
+              <img className="flex ms-6 mt-1 w-[70%]" src={digilearn_align} alt="" />
+            </div>
+            <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
+              <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
             </div>
           </div>
-          <div className="flex-auto">
-            <div className="flex justify-end items-center h-full">
+          {/* Right Nav */}
+          <div className="flex justify-end items-center w-[40%] h-full">
+            <div className="flex flex-initial">
               <div className="px-2">
                 <div className={``}>
                   <NavLink to="/topikkelas" className={({ isActive }) => `flex items-center px-6 py-2 rounded-xl ${isActive ? "bg-[#489CFF] text-white" : ""}`}>
@@ -63,4 +65,4 @@ const NavbarComponent = () => {
   );
 };
 
-export default NavbarComponent;
+export default NavbarBerandaComponent;
