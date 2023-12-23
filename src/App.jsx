@@ -10,10 +10,8 @@ import NotifikasiPage from "./Pages/UserLogin/NotifikasiPage";
 import AkunPage from "./Pages/UserLogin/AkunPage";
 import PembayaranPage from "./Pages/UserLogin/PembayaranPage";
 import PembayaranDonePage from "./Pages/UserLogin/PembayaranDonePage";
-<<<<<<< HEAD
 import ResetPassword from "./Pages/Reset/ResetPassword";
 
-=======
 import DetailKelas from "./Pages/UserLogin/DetailKelas";
 import MobileNavbar from "./Components/UserLogin/MobileNavbar";
 import ProgressCardKelasComponent from "./Components/ProgressCardKelasComponent";
@@ -24,7 +22,6 @@ import store from "./redux/store";
 import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
->>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
 
 function App() {
   return (
@@ -34,7 +31,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Beranda />} />
 
-<<<<<<< HEAD
           {/* The page for not found url path */}
           <Route path="*" element={<h1 className="d-flex flex-row justify-content-center align-items-center vh-100">404 Page Not Found</h1>} />
           <Route path="adminkelolakelas" element={<KelolaKelasPage />} />
@@ -49,9 +45,6 @@ function App() {
           <Route path="pembayaran" element={<PembayaranPage />} />
           <Route path="pembayarandone" element={<PembayaranDonePage />} />
           <Route path="resetpassword" element={<ResetPassword/>} />
-        </Routes>
-      </BrowserRouter>
-=======
             {/* The page for not found url path */}
             <Route
               path="*"
@@ -101,7 +94,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Provider>
->>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
     </>
   );
 }

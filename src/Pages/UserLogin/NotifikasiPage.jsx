@@ -1,20 +1,12 @@
-<<<<<<< HEAD
-import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
-=======
 import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
 import arrowPurple from "../../assets/img/UserLogin/arrowpurple.png";
 import notifSimbol from "../../assets/img/UserLogin/notifsimbol.png";
 import { Link } from "react-router-dom";
->>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
 
 const NotifikasiPage = () => {
   return (
     <>
-<<<<<<< HEAD
-      <div className="h-full bg-[#EBF3FC] pb-32 md:w-full ">
-        <NavbarComponent />
-=======
       <div className="h-screen bg-[#EBF3FC] md:w-full ">
         {/* Navbar */}
         <div className="hidden md:block">
@@ -90,7 +82,6 @@ const NotifikasiPage = () => {
             </div>
           </div>
         </div>
->>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
       </div>
     </>
   );

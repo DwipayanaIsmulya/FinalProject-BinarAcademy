@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
-
-const AkunPage = () => {
-  return (
-    <>
-      <div className="h-full bg-[#EBF3FC] pb-32 md:w-full ">
-        <NavbarComponent />
-=======
 import EditProfileComponent from "../../Components/UserLogin/EditProfileComponent";
 import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
@@ -112,7 +103,6 @@ const AkunPage = () => {
             </div>
           </div>
         </div>
->>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
       </div>
     </>
   );

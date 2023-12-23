@@ -21,7 +21,7 @@ const DetailKelas = () => {
         {/* Content */}
         <div className="flex flex-col w-full h-full lg:w-[55%] md:w-[50%]">
           <div className="flex flex-col w-full h-[250px]">
-            <div className="flex absolute -z-10 w-full w-full h-[250px] bg-[#EBF3FC]"></div>
+            <div className="flex absolute -z-10  w-full h-[250px] bg-[#EBF3FC]"></div>
             {/* Left Content */}
             <div className="flex w-full h-[50px] items-center">
               <img className="w-[20px] h-[20px] mx-2" src={arrowImg} alt="" />
