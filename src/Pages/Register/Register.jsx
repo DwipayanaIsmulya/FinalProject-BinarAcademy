@@ -4,12 +4,19 @@ import logoImage from "../../assets/img/Register/Belajar_white2.png";
 const Register = () => {
   return (
     <>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
       <div className="flex sm:flex-col-2 h-screen w-full" style={{ fontFamily: "poppins" }}>
         {/* Ini Kiri */}
         <div className="flex flex-initial w-[100%] sm:w-[60%]">
           <div className="flex flex-col justify-center items-center h-screen w-full">
+<<<<<<< HEAD
             <div className="flex-col flex w-[300px] lg:w-[452px]">
+=======
+            <div className="flex flex-col w-[300px] lg:w-[452px]">
+>>>>>>> 2f716b32ede0325449966b217c74f625e6f9cb2a
               <div className="text-start text-2xl font-bold text-[#6148FF]" style={{ fontFamily: "sans-serif" }}>
                 Daftar
               </div>
