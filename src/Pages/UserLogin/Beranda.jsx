@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCourse } from "../../redux/actions/tkCourseAction";
 
 const Beranda = () => {
+  const { allCourse } = useSelector((state) => state.tkCourse);
+  const dispatch = useDispatch();
   const [all, setAll] = useState(false);
   const [dataScience, setDataScience] = useState(false);
   const [design, setDesign] = useState(true);
@@ -83,6 +87,10 @@ const Beranda = () => {
     setIos(false);
     setBusiness(true);
   };
+
+  useEffect(() => {
+    dispatch(getAllCourse());
+  }, [dispatch]);
 
   return (
     <>
@@ -294,15 +302,20 @@ const Beranda = () => {
           </div>
         </div>
         <div className="flex md:flex-nowrap flex-wrap justify-around items-center w-[100%] md:w-[80%] mb-5 mt-3">
-          <div className="flex w-auto md:w-[350px] justify-center my-3 mx-1">
-            <CardKelasComponent />
-          </div>
-          <div className="flex w-auto md:w-[350px] justify-center my-3 mx-1">
-            <CardKelasComponent />
-          </div>
-          <div className="flex w-auto md:w-[350px] justify-center my-3 mx-1">
-            <CardKelasComponent />
-          </div>
+          {/* {allCourse.map((course) => (
+            <div
+              className="flex w-auto md:w-[350px] justify-center my-3 mx-1"
+              key={course.id}
+            >
+              <CardKelasComponent
+                name={course.name}
+                level={course.level}
+                price={course.price}
+                isPremium={course.isPremium}
+                category={course.category}
+              />
+            </div>
+          ))} */}
         </div>
       </div>
     </>

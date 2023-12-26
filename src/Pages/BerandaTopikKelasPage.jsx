@@ -64,25 +64,44 @@ const BerandaTopikKelasPage = () => {
       }
 
       if (uiUxFilter) {
-        filtered = filtered.filter((course) => course.category === "UI/UX Design");
+        filtered = filtered.filter(
+          (course) => course.category === "UI/UX Design"
+        );
       }
       if (webDevFilter) {
-        filtered = filtered.filter((course) => course.category === "Web Development");
+        filtered = filtered.filter(
+          (course) => course.category === "Web Development"
+        );
       }
       if (androidDevFilter) {
-        filtered = filtered.filter((course) => course.category === "Android Development");
+        filtered = filtered.filter(
+          (course) => course.category === "Android Development"
+        );
       }
       if (dataScienceFilter) {
-        filtered = filtered.filter((course) => course.category === "Data Science");
+        filtered = filtered.filter(
+          (course) => course.category === "Data Science"
+        );
       }
       if (biFilter) {
-        filtered = filtered.filter((course) => course.category === "Business Intelligence");
+        filtered = filtered.filter(
+          (course) => course.category === "Business Intelligence"
+        );
       }
 
       setFilteredCourses(filtered);
     };
     filterCourses();
-  }, [allCourse, kelasPremium, kelasGratis, uiUxFilter, webDevFilter, androidDevFilter, dataScienceFilter, biFilter]);
+  }, [
+    allCourse,
+    kelasPremium,
+    kelasGratis,
+    uiUxFilter,
+    webDevFilter,
+    androidDevFilter,
+    dataScienceFilter,
+    biFilter,
+  ]);
   useEffect(() => {
     const filterCourses = () => {
       let filtered = allCourse;
@@ -118,19 +137,31 @@ const BerandaTopikKelasPage = () => {
             <div className="text-xl font-bold md:text-3xl">
               Topik Kelas
               <Link to="/kelassaya">
-                <div className="text-sm pt-2 text-[#6148FF] border-b-2 border-[#6148FF] hidden md:block">Lihat kelas yang sedang diikuti</div>
+                <div className="text-sm pt-2 text-[#6148FF] border-b-2 border-[#6148FF] hidden md:block">
+                  Lihat kelas yang sedang diikuti
+                </div>
               </Link>
             </div>
             <div className="ml-auto">
-              <input className="rounded-3xl border-2 text-xs border-[#6148FF] py-1 px-2 md:text-sm md:py-2 md:px-3 md:mt-0 " type="text" placeholder="Cari Kelas" />
+              <input
+                className="rounded-3xl border-2 text-xs border-[#6148FF] py-1 px-2 md:text-sm md:py-2 md:px-3 md:mt-0 "
+                type="text"
+                placeholder="Cari Kelas"
+              />
             </div>
             <div>
-              <img onClick={handleFilterBox} src={filter} className="w-4 mt-1 mx-1 md:hidden" />
+              <img
+                onClick={handleFilterBox}
+                src={filter}
+                className="w-4 mt-1 mx-1 md:hidden"
+              />
             </div>
           </div>
           <Link to="/kelassaya" className="md:hidden">
             <div className="text-center pb-3">
-              <p className="text-xs text-[#6148FF] font-bold">Lihat kelas yang diikuti</p>
+              <p className="text-xs text-[#6148FF] font-bold">
+                Lihat kelas yang diikuti
+              </p>
             </div>
           </Link>
           <div className="md:flex">
@@ -163,33 +194,68 @@ const BerandaTopikKelasPage = () => {
                   <div className="p-2">
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" checked={uiUxFilter} onChange={() => setUiUxFilter(!uiUxFilter)} />
+                        <input
+                          className=" accent-[#6148FF]"
+                          type="checkbox"
+                          checked={uiUxFilter}
+                          onChange={() => setUiUxFilter(!uiUxFilter)}
+                        />
                       </div>
                       <div className="text-sm md:text-base">UI/UX Design</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" checked={webDevFilter} onChange={() => setWebDevFilter(!webDevFilter)} />
+                        <input
+                          className=" accent-[#6148FF]"
+                          type="checkbox"
+                          checked={webDevFilter}
+                          onChange={() => setWebDevFilter(!webDevFilter)}
+                        />
                       </div>
-                      <div className="text-sm md:text-base">Web Development</div>
+                      <div className="text-sm md:text-base">
+                        Web Development
+                      </div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" checked={androidDevFilter} onChange={() => setAndroidDevFilter(!androidDevFilter)} />
+                        <input
+                          className=" accent-[#6148FF]"
+                          type="checkbox"
+                          checked={androidDevFilter}
+                          onChange={() =>
+                            setAndroidDevFilter(!androidDevFilter)
+                          }
+                        />
                       </div>
-                      <div className="text-sm md:text-base">Android Development</div>
+                      <div className="text-sm md:text-base">
+                        Android Development
+                      </div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" checked={dataScienceFilter} onChange={() => setDataScienceFilter(!dataScienceFilter)} />
+                        <input
+                          className=" accent-[#6148FF]"
+                          type="checkbox"
+                          checked={dataScienceFilter}
+                          onChange={() =>
+                            setDataScienceFilter(!dataScienceFilter)
+                          }
+                        />
                       </div>
                       <div className="text-sm md:text-base">Data Science</div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
-                        <input className=" accent-[#6148FF]" type="checkbox" checked={biFilter} onChange={() => setBiFilter(!biFilter)} />
+                        <input
+                          className=" accent-[#6148FF]"
+                          type="checkbox"
+                          checked={biFilter}
+                          onChange={() => setBiFilter(!biFilter)}
+                        />
                       </div>
-                      <div className="text-sm md:text-base">Business Intelligence</div>
+                      <div className="text-sm md:text-base">
+                        Business Intelligence
+                      </div>
                     </div>
                   </div>
                   <div className="font-bold  md:text-xl">Level Kesulitan</div>
@@ -210,7 +276,9 @@ const BerandaTopikKelasPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="text-sm md:text-base">Intermediate Level</div>
+                      <div className="text-sm md:text-base">
+                        Intermediate Level
+                      </div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
@@ -220,7 +288,9 @@ const BerandaTopikKelasPage = () => {
                     </div>
                   </div>
                   <div className="pt-5 pb-3 text-center">
-                    <button className="text-[#FF0000] hover:text-[#ff0000] text-sm md:text-base">Hapus Filter</button>
+                    <button className="text-[#FF0000] hover:text-[#ff0000] text-sm md:text-base">
+                      Hapus Filter
+                    </button>
                   </div>
                 </div>
               </div>
@@ -228,17 +298,38 @@ const BerandaTopikKelasPage = () => {
             <div className="pt-4 md:w-[970px] md:ml-auto md:pt-0">
               <div className="flex justify-around md:justify-between">
                 <div>
-                  <button onClick={handleAll} className={`p-2 w-[110px] md:p-3 md:w-[200px] ${all ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl text-xs md:text-base`}>
+                  <button
+                    onClick={handleAll}
+                    className={`p-2 w-[110px] md:p-3 md:w-[200px] ${
+                      all
+                        ? "bg-[#6148FF] text-white"
+                        : "bg-white text-[#8A8A8A]"
+                    } rounded-2xl text-xs md:text-base`}
+                  >
                     All
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleKelasPremium} className={`p-2 w-[110px] md:p-3 md:w-[388px] ${kelasPremium ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} text-xs md:text-base rounded-2xl`}>
+                  <button
+                    onClick={handleKelasPremium}
+                    className={`p-2 w-[110px] md:p-3 md:w-[388px] ${
+                      kelasPremium
+                        ? "bg-[#6148FF] text-white"
+                        : "bg-white text-[#8A8A8A]"
+                    } text-xs md:text-base rounded-2xl`}
+                  >
                     Kelas Premium
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleKelasGratis} className={`p-2 w-[110px] md:p-3 md:w-[250px] ${kelasGratis ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl text-xs md:text-base`}>
+                  <button
+                    onClick={handleKelasGratis}
+                    className={`p-2 w-[110px] md:p-3 md:w-[250px] ${
+                      kelasGratis
+                        ? "bg-[#6148FF] text-white"
+                        : "bg-white text-[#8A8A8A]"
+                    } rounded-2xl text-xs md:text-base`}
+                  >
                     Kelas Gratis
                   </button>
                 </div>
@@ -246,7 +337,13 @@ const BerandaTopikKelasPage = () => {
               <div className="md:grid grid-cols-2 md:gap-7 pt-6">
                 {filteredCourses.map((course) => (
                   <div className="py-2 flex justify-around" key={course.id}>
-                    <CardKelasComponent name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} category={course.category} />
+                    <CardKelasComponent
+                      name={course.name}
+                      level={course.level}
+                      price={course.price}
+                      isPremium={course.isPremium}
+                      category={course.category}
+                    />
                   </div>
                 ))}
               </div>

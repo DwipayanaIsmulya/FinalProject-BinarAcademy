@@ -19,6 +19,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
+import ResetPassword from "./Pages/Reset/ResetPassword";
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             <Route path="pembayarandone" element={<PembayaranDonePage />} />
             <Route path="mobilenavbar" element={<MobileNavbar />} />
             <Route path="mulaibelajar" element={<MulaiBelajar />} />
+            <Route path="resetpassword" element={<ResetPassword />} />
             <Route
               path="progresscard"
               element={<ProgressCardKelasComponent />}
