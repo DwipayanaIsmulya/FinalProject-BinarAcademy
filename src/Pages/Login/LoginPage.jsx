@@ -1,4 +1,4 @@
-import logoImage from "../../assets/img/Register/Belajar_white2.png";
+import digilearn_banner from "../../assets/img/Digilearn/digilearn_banner.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -66,7 +66,7 @@ const LoginPage = () => {
         {/* Ini Kanan */}
         <div className="collapse bg-[#6148FF] flex-initial w-[0%] sm:visible sm:w-[40%]">
           <div className="flex justify-center items-center text-white w-full h-screen">
-            <img className="w-[60%]" src={logoImage} alt="" />
+            <img className="w-[100%]" src={digilearn_banner} alt="" />
           </div>
         </div>
       </div>

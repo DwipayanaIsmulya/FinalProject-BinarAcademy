@@ -7,12 +7,13 @@ import time from "../../assets/img/Card/time.png";
 import chat from "../../assets/img/UserLogin/gridicons_chat.png";
 import oval from "../../assets/img/UserLogin/Oval.png";
 import play from "../../assets/img/UserLogin/Group6.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import checklist from "../../assets/img/UserLogin/checklist.png";
 import fill1 from "../../assets/img/UserLogin/Fill1.png";
 import lock from "../../assets/img/UserLogin/lock.png";
 
 const DetailKelas = () => {
+  const { courseId } = useParams();
   return (
     <>
       <div className="flex w-full flex-col">
@@ -21,7 +22,7 @@ const DetailKelas = () => {
         {/* Content */}
         <div className="flex flex-col w-full h-full lg:w-[55%] md:w-[50%]">
           <div className="flex flex-col w-full h-[250px]">
-            <div className="flex absolute -z-10 w-full w-full h-[250px] bg-[#EBF3FC]"></div>
+            <div className="flex absolute -z-10 w-full h-[250px] bg-[#EBF3FC]"></div>
             {/* Left Content */}
             <div className="flex w-full h-[50px] items-center">
               <img className="w-[20px] h-[20px] mx-2" src={arrowImg} alt="" />

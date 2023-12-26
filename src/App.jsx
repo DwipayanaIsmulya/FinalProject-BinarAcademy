@@ -20,6 +20,8 @@ import store from "./redux/store";
 import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
 import ResetPassword from "./Pages/Reset/ResetPassword";
+import NavbarBlankComponent from "./Components/UserLogin/NavbarBlankComponent";
+
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
             <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
             <Route path="topikkelas" element={<BerandaTopikKelasPage />} />
             <Route path="detailkelas" element={<DetailKelas />} />
+            <Route path="/detail/:courseID" element={<DetailKelas />} />
             <Route path="card" element={<CardKelasComponent />} />
             <Route path="notifikasi" element={<NotifikasiPage />} />
             <Route path="akun" element={<AkunPage />} />
@@ -52,6 +55,11 @@ function App() {
             <Route path="mobilenavbar" element={<MobileNavbar />} />
             <Route path="mulaibelajar" element={<MulaiBelajar />} />
             <Route path="resetpassword" element={<ResetPassword />} />
+            <Route
+              path="progresscard"
+              element={<ProgressCardKelasComponent />}
+            />
+            <Route path="navblank" element={<NavbarBlankComponent />} />
             <Route
               path="progresscard"
               element={<ProgressCardKelasComponent />}

@@ -42,7 +42,7 @@ const AkunPage = () => {
         </div>
         <div className="flex py-4 md:pl-48">
           <img src={arrowPurple} />
-          <Link to="/beranda">
+          <Link to="/">
             <p className="md:text-xl pl-2 text-[#6148FF] font-bold">Kembali ke Beranda</p>
           </Link>
         </div>

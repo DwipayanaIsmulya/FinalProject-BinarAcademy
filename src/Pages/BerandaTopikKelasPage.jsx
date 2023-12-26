@@ -336,8 +336,12 @@ const BerandaTopikKelasPage = () => {
               </div>
               <div className="md:grid grid-cols-2 md:gap-7 pt-6">
                 {filteredCourses.map((course) => (
-                  <div className="py-2 flex justify-around" key={course.id}>
+                  <div
+                    className="py-2 flex justify-around hover:scale-105 duration-300"
+                    key={course.id}
+                  >
                     <CardKelasComponent
+                      id={course.id}
                       name={course.name}
                       level={course.level}
                       price={course.price}
