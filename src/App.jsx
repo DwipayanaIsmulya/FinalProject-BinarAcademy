@@ -38,6 +38,7 @@ function App() {
             <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
             <Route path="topikkelas" element={<BerandaTopikKelasPage />} />
             <Route path="detailkelas" element={<DetailKelas />} />
+            <Route path="/detail/:courseID" element={<DetailKelas />} />
             <Route path="card" element={<CardKelasComponent />} />
             <Route path="notifikasi" element={<NotifikasiPage />} />
             <Route path="akun" element={<AkunPage />} />
