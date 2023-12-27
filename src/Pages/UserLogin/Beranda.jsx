@@ -5,21 +5,19 @@ import productManagement from "../../assets/img/Beranda/product-management.png";
 import iosdev from "../../assets/img/Beranda/ios-dev.png";
 import dataImg from "../../assets/img/Beranda/data-science.png";
 import androidDev from "../../assets/img/Beranda/android-dev.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCourse } from "../../redux/actions/tkCourseAction";
-import { logout } from "../../redux/actions/authAction";
 import axios from "axios";
 
 const Beranda = () => {
   const { allCourse } = useSelector((state) => state.tkCourse);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [all, setAll] = useState(true);
@@ -99,11 +97,6 @@ const Beranda = () => {
     setWeb(false);
     setIos(false);
     setBusiness(true);
-  };
-
-  const onLogout = () => {
-    dispatch(logout());
-    navigate("/login");
   };
 
   useEffect(() => {
@@ -216,24 +209,21 @@ const Beranda = () => {
             <div className="flex flex-initial">
               {user ? (
                 <>
-                  <p className="flex items-center p-1 font-bold text-white">
-                    Selamat Datang, {user.username}!
-                  </p>
-                  <button
-                    onClick={onLogout}
-                    className="flex items-center p-1 font-bold"
+                  <Link
+                    to="/akun"
+                    className="flex items-center m-7 p-1 font-bold"
                     style={{
                       textDecoration: "none",
                       color: "white",
                     }}
                   >
-                    Logout
                     <img
-                      className="flex w-[20px] h-[20px] ms-1"
+                      className="flex w-[20px] h-[20px]"
                       src={loginImage}
                       alt=""
                     />
-                  </button>
+                    <p>&nbsp; Profile</p>
+                  </Link>
                 </>
               ) : (
                 <Link
@@ -272,7 +262,7 @@ const Beranda = () => {
           <div className="flex md:text-start pt-24 md:absolute md:pt-0 right-32 top-20 md:w-auto md:h-auto w-full h-full flex-col  text-center text-xl font-bold text-[#fff] bg-[#6148FF]">
             <h1 className="my-1">Belajar</h1>
             <h1 className="my-1">dari Praktisi Terbaik!</h1>
-            <Link to="/kelassaya">
+            <Link to="/topikkelas">
               <button className="my-1 bg-[#fff] w-[250px] font-bold text-[#6148FF] rounded-xl p-1">
                 IKUTI KELAS
               </button>
@@ -421,13 +411,14 @@ const Beranda = () => {
             </button>
           </div>
         </div>
-        <div className="flex md:flex-wrap flex-wrap justify-around items-center w-[100%] md:w-[80%] mb-5 mt-3">
+        <div className="md:grid md:grid-cols-2 md:gap-4 flex flex-wrap justify-center items-center w-[100%] md:w-[80%] mt-4">
           {filteredCourses.map((course) => (
             <div
-              className="flex w-auto md:w-[350px] justify-center my-3 mx-1 hover:scale-105 duration-300"
+              className="flex justify-center items-center w-auto hover:scale-105 duration-300"
               key={course.id}
             >
               <CardKelasComponent
+                id={course.id}
                 name={course.name}
                 level={course.level}
                 price={course.price}
