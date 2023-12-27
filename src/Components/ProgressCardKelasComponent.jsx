@@ -2,16 +2,21 @@ import star from "../assets/img/Card/star.png";
 import levelBadge from "../assets/img/Card/levelBadge.png";
 import book from "../assets/img/Card/book.png";
 import time from "../assets/img/Card/time.png";
+import banner from "../assets/img/Card/banner.png";
 import progress from "../assets/img/Card/progress.png";
 
 const ProgressCardKelasComponent = () => {
   return (
     <>
-      <div className="bg-white w-[350px] h-[225px] rounded-xl shadow-xl md:w-[440px] md:h-[280px]">
-        <div className=" bg-gray-500 w-full h-[40%] rounded-t-xl"></div>
+      <div className="bg-[#EBF3FC] w-[350px] h-[225px] rounded-xl shadow-xl md:w-[440px] md:h-[280px]">
+        <div className="w-full h-[40%] rounded-t-xl">
+          <img className="w-full h-full" src={banner} alt="" />
+        </div>
         <div className="p-2">
           <div className="flex justify-between w-full">
-            <div className="font-medium text-[#6148FF] md:text-xl">UI/UX Design</div>
+            <div className="font-medium text-[#6148FF] md:text-xl">
+              UI/UX Design
+            </div>
             <div className="flex">
               <div className=" my-auto">
                 <img src={star} className="" />
@@ -19,14 +24,18 @@ const ProgressCardKelasComponent = () => {
               <div>4.7</div>
             </div>
           </div>
-          <div className="font-medium md:text-xl">Belajar Web Designer dengan Figma </div>
+          <div className="font-medium md:text-xl">
+            Belajar Web Designer dengan Figma{" "}
+          </div>
           <div className="font-medium text-sm md:pt-2">By Angela Doe</div>
           <div className="flex justify-between md:py-1">
             <div className="flex text-sm">
               <div className="my-auto pr-1">
                 <img src={levelBadge} />
               </div>
-              <div className="text-sm font-medium text-[#6148FF]">Advanced Level</div>
+              <div className="text-sm font-medium text-[#6148FF]">
+                Advanced Level
+              </div>
             </div>
             <div className="flex text-sm">
               <div className="my-auto pr-1">

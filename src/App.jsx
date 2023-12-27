@@ -19,7 +19,9 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
+import ResetPassword from "./Pages/Reset/ResetPassword";
 import NavbarBlankComponent from "./Components/UserLogin/NavbarBlankComponent";
+// import Protected from "./Components/Protected/Protected";
 
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
 
@@ -29,10 +31,24 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Beranda />} />
+            <Route
+              path="/"
+              element={
+                // <Protected>
+                <Beranda />
+                // </Protected>
+              }
+            />
 
             {/* The page for not found url path */}
-            <Route path="*" element={<h1 className="d-flex flex-row justify-content-center align-items-center vh-100">404 Page Not Found</h1>} />
+            <Route
+              path="*"
+              element={
+                <h1 className="d-flex flex-row justify-content-center align-items-center vh-100">
+                  404 Page Not Found
+                </h1>
+              }
+            />
             <Route path="adminkelolakelas" element={<KelolaKelasPage />} />
             <Route path="admindashboard" element={<AdminDashboardPage />} />
             <Route path="kelassaya" element={<BerandaKelasSayaPage />} />
@@ -46,8 +62,16 @@ function App() {
             <Route path="pembayarandone" element={<PembayaranDonePage />} />
             <Route path="mobilenavbar" element={<MobileNavbar />} />
             <Route path="mulaibelajar" element={<MulaiBelajar />} />
+            <Route path="resetpassword" element={<ResetPassword />} />
+            <Route
+              path="progresscard"
+              element={<ProgressCardKelasComponent />}
+            />
             <Route path="navblank" element={<NavbarBlankComponent />} />
-            <Route path="progresscard" element={<ProgressCardKelasComponent />} />
+            <Route
+              path="progresscard"
+              element={<ProgressCardKelasComponent />}
+            />
 
             <Route path="editprofile" element={<EditProfileComponent />} />
             <Route
