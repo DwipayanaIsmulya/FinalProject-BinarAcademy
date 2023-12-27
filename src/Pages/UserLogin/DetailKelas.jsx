@@ -11,23 +11,47 @@ import { Link, useParams } from "react-router-dom";
 import checklist from "../../assets/img/UserLogin/checklist.png";
 import fill1 from "../../assets/img/UserLogin/Fill1.png";
 import lock from "../../assets/img/UserLogin/lock.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getDetailsCourse } from "../../redux/actions/detailAction";
+import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 
 const DetailKelas = () => {
+  const dispatch = useDispatch();
+
+  const { details } = useSelector((state) => state.detail);
+
+  const [errors, setErrors] = useState({
+    isError: false,
+    message: null,
+  });
+
   const { courseId } = useParams();
+
+  useEffect(() => {
+    dispatch(getDetailsCourse(courseId, setErrors, errors));
+  }, []);
+
   return (
     <>
       <div className="flex w-full flex-col">
         {/* Navbar */}
-        <NavbarComponent />
+        <div className="hidden md:block">
+          <NavbarComponent />
+        </div>
+        <div className="md:hidden">
+          <MobileNavbar />
+        </div>
         {/* Content */}
         <div className="flex flex-col w-full h-full lg:w-[55%] md:w-[50%]">
+          {/* {console.log(details)} */}
           <div className="flex flex-col w-full h-[250px]">
             <div className="flex absolute -z-10 w-full h-[250px] bg-[#EBF3FC]"></div>
             {/* Left Content */}
             <div className="flex w-full h-[50px] items-center">
               <img className="w-[20px] h-[20px] mx-2" src={arrowImg} alt="" />
               <Link
-                to="/kelassaya"
+                to="/topikkelas"
                 className="font-bold"
                 style={{
                   textDecoration: "none",
@@ -41,7 +65,7 @@ const DetailKelas = () => {
                 <div className="flex flex-col w-full ps-3 pr-3">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center font-bold text-[#6148FF] text-3xl">
-                      UI/UX Design
+                      {details.category}
                     </div>
                     <div className="flex items-center">
                       <div>
@@ -50,17 +74,17 @@ const DetailKelas = () => {
                       <div className="ms-1">4.7</div>
                     </div>
                   </div>
-                  <div className="font-bold text-xl">
-                    Intro to Basic of User Interaction Design
+                  <div className="font-bold text-xl">{details.name}</div>
+                  <div className="font-medium my-1 text-sm">
+                    by {details.mentor}
                   </div>
-                  <div className="font-medium my-1 text-sm">by Simon Doe</div>
                   <div className="flex justify-between sm:justify-start w-full">
                     <div className="flex items-center">
                       <div className="my-auto pr-1">
                         <img src={levelBadge} />
                       </div>
                       <div className="text-xs font-medium text-[#6148FF]">
-                        Beginner Level
+                        {details.level} Level
                       </div>
                     </div>
                     <div className="flex sm:mx-5 md:mx-10 lg:mx-20">
@@ -98,7 +122,7 @@ const DetailKelas = () => {
           </div>
           <div className="flex flex-col m-4">
             <div className="flex text-xl font-bold">Tentang Kelas</div>
-            <div className="flex p-1 indent-3 text-justify">
+            {/* <div className="flex p-1 indent-3 text-justify">
               Design system adalah kumpulan komponen design, code, ataupun
               dokumentasi yang dapat digunakan sebagai panduan utama yang
               memunginkan designer serta developer memiliki lebih banyak kontrol
@@ -116,6 +140,9 @@ const DetailKelas = () => {
               kelas ini sangat sesuai untuk stakeholder lain agar dapat
               memudahkan tim dalam bekerja sama. Yuk segera daftar dan kami
               tunggu di kelas ya!
+            </div> */}
+            <div className="flex p-1 indent-3 text-justify">
+              {details.description}
             </div>
             <div className="flex text-xl font-bold mt-1">
               Kelas Ini Ditujukan Untuk
