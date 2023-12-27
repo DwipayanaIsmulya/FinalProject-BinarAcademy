@@ -21,6 +21,7 @@ import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
 import ResetPassword from "./Pages/Reset/ResetPassword";
 import NavbarBlankComponent from "./Components/UserLogin/NavbarBlankComponent";
+// import Protected from "./Components/Protected/Protected";
 
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
 
@@ -30,7 +31,14 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Beranda />} />
+            <Route
+              path="/"
+              element={
+                // <Protected>
+                <Beranda />
+                // </Protected>
+              }
+            />
 
             {/* The page for not found url path */}
             <Route
