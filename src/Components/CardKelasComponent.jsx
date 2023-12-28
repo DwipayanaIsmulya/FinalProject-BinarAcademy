@@ -14,6 +14,7 @@ const CardKelasComponent = ({
   price,
   isPremium,
   category,
+  rating,
 }) => {
   const formattedLevel = level
     ? level.charAt(0).toUpperCase() + level.slice(1)
@@ -40,7 +41,7 @@ const CardKelasComponent = ({
                 <div className=" my-auto">
                   <img src={star} className="" />
                 </div>
-                <div>4.7</div>
+                <div>{rating}</div>
               </div>
             </div>
             <div className="font-medium md:text-xl">{name}</div>
@@ -97,6 +98,7 @@ CardKelasComponent.propTypes = {
   price: PropType.any,
   isPremium: PropType.any,
   category: PropType.any,
+  rating: PropType.any,
 };
 
 export default CardKelasComponent;
