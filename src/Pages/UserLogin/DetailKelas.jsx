@@ -44,7 +44,7 @@ const DetailKelas = () => {
         </div>
         {/* Content */}
         <div className="flex flex-col w-full h-full lg:w-[55%] md:w-[50%]">
-          {console.log(details)}
+          {/* {console.log(details)} */}
           <div className="flex flex-col w-full h-[250px]">
             <div className="flex absolute -z-10 w-full h-[250px] bg-[#EBF3FC]"></div>
             {/* Left Content */}
