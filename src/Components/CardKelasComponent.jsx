@@ -15,6 +15,7 @@ const CardKelasComponent = ({
   isPremium,
   category,
   rating,
+  duration,
 }) => {
   const formattedLevel = level
     ? level.charAt(0).toUpperCase() + level.slice(1)
@@ -59,13 +60,13 @@ const CardKelasComponent = ({
                 <div className="my-auto pr-1">
                   <img src={book} />
                 </div>
-                <div className="text-sm font-medium">10 Modul</div>
+                <div className="text-sm font-medium">1 Modul</div>
               </div>
               <div className="flex text-sm">
                 <div className="my-auto pr-1">
                   <img src={time} />
                 </div>
-                <div className="text-sm font-medium">120 Menit</div>
+                <div className="text-sm font-medium">{duration}</div>
               </div>
             </div>
             <div className="py-1">
@@ -99,6 +100,7 @@ CardKelasComponent.propTypes = {
   isPremium: PropType.any,
   category: PropType.any,
   rating: PropType.any,
+  duration: PropType.any,
 };
 
 export default CardKelasComponent;

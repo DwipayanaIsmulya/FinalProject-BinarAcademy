@@ -21,9 +21,9 @@ const Beranda = () => {
 
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [all, setAll] = useState(true);
-  const [frontend, setFrontend] = useState(false);
+  const [web, setWeb] = useState(false);
   const [design, setDesign] = useState(false);
-  const [backend, setBackend] = useState(false);
+  const [dataScience, setDataScience] = useState(false);
   const [android, setAndroid] = useState(false);
   const [ios, setIos] = useState(false);
   const [business, setBusiness] = useState(false);
@@ -31,19 +31,19 @@ const Beranda = () => {
 
   const handleAll = () => {
     setAll(true);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(false);
     setIos(false);
     setBusiness(false);
   };
 
-  const handleFrontend = () => {
+  const handleDataScience = () => {
     setAll(false);
-    setFrontend(true);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(true);
     setAndroid(false);
     setIos(false);
     setBusiness(false);
@@ -51,19 +51,9 @@ const Beranda = () => {
 
   const handleDesign = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(true);
-    setBackend(false);
-    setAndroid(false);
-    setIos(false);
-    setBusiness(false);
-  };
-
-  const handleBackend = () => {
-    setAll(false);
-    setFrontend(false);
-    setDesign(false);
-    setBackend(true);
+    setDataScience(false);
     setAndroid(false);
     setIos(false);
     setBusiness(false);
@@ -71,19 +61,29 @@ const Beranda = () => {
 
   const handleAndroid = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(true);
+    setIos(false);
+    setBusiness(false);
+  };
+
+  const handleWeb = () => {
+    setAll(false);
+    setWeb(true);
+    setDesign(false);
+    setDataScience(false);
+    setAndroid(false);
     setIos(false);
     setBusiness(false);
   };
 
   const handleIos = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(false);
     setIos(true);
     setBusiness(false);
@@ -91,9 +91,9 @@ const Beranda = () => {
 
   const handleBusiness = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(false);
     setIos(false);
     setBusiness(true);
@@ -104,18 +104,24 @@ const Beranda = () => {
       let filtered = allCourse;
 
       if (design) {
-        filtered = filtered.filter((course) => course.category === "UI/UX");
+        filtered = filtered.filter(
+          (course) => course.category === "UI/UX Design"
+        );
       }
       if (android) {
         filtered = filtered.filter(
-          (course) => course.category === "Web Development"
+          (course) => course.category === "Android Development"
         );
       }
-      if (backend) {
-        filtered = filtered.filter((course) => course.category === "Back-End");
+      if (dataScience) {
+        filtered = filtered.filter(
+          (course) => course.category === "Data Science"
+        );
       }
-      if (frontend) {
-        filtered = filtered.filter((course) => course.category === "Front-End");
+      if (web) {
+        filtered = filtered.filter(
+          (course) => course.category === "Web Development"
+        );
       }
       if (business) {
         filtered = filtered.filter(
@@ -131,7 +137,7 @@ const Beranda = () => {
       setFilteredCourses(filtered);
     };
     filterCourses();
-  }, [allCourse, frontend, design, backend, android, business, ios]);
+  }, [allCourse, web, design, dataScience, android, business, ios]);
 
   useEffect(() => {
     dispatch(getAllCourse());
@@ -280,7 +286,7 @@ const Beranda = () => {
               src={uiux}
               alt=""
             />
-            <div className="flex text-l font">UI-UX</div>
+            <div className="flex text-l font">UI-UX Design</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img
@@ -288,7 +294,7 @@ const Beranda = () => {
               src={productManagement}
               alt=""
             />
-            <div className="flex text-l font">Front-End</div>
+            <div className="flex text-l font">Product Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img
@@ -296,7 +302,7 @@ const Beranda = () => {
               src={webdev}
               alt=""
             />
-            <div className="flex text-l font">Back-End</div>
+            <div className="flex text-l font">Web Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img
@@ -346,12 +352,12 @@ const Beranda = () => {
           </div>
           <div>
             <button
-              onClick={handleFrontend}
+              onClick={handleDataScience}
               className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                frontend ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
+                dataScience ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
               }`}
             >
-              Front-End
+              Data Science
             </button>
           </div>
           <div>
@@ -366,22 +372,22 @@ const Beranda = () => {
           </div>
           <div>
             <button
-              onClick={handleBackend}
-              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
-                backend ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
-              }`}
-            >
-              Back-End
-            </button>
-          </div>
-          <div>
-            <button
               onClick={handleAndroid}
               className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
                 android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
               }`}
             >
               Android Development
+            </button>
+          </div>
+          <div>
+            <button
+              onClick={handleWeb}
+              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
+                web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
+              }`}
+            >
+              Web Development
             </button>
           </div>
           <div>
@@ -413,12 +419,13 @@ const Beranda = () => {
             >
               <CardKelasComponent
                 id={course.id}
-                name={course.courseCode}
+                name={course.name}
                 level={course.level}
                 price={course.price}
                 isPremium={course.isPremium}
                 category={course.category}
                 rating={course.rating}
+                duration={course.duration}
               />
             </div>
           ))}

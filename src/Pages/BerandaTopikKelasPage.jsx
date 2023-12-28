@@ -122,7 +122,7 @@ const BerandaTopikKelasPage = () => {
   }, [dispatch]);
   return (
     <>
-      <div className=" h-full bg-[#EBF3FC] pb-32 md:w-full ">
+      <div className=" h-full bg-[#EBF3FC] pb-32 md:w-screen ">
         {/* Navbar */}
         <div className="hidden md:block">
           <NavbarComponent />
@@ -342,12 +342,13 @@ const BerandaTopikKelasPage = () => {
                   >
                     <CardKelasComponent
                       id={course.id}
-                      name={course.courseCode}
+                      name={course.name}
                       level={course.level}
                       price={course.price}
                       isPremium={course.isPremium}
                       category={course.category}
                       rating={course.rating}
+                      duration={course.duration}
                     />
                   </div>
                 ))}

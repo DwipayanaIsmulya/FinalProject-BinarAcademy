@@ -32,9 +32,11 @@ const DetailKelas = () => {
     dispatch(getDetailsCourse(courseId, setErrors, errors));
   }, []);
 
+  const modules = details.module;
+
   return (
     <>
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col" key={details.id}>
         {/* Navbar */}
         <div className="hidden md:block">
           <NavbarComponent />
@@ -44,7 +46,8 @@ const DetailKelas = () => {
         </div>
         {/* Content */}
         <div className="flex flex-col w-full h-full lg:w-[55%] md:w-[50%]">
-          {/* {console.log(details)} */}
+          {console.log(details)}
+          {console.log(modules)}
           <div className="flex flex-col w-full h-[250px]">
             <div className="flex absolute -z-10 w-full h-[250px] bg-[#EBF3FC]"></div>
             {/* Left Content */}
@@ -74,7 +77,7 @@ const DetailKelas = () => {
                       <div className="ms-1">{details.rating}</div>
                     </div>
                   </div>
-                  <div className="font-bold text-xl">{details.courseCode}</div>
+                  <div className="font-bold text-xl">{details.name}</div>
                   <div className="font-medium my-1 text-sm">
                     by {details.mentor}
                   </div>
@@ -92,7 +95,7 @@ const DetailKelas = () => {
                         <img src={book} />
                       </div>
                       <div className="text-xs font-medium">
-                        {details.module.length} Modul
+                        {/* {details.module} Modul */}
                       </div>
                     </div>
                     <div className="flex">
@@ -153,9 +156,7 @@ const DetailKelas = () => {
             </div>
             <div className="flex p-1">
               <ol className="list-decimal mx-4">
-                <li>Anda yang ingin memahami poin design</li>
-                <li>Anda yang ingin membantu perusahaan</li>
-                <li>Anda yang ingin latihan design system</li>
+                <li>{details.description}</li>
               </ol>
             </div>
           </div>
@@ -183,22 +184,17 @@ const DetailKelas = () => {
                 </div>
               </div>
               {/* ===== */}
-              {details.module.map((dt, index) => (
-                <div
-                  className="flex items-center justify-between py-2 border-b-2"
-                  key={dt.id}
-                >
-                  <div className="flex items-center">
-                    <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                      <p className="text-sm font-medium">{index + 1}</p>
-                    </div>
-                    <div className="flex ms-2 text-sm font-medium">
-                      {dt.name}
-                    </div>
+              <div className="flex items-center justify-between py-2 border-b-2">
+                <div className="flex items-center">
+                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
+                    <p className="text-sm font-medium">{1}</p>
                   </div>
-                  <img className="w-[18px] h-[18px] " src={fill1} alt="" />
+                  <div className="flex ms-2 text-sm font-medium">
+                    {details.description}
+                  </div>
                 </div>
-              ))}
+                <img className="w-[18px] h-[18px] " src={fill1} alt="" />
+              </div>
             </div>
           </div>
         </div>
