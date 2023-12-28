@@ -6,8 +6,11 @@ import book from "../../assets/img/Card/book.png";
 import time from "../../assets/img/Card/time.png";
 import premium from "../../assets/img/Card/premium.png";
 import PropType from "prop-types";
+import { useState } from "react";
 
 const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
+  const [change, setChange] = useState(false);
+
   const formattedLevel = level
     ? level.charAt(0).toUpperCase() + level.slice(1)
     : "";
@@ -17,11 +20,20 @@ const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
   };
   const formattedPrice = price ? formatNumber(price) : "";
 
+  const handleChange = (event) => {
+    event.preventDefault();
+    setChange(true);
+  };
+
+  if (change == true) {
+    return;
+  }
+
   return (
     <>
-      <div className="absolute z-20 flex justify-center items-center w-full h-full bg-black/[.70]">
+      <div className="fixed z-20 flex justify-center items-center w-full h-full bg-black/[.70]">
         <div className="flex items-center flex-col relative w-[320px] h-[350px] md:w-[420px] md:h-[385px] bg-[#fff] rounded-xl">
-          <button className="absolute right-3 top-3">
+          <button className="absolute right-3 top-3" onClick={handleChange}>
             <img
               className="w-[14px] h-[14px] md:w-[18px] md:h-[18px]"
               src={exit}
@@ -94,7 +106,10 @@ const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
               </div>
             </div>
           </div>
-          <button className="flex w-[75%] h-[35px] items-center justify-center rounded-2xl bg-[#6148FF] mt-4">
+          <button
+            className="flex w-[75%] h-[35px] items-center justify-center rounded-2xl bg-[#6148FF] mt-4"
+            onClick={handleChange}
+          >
             <div className="text-sm text-[#fff] md:font-bold md:text-base">
               Beli Sekarang
             </div>
