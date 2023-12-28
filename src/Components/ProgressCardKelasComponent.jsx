@@ -14,9 +14,7 @@ const ProgressCardKelasComponent = () => {
         </div>
         <div className="p-2">
           <div className="flex justify-between w-full">
-            <div className="font-medium text-[#6148FF] md:text-xl">
-              UI/UX Design
-            </div>
+            <div className="font-medium text-[#6148FF] md:text-xl">UI/UX Design</div>
             <div className="flex">
               <div className=" my-auto">
                 <img src={star} className="" />
@@ -24,18 +22,14 @@ const ProgressCardKelasComponent = () => {
               <div>4.7</div>
             </div>
           </div>
-          <div className="font-medium md:text-xl">
-            Belajar Web Designer dengan Figma{" "}
-          </div>
+          <div className="font-medium md:text-xl">Belajar Web Designer dengan Figma </div>
           <div className="font-medium text-sm md:pt-2">By Angela Doe</div>
           <div className="flex justify-between md:py-1">
             <div className="flex text-sm">
               <div className="my-auto pr-1">
                 <img src={levelBadge} />
               </div>
-              <div className="text-sm font-medium text-[#6148FF]">
-                Advanced Level
-              </div>
+              <div className="text-sm font-medium text-[#6148FF]">Advanced Level</div>
             </div>
             <div className="flex text-sm">
               <div className="my-auto pr-1">
