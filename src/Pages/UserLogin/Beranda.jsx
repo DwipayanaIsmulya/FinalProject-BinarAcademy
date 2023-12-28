@@ -1,3 +1,4 @@
+import axios from "axios";
 import digilearn_align from "../../assets/img/Digilearn/digilearn_align_white.png";
 import uiux from "../../assets/img/Beranda/uiux-image.png";
 import webdev from "../../assets/img/Beranda/web-dev.png";
@@ -5,14 +6,13 @@ import productManagement from "../../assets/img/Beranda/product-management.png";
 import iosdev from "../../assets/img/Beranda/ios-dev.png";
 import dataImg from "../../assets/img/Beranda/data-science.png";
 import androidDev from "../../assets/img/Beranda/android-dev.png";
-import { Link } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCourse } from "../../redux/actions/tkCourseAction";
-import axios from "axios";
 
 const Beranda = () => {
   const { allCourse } = useSelector((state) => state.tkCourse);
@@ -21,9 +21,9 @@ const Beranda = () => {
 
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [all, setAll] = useState(true);
-  const [frontend, setFrontend] = useState(false);
+  const [web, setWeb] = useState(false);
   const [design, setDesign] = useState(false);
-  const [backend, setBackend] = useState(false);
+  const [dataScience, setDataScience] = useState(false);
   const [android, setAndroid] = useState(false);
   const [ios, setIos] = useState(false);
   const [business, setBusiness] = useState(false);
@@ -31,19 +31,19 @@ const Beranda = () => {
 
   const handleAll = () => {
     setAll(true);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(false);
     setIos(false);
     setBusiness(false);
   };
 
-  const handleFrontend = () => {
+  const handleDataScience = () => {
     setAll(false);
-    setFrontend(true);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(true);
     setAndroid(false);
     setIos(false);
     setBusiness(false);
@@ -51,19 +51,9 @@ const Beranda = () => {
 
   const handleDesign = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(true);
-    setBackend(false);
-    setAndroid(false);
-    setIos(false);
-    setBusiness(false);
-  };
-
-  const handleBackend = () => {
-    setAll(false);
-    setFrontend(false);
-    setDesign(false);
-    setBackend(true);
+    setDataScience(false);
     setAndroid(false);
     setIos(false);
     setBusiness(false);
@@ -71,19 +61,29 @@ const Beranda = () => {
 
   const handleAndroid = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(true);
+    setIos(false);
+    setBusiness(false);
+  };
+
+  const handleWeb = () => {
+    setAll(false);
+    setWeb(true);
+    setDesign(false);
+    setDataScience(false);
+    setAndroid(false);
     setIos(false);
     setBusiness(false);
   };
 
   const handleIos = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(false);
     setIos(true);
     setBusiness(false);
@@ -91,9 +91,9 @@ const Beranda = () => {
 
   const handleBusiness = () => {
     setAll(false);
-    setFrontend(false);
+    setWeb(false);
     setDesign(false);
-    setBackend(false);
+    setDataScience(false);
     setAndroid(false);
     setIos(false);
     setBusiness(true);
@@ -104,16 +104,16 @@ const Beranda = () => {
       let filtered = allCourse;
 
       if (design) {
-        filtered = filtered.filter((course) => course.category === "UI/UX");
+        filtered = filtered.filter((course) => course.category === "UI/UX Design");
       }
       if (android) {
+        filtered = filtered.filter((course) => course.category === "Android Development");
+      }
+      if (dataScience) {
+        filtered = filtered.filter((course) => course.category === "Data Science");
+      }
+      if (web) {
         filtered = filtered.filter((course) => course.category === "Web Development");
-      }
-      if (backend) {
-        filtered = filtered.filter((course) => course.category === "Back-End");
-      }
-      if (frontend) {
-        filtered = filtered.filter((course) => course.category === "Front-End");
       }
       if (business) {
         filtered = filtered.filter((course) => course.category === "Business Intelligence");
@@ -125,7 +125,7 @@ const Beranda = () => {
       setFilteredCourses(filtered);
     };
     filterCourses();
-  }, [allCourse, frontend, design, backend, android, business, ios]);
+  }, [allCourse, web, design, dataScience, android, business, ios]);
 
   useEffect(() => {
     dispatch(getAllCourse());
@@ -175,7 +175,9 @@ const Beranda = () => {
           {/* left Nav */}
           <div className="flex w-[60%] h-full">
             <div className="flex md:justify-center md:items-center items-center h-full w-[100%] sm:w-[30%]">
-              <img className="flex ms-6 mt-1 w-[80%] md:w-[70%]" src={digilearn_align} alt="" />
+              <Link to="/">
+                <img className="flex ms-6 mt-1 w-[80%] md:w-[70%]" src={digilearn_align} alt="" />
+              </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
               <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
@@ -245,15 +247,15 @@ const Beranda = () => {
         <div className="flex flex-wrap justify-around flex-col-2 flex-initial w-[80%] h-full mb-5">
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img className="flex w-[140px] h-[100px] rounded-2xl" src={uiux} alt="" />
-            <div className="flex text-l font">UI-UX</div>
+            <div className="flex text-l font">UI-UX Design</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img className="flex w-[140px] h-[100px] rounded-2xl" src={productManagement} alt="" />
-            <div className="flex text-l font">Front-End</div>
+            <div className="flex text-l font">Product Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img className="flex w-[140px] h-[100px] rounded-2xl" src={webdev} alt="" />
-            <div className="flex text-l font">Back-End</div>
+            <div className="flex text-l font">Web Development</div>
           </div>
           <div className="flex flex-col items-center justify-center w-[160px] h-[136px] md:m-1 hover:scale-105 duration-300">
             <img className="flex w-[140px] h-[100px] rounded-2xl" src={androidDev} alt="" />
@@ -285,8 +287,8 @@ const Beranda = () => {
             </button>
           </div>
           <div>
-            <button onClick={handleFrontend} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${frontend ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-              Front-End
+            <button onClick={handleDataScience} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${dataScience ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
+              Data Science
             </button>
           </div>
           <div>
@@ -295,13 +297,13 @@ const Beranda = () => {
             </button>
           </div>
           <div>
-            <button onClick={handleBackend} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${backend ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-              Back-End
+            <button onClick={handleAndroid} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
+              Android Development
             </button>
           </div>
           <div>
-            <button onClick={handleAndroid} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
-              Android Development
+            <button onClick={handleWeb} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
+              Web Development
             </button>
           </div>
           <div>
@@ -315,10 +317,10 @@ const Beranda = () => {
             </button>
           </div>
         </div>
-        <div className="md:grid md:grid-cols-2 md:gap-4 flex flex-wrap justify-center items-center w-[100%] md:w-[80%] mt-4">
+        <div className="md:grid md:grid-cols-3 md:gap-4 flex flex-wrap justify-center items-center w-[100%] md:w-[93%] mt-4">
           {filteredCourses.map((course) => (
             <div className="flex justify-center items-center w-auto hover:scale-105 duration-300" key={course.id}>
-              <CardKelasComponent id={course.id} name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} category={course.category} rating={course.rating} />
+              <CardKelasComponent id={course.id} name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} category={course.category} rating={course.rating} duration={course.duration} />
             </div>
           ))}
         </div>

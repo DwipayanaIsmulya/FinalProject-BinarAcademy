@@ -2,7 +2,7 @@ import digilearn_align from "../../assets/img/Digilearn/digilearn_align_white.pn
 import filist from "../../assets/img/UserLogin/fi_list.png";
 import fibell from "../../assets/img/UserLogin/fi_bell.png";
 import fiuser from "../../assets/img/UserLogin/fi_user.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const NavbarBerandaComponent = () => {
   return (
@@ -12,7 +12,9 @@ const NavbarBerandaComponent = () => {
           {/* left Nav */}
           <div className="flex w-[60%] h-full">
             <div className="flex md:justify-center md:items-center h-full w-[100%] sm:w-[30%]">
-              <img className="flex ms-6 mt-1 w-[70%]" src={digilearn_align} alt="" />
+              <Link to="/">
+                <img className="flex ms-6 mt-1 w-[70%]" src={digilearn_align} alt="" />
+              </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
               <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
