@@ -29,9 +29,9 @@ const CardKelasComponent = ({
   return (
     <>
       <Link to={`/detail/${id}`}>
-        <div className="bg-white w-[350px] h-[225px] rounded-xl shadow-xl md:w-[440px] md:h-[280px]">
+        <div className="bg-white w-[350px] h-[225px] rounded-xl shadow-xl md:w-[440px] md:h-[270px]">
           <div className=" w-full h-[40%] rounded-t-xl">
-            <img className="w-full h-full" src={banner} alt="" />
+            <img className="w-full h-full" src={banner} />
           </div>
           <div className="p-2">
             <div className="flex justify-between w-full">
@@ -62,14 +62,14 @@ const CardKelasComponent = ({
                 </div>
                 <div className="text-sm font-medium">1 Modul</div>
               </div>
-              <div className="flex text-sm">
+              <div className="flex">
                 <div className="my-auto pr-1">
                   <img src={time} />
                 </div>
                 <div className="text-sm font-medium">{duration}</div>
               </div>
             </div>
-            <div className="py-1">
+            <div className="py-1 text-md">
               <div
                 className={`${
                   isPremium

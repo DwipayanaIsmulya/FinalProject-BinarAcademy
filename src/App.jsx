@@ -22,6 +22,7 @@ import MulaiBelajar from "./Components/Popup/MulaiBelajar";
 import ResetPassword from "./Pages/Reset/ResetPassword";
 import NavbarBlankComponent from "./Components/UserLogin/NavbarBlankComponent";
 import SearchCourse from "./Pages/UserLogin/SearchCourse";
+import { Toaster } from "react-hot-toast";
 // import Protected from "./Components/Protected/Protected";
 
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
@@ -31,6 +32,7 @@ function App() {
     <>
       <Provider store={store}>
         <BrowserRouter>
+          <Toaster position="top-right" reverseOrder={false} />
           <Routes>
             <Route
               path="/"

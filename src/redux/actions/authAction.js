@@ -9,7 +9,7 @@ export const login = (email, password, navigate) => async (dispatch) => {
       password,
     });
     const { data } = response.data;
-    const { token } = data
+    const { token } = data;
     dispatch(setToken(token));
     navigate("/");
   } catch (error) {
@@ -19,60 +19,56 @@ export const login = (email, password, navigate) => async (dispatch) => {
   }
 };
 
-export const register =
-  (username, email, password, no_telp, navigate, setErrors, errors) =>
-  async (dispatch) => {
-    try {
-      let data = JSON.stringify({
-        username,
-        email,
-        no_telp,
-        password,
-      });
+export const register = (username, email, password, no_telp, navigate, setErrors, errors) => async (dispatch) => {
+  try {
+    let data = JSON.stringify({
+      username,
+      email,
+      no_telp,
+      password,
+    });
 
-      let config = {
-        method: "post",
-        url: "https://fpbejs-production.up.railway.app/api/v1/auth/register",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: data,
-      };
+    let config = {
+      method: "post",
+      url: "https://fpbejs-production.up.railway.app/api/v1/auth/register",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
 
-      const response = await axios.request(config);
-      const { token } = response.data.data;
+    const response = await axios.request(config);
+    const { token } = response.data.data;
 
-      localStorage.setItem("token", token);
+    localStorage.setItem("token", token);
 
-      dispatch(setToken(token));
-      navigate("/");
-      setErrors({ ...errors, isError: false });
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        alert(error?.response?.data?.message);
-        return;
-      }
-      alert(error?.message);
+    dispatch(setToken(token));
+    navigate("/");
+    setErrors({ ...errors, isError: false });
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      alert(error?.response?.data?.message);
+      return;
     }
-  };
+    alert(error?.message);
+  }
+};
 
-export const logout = () => (dispatch) => {
+export const logout = (navigate) => (dispatch) => {
   dispatch(setToken(null));
   dispatch(setUser(null));
+  navigate("/login");
 };
 
 export const getMe = (navigate, navigatePathSuccess, navigatePathError) => async (dispatch, getState) => {
   try {
     let { token } = getState().auth;
 
-    const response = await axios.get(
-      "https://fpbejs-production.up.railway.app/api/v1/auth/me",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/auth/me", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     const { data } = response.data;
     dispatch(setUser(data));

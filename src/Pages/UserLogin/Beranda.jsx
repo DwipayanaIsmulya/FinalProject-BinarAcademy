@@ -1,3 +1,4 @@
+import axios from "axios";
 import digilearn_align from "../../assets/img/Digilearn/digilearn_align_white.png";
 import uiux from "../../assets/img/Beranda/uiux-image.png";
 import webdev from "../../assets/img/Beranda/web-dev.png";
@@ -5,14 +6,13 @@ import productManagement from "../../assets/img/Beranda/product-management.png";
 import iosdev from "../../assets/img/Beranda/ios-dev.png";
 import dataImg from "../../assets/img/Beranda/data-science.png";
 import androidDev from "../../assets/img/Beranda/android-dev.png";
-import { Link, useNavigate } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCourse } from "../../redux/actions/tkCourseAction";
-import axios from "axios";
 
 const Beranda = () => {
   const { allCourse } = useSelector((state) => state.tkCourse);
@@ -197,11 +197,13 @@ const Beranda = () => {
           {/* left Nav */}
           <div className="flex w-[60%] h-full">
             <div className="flex md:justify-center md:items-center items-center h-full w-[100%] sm:w-[30%]">
-              <img
-                className="flex ms-6 mt-1 w-[80%] md:w-[70%]"
-                src={digilearn_align}
-                alt=""
-              />
+              <Link to="/">
+                <img
+                  className="flex ms-6 mt-1 w-[80%] md:w-[70%]"
+                  src={digilearn_align}
+                  alt=""
+                />
+              </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
               <form action="post md:flex md:text-md">
@@ -404,6 +406,16 @@ const Beranda = () => {
           </div>
           <div>
             <button
+              onClick={handleWeb}
+              className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
+                web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
+              }`}
+            >
+              Web Development
+            </button>
+          </div>
+          <div>
+            <button
               onClick={handleIos}
               className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${
                 ios ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"
@@ -423,7 +435,7 @@ const Beranda = () => {
             </button>
           </div>
         </div>
-        <div className="md:grid md:grid-cols-2 md:gap-4 flex flex-wrap justify-center items-center w-[100%] md:w-[80%] mt-4">
+        <div className="md:grid md:grid-cols-3 md:gap-4 flex flex-wrap justify-center items-center w-[100%] md:w-[93%] mt-4">
           {filteredCourses.map((course) => (
             <div
               className="flex justify-center items-center w-auto hover:scale-105 duration-300"

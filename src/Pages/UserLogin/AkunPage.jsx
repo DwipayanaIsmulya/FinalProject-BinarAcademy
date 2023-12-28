@@ -5,16 +5,21 @@ import arrowPurple from "../../assets/img/UserLogin/arrowpurple.png";
 import edit from "../../assets/img/UserLogin/edit.png";
 import settings from "../../assets/img/UserLogin/settings.png";
 import cart from "../../assets/img/UserLogin/cart.png";
-import logout from "../../assets/img/UserLogin/logout.png";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import logoutImg from "../../assets/img/UserLogin/logout.png";
 import PasswordSettingsComponent from "../../Components/UserLogin/PasswordSettingsComponent";
 import RiwayatPembelianComponent from "../../Components/UserLogin/RiwayatPembelianComponent";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/authAction";
+import toast from "react-hot-toast";
 
 const AkunPage = () => {
   const [editProfil, setEditProfil] = useState(true);
   const [passwordSettings, setPasswordSettings] = useState(false);
   const [riwayatPembelian, setRiwayatPembelian] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleEditProfile = () => {
     setEditProfil(true);
@@ -30,6 +35,13 @@ const AkunPage = () => {
     setRiwayatPembelian(true);
     setEditProfil(false);
     setPasswordSettings(false);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout(navigate));
+    toast.success("Berhasil logout", {
+      duration: 3000,
+    });
   };
 
   return (
@@ -63,7 +75,7 @@ const AkunPage = () => {
                 <img src={cart} />
               </div>
               <div>
-                <img src={logout} />
+                <img src={logoutImg} />
               </div>
             </div>
             <div className="hidden md:block">
@@ -88,8 +100,8 @@ const AkunPage = () => {
                     </div>
                   </div>
                   <div className="pb-8">
-                    <div className="flex py-4 hover:border-b">
-                      <img src={logout} className="" />
+                    <div onClick={handleLogout} className="flex py-4 hover:border-b">
+                      <img src={logoutImg} className="" />
                       <p className="pl-2 text-xl font-medium ">Keluar</p>
                     </div>
                   </div>

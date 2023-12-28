@@ -2,7 +2,7 @@ import digilearn_align from "../../assets/img/Digilearn/digilearn_align_white.pn
 import filist from "../../assets/img/UserLogin/fi_list.png";
 import fibell from "../../assets/img/UserLogin/fi_bell.png";
 import fiuser from "../../assets/img/UserLogin/fi_user.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -21,11 +21,13 @@ const NavbarBerandaComponent = () => {
           {/* left Nav */}
           <div className="flex w-[60%] h-full">
             <div className="flex md:justify-center md:items-center h-full w-[100%] sm:w-[30%]">
-              <img
-                className="flex ms-6 mt-1 w-[70%]"
-                src={digilearn_align}
-                alt=""
-              />
+              <Link to="/">
+                <img
+                  className="flex ms-6 mt-1 w-[70%]"
+                  src={digilearn_align}
+                  alt=""
+                />
+              </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
               <form action="post md:flex md:text-md">
