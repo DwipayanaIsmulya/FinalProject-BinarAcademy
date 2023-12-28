@@ -48,7 +48,7 @@ const EditProfileComponent = () => {
 
   const handleSubmit = async () => {
     try {
-      await dispatch(updateMyProfile(formData)); // Pass formData to updateMyProfile action
+      dispatch(updateMyProfile(formData)); // Pass formData to updateMyProfile action
     } catch (error) {
       console.error("Profile update failed:", error);
     }
@@ -75,11 +75,11 @@ const EditProfileComponent = () => {
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Negara</p>
-          <input type="text" name="negara" value={formData.country} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Negara" />
+          <input type="text" name="country" value={formData.country} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Negara" />
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Kota</p>
-          <input type="text" name="kota" value={formData.city} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Kota" />
+          <input type="text" name="city" value={formData.city} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Kota" />
         </div>
         <div className="py-2">
           <button onClick={handleSubmit} className="bg-[#6148FF] text-white py-2 px-2 w-full rounded-2xl">

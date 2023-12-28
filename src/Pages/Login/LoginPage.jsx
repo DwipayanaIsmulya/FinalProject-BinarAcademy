@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/actions/authAction";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -15,6 +16,9 @@ const LoginPage = () => {
     event.preventDefault();
 
     dispatch(login(email, password, navigate));
+    toast.success("Login Berhasil!", {
+      duration: 3000,
+    });
   };
 
   return (
