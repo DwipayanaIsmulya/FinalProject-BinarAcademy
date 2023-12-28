@@ -1,16 +1,32 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../../redux/actions/authActions";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const NoAccessToken = ({ children }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
 
   useEffect(() => {
-    dispatch(getMe(navigate, "/", null));
-  }, [dispatch, navigate]);
+    const getMe = async () => {
+      try {
+        if (!token) {
+          return;
+        }
 
+        await axios.get(`https://fpbejs-production.up.railway.app/api/v1/auth/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        navigate("/");
+      } catch (error) {
+        return;
+      }
+    };
+
+    getMe();
+  }, [token, navigate]);
   return children;
 };
 

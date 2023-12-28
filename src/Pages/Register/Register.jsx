@@ -43,17 +43,17 @@ const Register = () => {
                 {/* Email */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Email</div>
-                  <input type="text" value={email} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Contoh: johndee@gmail.com" onChange={(e) => setEmail(e.target.value)} />
+                  <input type="email" value={email} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Contoh: johndee@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 {/* Nomor Telepon */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Nomor Telepon</div>
-                  <input type="text" value={no_telp} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Nomor Telepon" onChange={(e) => setNoTelp(e.target.value)} />
+                  <input type="text" value={no_telp} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Nomor Telepon" onChange={(e) => setNoTelp(e.target.value)} autoComplete="new-phone-number" />
                 </div>
                 {/* Buat Password */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Buat Password</div>
-                  <input type="password" value={password} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                  <input type="password" value={password} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" />
                 </div>
                 {/* Daftar */}
                 <div className="flex flex-col mt-4">

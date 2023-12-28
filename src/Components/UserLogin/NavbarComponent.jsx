@@ -3,8 +3,17 @@ import filist from "../../assets/img/UserLogin/fi_list.png";
 import fibell from "../../assets/img/UserLogin/fi_bell.png";
 import fiuser from "../../assets/img/UserLogin/fi_user.png";
 import { NavLink, Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NavbarBerandaComponent = () => {
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    navigate(`/search?name=${query}`);
+  };
   return (
     <>
       <div className="px-0 mx-0 w-screen justify-center flex flex-initial h-28 bg-[#6148FF]">
@@ -17,7 +26,10 @@ const NavbarBerandaComponent = () => {
               </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-              <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
+              <form action="post" className="md:flex md:text-md">
+                <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." value={query} onChange={(event) => setQuery(event.target.value)} />
+                <button type="submit" onClick={handleSearch}></button>
+              </form>
             </div>
           </div>
           {/* Right Nav */}

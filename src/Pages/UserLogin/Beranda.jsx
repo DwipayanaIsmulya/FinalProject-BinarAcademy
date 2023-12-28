@@ -9,15 +9,17 @@ import androidDev from "../../assets/img/Beranda/android-dev.png";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCourse } from "../../redux/actions/tkCourseAction";
 
 const Beranda = () => {
   const { allCourse } = useSelector((state) => state.tkCourse);
+  const [query, setQuery] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [all, setAll] = useState(true);
@@ -28,6 +30,11 @@ const Beranda = () => {
   const [ios, setIos] = useState(false);
   const [business, setBusiness] = useState(false);
   const [user, setUser] = useState(null);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    navigate(`/search?name=${query}`);
+  };
 
   const handleAll = () => {
     setAll(true);
@@ -180,7 +187,10 @@ const Beranda = () => {
               </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-              <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." />
+              <form action="post md:flex md:text-md">
+                <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." value={query} onChange={(event) => setQuery(event.target.value)} />
+                <button type="submit" onClick={handleSearch}></button>
+              </form>
             </div>
           </div>
           {/* Right Nav */}
@@ -299,6 +309,11 @@ const Beranda = () => {
           <div>
             <button onClick={handleAndroid} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${android ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
               Android Development
+            </button>
+          </div>
+          <div>
+            <button onClick={handleWeb} className={`w-auto h-[24px] m-1 px-4 md:mx-2 rounded-2xl ${web ? "bg-[#6148FF] text-white" : "bg-[#E8F1FF]"}`}>
+              Web Development
             </button>
           </div>
           <div>

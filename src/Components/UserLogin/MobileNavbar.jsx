@@ -15,13 +15,28 @@ const MobileNavbar = () => {
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-end  ">
-            <NavLink to="/topikkelas" className={({ isActive }) => (isActive ? "bg-[#489CFF] py-2 rounded-md" : "")}>
+            <NavLink
+              to="/topikkelas"
+              className={({ isActive }) =>
+                isActive ? "bg-[#489CFF] py-2 rounded-md" : ""
+              }
+            >
               <img src={filist} className="px-4 w-[150%]" />
             </NavLink>
-            <NavLink to="/notifikasi" className={({ isActive }) => (isActive ? "bg-[#489CFF] rounded-md" : "")}>
+            <NavLink
+              to="/notifikasi"
+              className={({ isActive }) =>
+                isActive ? "bg-[#489CFF] rounded-md" : ""
+              }
+            >
               <img src={fibell} className="px-4 w-[150%] mt-2" />
             </NavLink>
-            <NavLink to="/akun" className={({ isActive }) => (isActive ? "bg-[#489CFF] py-2 rounded-md" : "")}>
+            <NavLink
+              to="/akun"
+              className={({ isActive }) =>
+                isActive ? "bg-[#489CFF] py-2 rounded-md" : ""
+              }
+            >
               <img src={fiuser} className="px-4 w-[150%]" />
             </NavLink>
           </div>
