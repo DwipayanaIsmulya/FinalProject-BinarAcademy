@@ -71,10 +71,10 @@ const DetailKelas = () => {
                       <div>
                         <img src={star} className="" />
                       </div>
-                      <div className="ms-1">4.7</div>
+                      <div className="ms-1">{details.rating}</div>
                     </div>
                   </div>
-                  <div className="font-bold text-xl">{details.name}</div>
+                  <div className="font-bold text-xl">{details.courseCode}</div>
                   <div className="font-medium my-1 text-sm">
                     by {details.mentor}
                   </div>
@@ -83,7 +83,7 @@ const DetailKelas = () => {
                       <div className="my-auto pr-1">
                         <img src={levelBadge} />
                       </div>
-                      <div className="text-xs font-medium text-[#6148FF]">
+                      <div className="text-xs font-medium text-[#6148FF] capitalize">
                         {details.level} Level
                       </div>
                     </div>
@@ -91,13 +91,17 @@ const DetailKelas = () => {
                       <div className="my-auto pr-1">
                         <img src={book} />
                       </div>
-                      <div className="text-xs font-medium">5 Modul</div>
+                      <div className="text-xs font-medium">
+                        {details.module.length} Modul
+                      </div>
                     </div>
                     <div className="flex">
                       <div className="my-auto pr-1">
                         <img src={time} />
                       </div>
-                      <div className="text-xs font-medium">45 Menit</div>
+                      <div className="text-xs font-medium">
+                        {details.duration}
+                      </div>
                     </div>
                   </div>
                   <div className="flex mt-3 mb-2">
@@ -142,7 +146,7 @@ const DetailKelas = () => {
               tunggu di kelas ya!
             </div> */}
             <div className="flex p-1 indent-3 text-justify">
-              {details.description}
+              {details.about}
             </div>
             <div className="flex text-xl font-bold mt-1">
               Kelas Ini Ditujukan Untuk
@@ -157,7 +161,7 @@ const DetailKelas = () => {
           </div>
           {/* Right Content */}
           <div className="flex w-full justify-center md:absolute xl:right-28 lg:right-15 md:top-52 md:w-auto md:right-5">
-            <div className="flex flex-col bg-[#fff] w-[350px] md:w-[400px] mb-4 rounded-xl shadow-md shadow-gray-400 h-[500px] py-3 px-5">
+            <div className="flex flex-col bg-[#fff] w-[350px] md:w-[400px] mb-4 rounded-xl shadow-md shadow-gray-400 py-3 px-5">
               <div className="flex justify-between items-center">
                 <div className="text-xl font-bold">Materi Belajar</div>
                 <div className="flex">
@@ -172,92 +176,29 @@ const DetailKelas = () => {
               </div>
               <div className="flex justify-between my-2">
                 <div className="text-base font-bold text-[#6148FF]">
-                  Chapter 1 - Pendahuluan
+                  Modul Belajar
                 </div>
                 <div className="text-base font-bold text-[#489CFF]">
-                  60 Menit
+                  {details.duration}
                 </div>
               </div>
               {/* ===== */}
-              <div className="flex items-center justify-between py-2 border-b-2">
-                <div className="flex items-center">
-                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                    <p className="text-sm font-medium">1</p>
+              {details.module.map((dt, index) => (
+                <div
+                  className="flex items-center justify-between py-2 border-b-2"
+                  key={dt.id}
+                >
+                  <div className="flex items-center">
+                    <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
+                      <p className="text-sm font-medium">{index + 1}</p>
+                    </div>
+                    <div className="flex ms-2 text-sm font-medium">
+                      {dt.name}
+                    </div>
                   </div>
-                  <div className="flex ms-1 text-sm font-medium">
-                    Tujuan Mengikuti Kelas Design System
-                  </div>
+                  <img className="w-[18px] h-[18px] " src={fill1} alt="" />
                 </div>
-                <img className="w-[18px] h-[18px] " src={fill1} alt="" />
-              </div>
-              {/* ===== */}
-              <div className="flex items-center justify-between py-2 border-b-2">
-                <div className="flex items-center">
-                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                    <p className="text-sm font-medium">2</p>
-                  </div>
-                  <div className="flex ms-1 text-sm font-medium">
-                    Pengenalan Design System
-                  </div>
-                </div>
-                <img className="w-[18px] h-[18px] " src={fill1} alt="" />
-              </div>
-              {/* ===== */}
-              <div className="flex items-center justify-between py-2 border-b-2">
-                <div className="flex items-center">
-                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                    <p className="text-sm font-medium">3</p>
-                  </div>
-                  <div className="flex ms-1 text-sm font-medium">
-                    Contoh Membangun Design System
-                  </div>
-                </div>
-                <img className=" w-[18px] h-[18px] " src={fill1} alt="" />
-              </div>
-              <div className="flex justify-between my-2 mb-3">
-                <div className="text-base font-bold text-[#6148FF]">
-                  Chapter 2 - Memulai Desain
-                </div>
-                <div className="text-base font-bold text-[#489CFF]">
-                  120 Menit
-                </div>
-              </div>
-              {/* ===== */}
-              <div className="flex items-center justify-between py-2 border-b-2">
-                <div className="flex items-center">
-                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                    <p className="text-sm font-medium">4</p>
-                  </div>
-                  <div className="flex ms-1 text-sm font-medium">
-                    Color Palette
-                  </div>
-                </div>
-                <img className="w-[16px] h-[20px] " src={lock} alt="" />
-              </div>
-              {/* ===== */}
-              <div className="flex items-center justify-between py-2 border-b-2">
-                <div className="flex items-center">
-                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                    <p className="text-sm font-medium">5</p>
-                  </div>
-                  <div className="flex ms-1 text-sm font-medium">
-                    Typography, Layout dan Grid
-                  </div>
-                </div>
-                <img className="w-[16px] h-[20px] " src={lock} alt="" />
-              </div>
-              {/* ===== */}
-              <div className="flex items-center justify-between py-2 border-b-2">
-                <div className="flex items-center">
-                  <div className="flex w-[30px] h-[30px] rounded-3xl bg-[#EBF3FC] justify-center items-center">
-                    <p className="text-sm font-medium">6</p>
-                  </div>
-                  <div className="flex ms-1 text-sm font-medium">
-                    Membuat Component
-                  </div>
-                </div>
-                <img className="w-[16px] h-[20px] " src={lock} alt="" />
-              </div>
+              ))}
             </div>
           </div>
         </div>

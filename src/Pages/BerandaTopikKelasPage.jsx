@@ -342,11 +342,12 @@ const BerandaTopikKelasPage = () => {
                   >
                     <CardKelasComponent
                       id={course.id}
-                      name={course.name}
+                      name={course.courseCode}
                       level={course.level}
                       price={course.price}
                       isPremium={course.isPremium}
                       category={course.category}
+                      rating={course.rating}
                     />
                   </div>
                 ))}
