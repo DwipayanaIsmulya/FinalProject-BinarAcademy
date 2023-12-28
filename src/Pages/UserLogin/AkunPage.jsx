@@ -8,7 +8,7 @@ import cart from "../../assets/img/UserLogin/cart.png";
 import logoutImg from "../../assets/img/UserLogin/logout.png";
 import PasswordSettingsComponent from "../../Components/UserLogin/PasswordSettingsComponent";
 import RiwayatPembelianComponent from "../../Components/UserLogin/RiwayatPembelianComponent";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/actions/authAction";
@@ -19,7 +19,6 @@ const AkunPage = () => {
   const [passwordSettings, setPasswordSettings] = useState(false);
   const [riwayatPembelian, setRiwayatPembelian] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleEditProfile = () => {
     setEditProfil(true);
@@ -38,7 +37,7 @@ const AkunPage = () => {
   };
 
   const handleLogout = () => {
-    dispatch(logout(navigate));
+    dispatch(logout());
     toast.success("Berhasil logout", {
       duration: 3000,
     });
@@ -74,7 +73,7 @@ const AkunPage = () => {
               <div onClick={handleRiwayatPembelian} className={`${riwayatPembelian ? "border-2 border-[#6148FF]" : ""}`}>
                 <img src={cart} />
               </div>
-              <div>
+              <div onClick={handleLogout}>
                 <img src={logoutImg} />
               </div>
             </div>

@@ -43,7 +43,6 @@ export const register = (username, email, password, no_telp, navigate, setErrors
     localStorage.setItem("token", token);
 
     dispatch(setToken(token));
-    navigate("/");
     setErrors({ ...errors, isError: false });
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -54,10 +53,9 @@ export const register = (username, email, password, no_telp, navigate, setErrors
   }
 };
 
-export const logout = (navigate) => (dispatch) => {
+export const logout = () => (dispatch) => {
   dispatch(setToken(null));
   dispatch(setUser(null));
-  navigate("/login");
 };
 
 export const getMe = (navigate, navigatePathSuccess, navigatePathError) => async (dispatch, getState) => {
