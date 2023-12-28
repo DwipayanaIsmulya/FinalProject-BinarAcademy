@@ -15,6 +15,7 @@ const AkunPage = () => {
   const [editProfil, setEditProfil] = useState(true);
   const [passwordSettings, setPasswordSettings] = useState(false);
   const [riwayatPembelian, setRiwayatPembelian] = useState(false);
+
   const handleEditProfile = () => {
     setEditProfil(true);
     setPasswordSettings(false);
