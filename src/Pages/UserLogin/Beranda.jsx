@@ -5,7 +5,7 @@ import productManagement from "../../assets/img/Beranda/product-management.png";
 import iosdev from "../../assets/img/Beranda/ios-dev.png";
 import dataImg from "../../assets/img/Beranda/data-science.png";
 import androidDev from "../../assets/img/Beranda/android-dev.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginImage from "../../assets/img/Login_image.png";
 import mainImage from "../../assets/img/UserLogin/Rectangle137.svg";
 import CardKelasComponent from "../../Components/CardKelasComponent";
@@ -16,8 +16,10 @@ import axios from "axios";
 
 const Beranda = () => {
   const { allCourse } = useSelector((state) => state.tkCourse);
+  const [query, setQuery] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [all, setAll] = useState(true);
@@ -28,6 +30,11 @@ const Beranda = () => {
   const [ios, setIos] = useState(false);
   const [business, setBusiness] = useState(false);
   const [user, setUser] = useState(null);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    navigate(`/search?name=${query}`);
+  };
 
   const handleAll = () => {
     setAll(true);
@@ -197,11 +204,16 @@ const Beranda = () => {
               />
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-              <input
-                className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible"
-                type="text"
-                placeholder="Cari kursus terbaik.."
-              />
+              <form action="post md:flex md:text-md">
+                <input
+                  className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible"
+                  type="text"
+                  placeholder="Cari kursus terbaik.."
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                />
+                <button type="submit" onClick={handleSearch}></button>
+              </form>
             </div>
           </div>
           {/* Right Nav */}

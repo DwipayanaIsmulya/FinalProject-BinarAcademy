@@ -21,6 +21,7 @@ import BeliMateriPremium from "./Components/Popup/BeliMateriPremium";
 import MulaiBelajar from "./Components/Popup/MulaiBelajar";
 import ResetPassword from "./Pages/Reset/ResetPassword";
 import NavbarBlankComponent from "./Components/UserLogin/NavbarBlankComponent";
+import SearchCourse from "./Pages/UserLogin/SearchCourse";
 // import Protected from "./Components/Protected/Protected";
 
 // import NoAccessToken from "./Components/Protected/NoAccessToken";
@@ -62,6 +63,7 @@ function App() {
             <Route path="mobilenavbar" element={<MobileNavbar />} />
             <Route path="mulaibelajar" element={<MulaiBelajar />} />
             <Route path="resetpassword" element={<ResetPassword />} />
+            <Route path="/search" element={<SearchCourse />} />
             <Route
               path="progresscard"
               element={<ProgressCardKelasComponent />}

@@ -10,7 +10,6 @@ import play from "../../assets/img/UserLogin/Group6.png";
 import { Link, useParams } from "react-router-dom";
 import checklist from "../../assets/img/UserLogin/checklist.png";
 import fill1 from "../../assets/img/UserLogin/Fill1.png";
-import lock from "../../assets/img/UserLogin/lock.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getDetailsCourse } from "../../redux/actions/detailAction";
