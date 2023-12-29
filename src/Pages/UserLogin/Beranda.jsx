@@ -187,19 +187,8 @@ const Beranda = () => {
               </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-<<<<<<< HEAD
-              <form action="post md:flex md:text-md">
-                <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." value={query} onChange={(event) => setQuery(event.target.value)} />
-=======
               <form action="post" className="md:flex md:text-md">
-                <input
-                  className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible"
-                  type="text"
-                  placeholder="Cari kursus terbaik.."
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                />
->>>>>>> 20cefc9dccc662830b3ca5fc3bae1668e5edb039
+                <input className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible" type="text" placeholder="Cari kursus terbaik.." value={query} onChange={(event) => setQuery(event.target.value)} />
                 <button type="submit" onClick={handleSearch}></button>
               </form>
             </div>
