@@ -56,6 +56,14 @@ function App() {
               }
             />
             <Route
+              path="adminkelolakelas"
+              element={
+                <Protected>
+                  <KelolaKelasPage />
+                </Protected>
+              }
+            />
+            <Route
               path="admindashboard"
               element={
                 <Protected>

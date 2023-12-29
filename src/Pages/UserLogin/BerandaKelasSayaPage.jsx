@@ -43,10 +43,18 @@ const BerandaKelasSayaPage = () => {
           <div className="flex justify-around py-6 md:flex md:justify-between md:pt-16 md:pb-12">
             <div className="text-xl font-bold md:text-3xl">Kelas Berjalan</div>
             <div className="ml-auto">
-              <input className="rounded-3xl border-2 text-xs border-[#6148FF] py-1 px-2 md:text-sm md:py-2 md:px-3" type="text" placeholder="Cari Kelas" />
+              <input
+                className="rounded-3xl border-2 text-xs border-[#6148FF] py-1 px-2 md:text-sm md:py-2 md:px-3"
+                type="text"
+                placeholder="Cari Kelas"
+              />
             </div>
             <div>
-              <img onClick={handleFilterBox} src={filter} className="w-4 mt-1 mx-1 md:hidden" />
+              <img
+                onClick={handleFilterBox}
+                src={filter}
+                className="w-4 mt-1 mx-1 md:hidden"
+              />
             </div>
           </div>
           <div className="md:flex">
@@ -87,13 +95,17 @@ const BerandaKelasSayaPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="text-sm md:text-base">Web Development</div>
+                      <div className="text-sm md:text-base">
+                        Web Development
+                      </div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="text-sm md:text-base">Android Development</div>
+                      <div className="text-sm md:text-base">
+                        Android Development
+                      </div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
@@ -105,7 +117,9 @@ const BerandaKelasSayaPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="text-sm md:text-base">Business Intelligence</div>
+                      <div className="text-sm md:text-base">
+                        Business Intelligence
+                      </div>
                     </div>
                   </div>
                   <div className="font-bold  md:text-xl">Level Kesulitan</div>
@@ -126,7 +140,9 @@ const BerandaKelasSayaPage = () => {
                       <div className="pr-4">
                         <input className=" accent-[#6148FF]" type="checkbox" />
                       </div>
-                      <div className="text-sm md:text-base">Intermediate Level</div>
+                      <div className="text-sm md:text-base">
+                        Intermediate Level
+                      </div>
                     </div>
                     <div className="flex p-2">
                       <div className="pr-4">
@@ -136,7 +152,9 @@ const BerandaKelasSayaPage = () => {
                     </div>
                   </div>
                   <div className="pt-5 pb-3 text-center">
-                    <button className="text-[#FF0000] hover:text-[#ff0000]">Hapus Filter</button>
+                    <button className="text-[#FF0000] hover:text-[#ff0000]">
+                      Hapus Filter
+                    </button>
                   </div>
                 </div>
               </div>
@@ -144,17 +162,38 @@ const BerandaKelasSayaPage = () => {
             <div className="pt-4 md:w-[970px] md:ml-auto md:pt-0">
               <div className="flex justify-around md:justify-between">
                 <div>
-                  <button onClick={handleAll} className={`p-2 w-[110px] md:p-3 md:w-[200px] ${all ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl text-xs md:text-base`}>
+                  <button
+                    onClick={handleAll}
+                    className={`p-2 w-[110px] md:p-3 md:w-[200px] ${
+                      all
+                        ? "bg-[#6148FF] text-white"
+                        : "bg-white text-[#8A8A8A]"
+                    } rounded-2xl text-xs md:text-base`}
+                  >
                     All
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleInProgress} className={`p-2 w-[110px] md:p-3 md:w-[388px] ${inProgress ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"}  rounded-2xl text-xs md:text-base`}>
+                  <button
+                    onClick={handleInProgress}
+                    className={`p-2 w-[110px] md:p-3 md:w-[388px] ${
+                      inProgress
+                        ? "bg-[#6148FF] text-white"
+                        : "bg-white text-[#8A8A8A]"
+                    }  rounded-2xl text-xs md:text-base`}
+                  >
                     In Progress
                   </button>
                 </div>
                 <div>
-                  <button onClick={handleSelesai} className={`p-2 w-[110px] md:p-3 md:w-[250px] ${selesai ? "bg-[#6148FF] text-white" : "bg-white text-[#8A8A8A]"} rounded-2xl text-xs md:text-base`}>
+                  <button
+                    onClick={handleSelesai}
+                    className={`p-2 w-[110px] md:p-3 md:w-[250px] ${
+                      selesai
+                        ? "bg-[#6148FF] text-white"
+                        : "bg-white text-[#8A8A8A]"
+                    } rounded-2xl text-xs md:text-base`}
+                  >
                     Selesai
                   </button>
                 </div>
