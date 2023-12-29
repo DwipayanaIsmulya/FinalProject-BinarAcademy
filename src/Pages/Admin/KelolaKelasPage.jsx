@@ -1,27 +1,47 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import activeImage from "../../assets/img/icon.png";
+import axios from "axios";
 
 const KelolaKelasPage = () => {
   const [showModal, setShowModal] = useState(false);
-  const [data, setData] = useState({
-    namaKelas: "",
-    kategori: "",
-    kodeKelas: "",
-    tipeKelas: "",
+  const [courseItem, setCourseItem] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    courseCode: "",
+    isPremium: null,
+    categoryId: "",
     level: "",
-    harga: 0,
-    materi: "",
+    price: 0,
+    description: "",
+    videoUrl: "",
+    userId: "",
   });
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+  const navigate = useNavigate();
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("https://fpbejs-production.up.railway.app/api/v1/course", {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJNdWx5YTI2QHlhaG9vLmNvbSIsImlhdCI6MTcwMjIzMDQ5OX0.Firorna3YFlxqNSaquzk5qlM8Hp7GHLoHgAbQUJT7AY",
+          },
+        });
+
+        const { data } = response.data;
+        setCourseItem(data);
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+    getData();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Nanti API Create Course disini
+    console.log("Form Data:", formData);
   };
 
-  // Ini fungsi untuk tambah data nanti
-  // const tambahkanData = (data) => {
-  //   console.log(data);
-  // };
-  const navigate = useNavigate();
   return (
     <>
       <div className="flex h-screen w-full">
@@ -95,28 +115,34 @@ const KelolaKelasPage = () => {
               <table className="w-full">
                 <thead className="bg-[#EBF3FC]">
                   <tr>
+                    <th>No</th>
                     <th>Kode Kelas</th>
                     <th>Kategori</th>
                     <th>Nama Kelas</th>
                     <th>Tipe Kelas</th>
                     <th>Level</th>
                     <th>Harga Kelas</th>
+                    <th>Mentor</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="text-center">UIUX0123</td>
-                    <td className="text-center">UI/UX Design</td>
-                    <td className="text-center">Belajar Web Designer dengan Figma</td>
-                    <td className="text-center">GRATIS</td>
-                    <td className="text-center">Beginner</td>
-                    <td className="text-center">Rp 0</td>
-                    <div className="grid grid-cols-2">
-                      <button>Ubah</button>
-                      <button>Hapus</button>
-                    </div>
-                  </tr>
+                  {courseItem.map((course) => (
+                    <tr key={course?.id}>
+                      <td className="text-center">{course.id}</td>
+                      <td className="text-center">{course.courseCode}</td>
+                      <td className="text-center">{course.category}</td>
+                      <td className="text-center">{course.name}</td>
+                      <td className="text-center">{course.isPremium ? "Premium" : "Gratis"}</td>
+                      <td className="text-center">{course.level}</td>
+                      <td className="text-center">Rp {course.price}</td>
+                      <td className="text-center">{course.mentor}</td>
+                      <div className="grid grid-cols-2">
+                        <button>Ubah</button>
+                        <button>Hapus</button>
+                      </div>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -125,8 +151,8 @@ const KelolaKelasPage = () => {
         {/* Tambah Kelas Modal */}
         {showModal ? (
           <>
-            <form>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+            <form onSubmit={handleSubmit}>
+              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none text-sm">
                 <div className="relative w-[1000px] my-6 mx-auto max-w-4xl max-h-4xl">
                   {/*content*/}
                   <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -140,37 +166,135 @@ const KelolaKelasPage = () => {
                     {/*body*/}
                     <div className="relative p-6 flex-auto">
                       <div className="flex flex-col p-2">
+                        {/* Input Nama Kelas */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Nama:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="nama" value={data.nama} onChange={handleChange} placeholder="Text" />
+                          <label className="text-sm pb-2 font-medium">Nama Kelas:</label>
+                          <input className=" border-2 border-gray-400 p-2 rounded-xl  " type="text" name="name" placeholder="Text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                         </div>
+                        {/* Input Kategori */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Kategori:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="kategori" value={data.kategori} onChange={handleChange} placeholder="Text" />
+                          <p className="text-sm pb-2 font-medium">Kategori: </p>
+
+                          <div className="flex justify-around">
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="1" name="categoryId" onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })} />
+                                UI/UX Design
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="2" name="categoryId" onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })} />
+                                Web Development
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="3" name="categoryId" onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })} />
+                                Android Development
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="4" name="categoryId" onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })} />
+                                Data Science
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="5" name="categoryId" onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })} />
+                                Business Intelligence
+                              </label>
+                            </div>
+                          </div>
                         </div>
+                        {/* Input Kode Kelas */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Kode Kelas:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="kodeKelas" value={data.kodeKelas} onChange={handleChange} placeholder="Text" />
+                          <label className="text-sm pb-2 font-medium">Kode Kelas:</label>
+                          <input
+                            className=" border-2 border-gray-400 p-2 rounded-xl  "
+                            type="text"
+                            name="courseCode"
+                            placeholder="Text"
+                            value={formData.courseCode}
+                            onChange={(e) => setFormData({ ...formData, courseCode: e.target.value })}
+                          />
                         </div>
+                        {/* Input Tipe Kelas */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Tipe Kelas:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="tipeKelas" value={data.tipeKelas} onChange={handleChange} placeholder="Text" />
+                          <p className="text-sm pb-2 font-medium">Tipe Kelas:</p>
+                          <div className="flex">
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="true" name="isPremium" onChange={() => setFormData({ ...formData, isPremium: true })} />
+                                Premium
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="false" name="isPremium" onChange={() => setFormData({ ...formData, isPremium: false })} />
+                                Gratis
+                              </label>
+                            </div>
+                          </div>
                         </div>
+                        {/* Input Level */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Level:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="level" value={data.level} onChange={handleChange} placeholder="Text" />
+                          <p className="text-sm pb-2 font-medium">Level:</p>
+                          <div className="flex">
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="Beginner" name="Level" onChange={(e) => setFormData({ ...formData, level: e.target.value })} />
+                                Beginner
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="Intermediate" name="Level" onChange={(e) => setFormData({ ...formData, level: e.target.value })} />
+                                Intermediate
+                              </label>
+                            </div>
+                            <div className="flex items-center pr-2">
+                              <label className="text-sm pl-1">
+                                <input className="mx-2" type="radio" value="Advance" name="Level" onChange={(e) => setFormData({ ...formData, level: e.target.value })} />
+                                Advance
+                              </label>
+                            </div>
+                          </div>
                         </div>
+                        {/* Input Harga */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Harga:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="harga" value={data.harga} onChange={handleChange} placeholder="Text" />
+                          <label className="text-sm pb-2 font-medium">Harga:</label>
+                          <input
+                            className=" border-2 border-gray-400 p-2 rounded-xl  "
+                            type="text"
+                            name="price"
+                            placeholder="Text"
+                            value={formData.price}
+                            onChange={(e) => setFormData({ ...formData, price: parseInt(e.target.value, 10) || "" })}
+                          />
                         </div>
+                        {/* Input Materi */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Materi:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="materi" value={data.materi} onChange={handleChange} placeholder="Text" />
+                          <label className="text-sm pb-2 font-medium">Materi:</label>
+                          <input
+                            className=" border-2 border-gray-400 p-2 rounded-xl  "
+                            type="text"
+                            name="description"
+                            placeholder="Text"
+                            value={formData.description}
+                            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                          />
                         </div>
+                        {/* Input Video Link */}
                         <div className="flex flex-col p-2">
-                          <label className="text-sm pb-2">Video Link:</label>
-                          <input className=" border-2 border-gay-400 p-2 rounded-xl  " type="text" name="nama" value={data.nama} onChange={handleChange} placeholder="Text" />
+                          <label className="text-sm pb-2 font-medium">Video Link:</label>
+                          <input className=" border-2 border-gray-400 p-2 rounded-xl  " type="text" name="videoUrl" placeholder="Text" value={formData.videoUrl} onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })} />
+                        </div>
+                        {/* Id Mentor */}
+                        <div className="flex flex-col p-2">
+                          <label className="text-sm pb-2 font-medium">Id Mentor:</label>
+                          <input className=" border-2 border-gray-400 p-2 rounded-xl  " type="text" name="userId" placeholder="Text" value={formData.userId} onChange={(e) => setFormData({ ...formData, userId: e.target.value })} />
                         </div>
                       </div>
                     </div>
@@ -185,8 +309,7 @@ const KelolaKelasPage = () => {
                       </button>
                       <button
                         className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                        type="button"
-                        onClick={() => setShowModal(false)}
+                        type="submit"
                       >
                         Tambah
                       </button>
