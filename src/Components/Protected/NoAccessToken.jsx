@@ -14,11 +14,14 @@ const NoAccessToken = ({ children }) => {
           return;
         }
 
-        await axios.get(`https://fpbejs-production.up.railway.app/api/v1/auth/me`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        await axios.get(
+          `https://fpbejs-production.up.railway.app/api/v1/auth/me`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         navigate("/");
       } catch (error) {
         return;

@@ -107,14 +107,16 @@ const DetailKelas = () => {
                       </div>
                     </div>
                     <div className="flex mt-3 mb-2">
-                      <button className="flex items-center justify-center bg-[#73CA5C] h-[34px] w-[230px] md:w-[269px] font-bold text-sm text-white rounded-xl">
-                        <p>Join Grup Telegram</p>
-                        <img
-                          className="w-[22px] h-[22px] ms-2"
-                          src={chat}
-                          alt=""
-                        />
-                      </button>
+                      <Link to="https://t.me/+fgpYyFbDJ20xMGRl">
+                        <button className="flex items-center justify-center bg-[#73CA5C] h-[34px] w-[230px] md:w-[269px] font-bold text-sm text-white rounded-xl">
+                          <p>Join Grup Telegram</p>
+                          <img
+                            className="w-[22px] h-[22px] ms-2"
+                            src={chat}
+                            alt=""
+                          />
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -128,25 +130,6 @@ const DetailKelas = () => {
             </div>
             <div className="flex flex-col m-4">
               <div className="flex text-xl font-bold">Tentang Kelas</div>
-              {/* <div className="flex p-1 indent-3 text-justify">
-              Design system adalah kumpulan komponen design, code, ataupun
-              dokumentasi yang dapat digunakan sebagai panduan utama yang
-              memunginkan designer serta developer memiliki lebih banyak kontrol
-              atas berbagai platform. Dengan hadirnya design system, dapat
-              menjaga konsistensi tampilan user interface dan meningkatkan user
-              experience menjadi lebih baik. Disisi bisnis, design system sangat
-              berguna dalam menghemat waktu dan biaya ketika mengembangkan suatu
-              produk. Bersama mentor XXX, kita akan mempelajari design system
-              dari mulai manfaat, alur kerja pembuatannya, tools yang digunakan,
-              hingga pada akhirnya, kita akan membuat MVP dari design system.
-              Selain itu, mentor juga akan menjelaskan berbagai resource yang
-              dibutuhkan untuk mencari inspirasi mengenai design system. Kelas
-              ini sesuai untuk Anda yang ingin memahami apa itu design system.
-              Tidak hanya ditujukan untuk UI/UX Designer ataupun Developer,
-              kelas ini sangat sesuai untuk stakeholder lain agar dapat
-              memudahkan tim dalam bekerja sama. Yuk segera daftar dan kami
-              tunggu di kelas ya!
-            </div> */}
               <div className="flex p-1 indent-3 text-justify">
                 {details.about}
               </div>
@@ -274,14 +257,16 @@ const DetailKelas = () => {
                     </div>
                   </div>
                   <div className="flex mt-3 mb-2">
-                    <button className="flex items-center justify-center bg-[#73CA5C] h-[34px] w-[230px] md:w-[269px] font-bold text-sm text-white rounded-xl">
-                      <p>Join Grup Telegram</p>
-                      <img
-                        className="w-[22px] h-[22px] ms-2"
-                        src={chat}
-                        alt=""
-                      />
-                    </button>
+                    <Link to="/topikkelas" className="w-full h-full">
+                      <button className="flex items-center justify-center bg-[#73CA5C] h-[34px] w-[230px] md:w-[269px] font-bold text-sm text-white rounded-xl">
+                        <p>Join Grup Telegram</p>
+                        <img
+                          className="w-[22px] h-[22px] ms-2"
+                          src={chat}
+                          alt=""
+                        />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -295,25 +280,6 @@ const DetailKelas = () => {
           </div>
           <div className="flex flex-col m-4">
             <div className="flex text-xl font-bold">Tentang Kelas</div>
-            {/* <div className="flex p-1 indent-3 text-justify">
-              Design system adalah kumpulan komponen design, code, ataupun
-              dokumentasi yang dapat digunakan sebagai panduan utama yang
-              memunginkan designer serta developer memiliki lebih banyak kontrol
-              atas berbagai platform. Dengan hadirnya design system, dapat
-              menjaga konsistensi tampilan user interface dan meningkatkan user
-              experience menjadi lebih baik. Disisi bisnis, design system sangat
-              berguna dalam menghemat waktu dan biaya ketika mengembangkan suatu
-              produk. Bersama mentor XXX, kita akan mempelajari design system
-              dari mulai manfaat, alur kerja pembuatannya, tools yang digunakan,
-              hingga pada akhirnya, kita akan membuat MVP dari design system.
-              Selain itu, mentor juga akan menjelaskan berbagai resource yang
-              dibutuhkan untuk mencari inspirasi mengenai design system. Kelas
-              ini sesuai untuk Anda yang ingin memahami apa itu design system.
-              Tidak hanya ditujukan untuk UI/UX Designer ataupun Developer,
-              kelas ini sangat sesuai untuk stakeholder lain agar dapat
-              memudahkan tim dalam bekerja sama. Yuk segera daftar dan kami
-              tunggu di kelas ya!
-            </div> */}
             <div className="flex p-1 indent-3 text-justify">
               {details.about}
             </div>
@@ -334,9 +300,9 @@ const DetailKelas = () => {
                 <div className="flex">
                   <img className="w-[18px] h-[18px]" src={checklist} alt="" />
                   <div className="flex ms-1 w-[120px] bg-[#D9D9D9] rounded-xl">
-                    <div className="flex w-[30%] bg-[#6148FF] rounded-xl text-xs "></div>
+                    <div className="flex w-[0%] bg-[#6148FF] rounded-xl text-xs "></div>
                     <p className="absolute text-xs text-[#FFFFFF]">
-                      10% Complete
+                      0% Complete
                     </p>
                   </div>
                 </div>
