@@ -18,7 +18,9 @@ const NotifikasiPage = () => {
         <div className="flex py-4 md:pl-48">
           <img src={arrowPurple} />
           <Link to="/">
-            <p className="md:text-xl pl-2 text-[#6148FF] font-bold">Kembali ke Beranda</p>
+            <p className="md:text-xl pl-2 text-[#6148FF] font-bold">
+              Kembali ke Beranda
+            </p>
           </Link>
         </div>
         <div className="md:w-[1240px] w-[320px] mx-auto py-4">
@@ -32,9 +34,15 @@ const NotifikasiPage = () => {
                   <img src={notifSimbol} className="" />
                 </div>
                 <div className="md:flex-auto md:pl-3 pl-2">
-                  <p className="md:text-xl text-[#6148FF] font-medium">Promosi</p>
-                  <p className="md:text-base font-medium text-sm">Dapatkan potongan sebanyak 50%!</p>
-                  <p className="md:text-base text-sm">Syarat dan ketentuan berlaku</p>
+                  <p className="md:text-xl text-[#6148FF] font-medium">
+                    Promosi
+                  </p>
+                  <p className="md:text-base font-medium text-sm">
+                    Dapatkan potongan sebanyak 50%!
+                  </p>
+                  <p className="md:text-base text-sm">
+                    Syarat dan ketentuan berlaku
+                  </p>
                 </div>
                 <div className="md:flex-auto">
                   <div className="flex md:justify-end">
@@ -50,9 +58,15 @@ const NotifikasiPage = () => {
                   <img src={notifSimbol} className="" />
                 </div>
                 <div className="md:flex-auto md:pl-3 pl-2">
-                  <p className="md:text-xl text-[#6148FF] font-medium">Promosi</p>
-                  <p className="md:text-base font-medium text-sm">Dapatkan potongan sebanyak 50%!</p>
-                  <p className="md:text-base text-sm">Syarat dan ketentuan berlaku</p>
+                  <p className="md:text-xl text-[#6148FF] font-medium">
+                    Promosi
+                  </p>
+                  <p className="md:text-base font-medium text-sm">
+                    Dapatkan potongan sebanyak 50%!
+                  </p>
+                  <p className="md:text-base text-sm">
+                    Syarat dan ketentuan berlaku
+                  </p>
                 </div>
                 <div className="md:flex-auto">
                   <div className="flex md:justify-end">
@@ -68,9 +82,15 @@ const NotifikasiPage = () => {
                   <img src={notifSimbol} className="" />
                 </div>
                 <div className="md:flex-auto md:pl-3 pl-2">
-                  <p className="md:text-xl text-[#6148FF] font-medium">Promosi</p>
-                  <p className="md:text-base font-medium text-sm">Dapatkan potongan sebanyak 50%!</p>
-                  <p className="md:text-base text-sm">Syarat dan ketentuan berlaku</p>
+                  <p className="md:text-xl text-[#6148FF] font-medium">
+                    Promosi
+                  </p>
+                  <p className="md:text-base font-medium text-sm">
+                    Dapatkan potongan sebanyak 50%!
+                  </p>
+                  <p className="md:text-base text-sm">
+                    Syarat dan ketentuan berlaku
+                  </p>
                 </div>
                 <div className="md:flex-auto">
                   <div className="flex md:justify-end">
