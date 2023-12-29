@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import { setToken, setUser } from "../reducers/authReducer";
 
 // Login
@@ -12,6 +13,9 @@ export const login = (email, password, navigate) => async (dispatch) => {
     const { token } = data;
     dispatch(setToken(token));
     navigate("/");
+    toast.success("Login Berhasil!", {
+      duration: 3000,
+    });
   } catch (error) {
     if (axios.isAxiosError(error)) {
       alert(error);

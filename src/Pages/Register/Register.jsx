@@ -18,9 +18,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    dispatch(
-      register(name, email, password, no_telp, navigate, setErrors, errors)
-    );
+    dispatch(register(name, email, password, no_telp, navigate, setErrors, errors));
     toast.success("Registrasi berhasil!", {
       duration: 3000,
     });
@@ -28,73 +26,38 @@ const Register = () => {
 
   return (
     <>
-      <div
-        className="flex sm:flex-col-2 h-screen w-full"
-        style={{ fontFamily: "poppins" }}
-      >
+      <div className="flex sm:flex-col-2 h-screen w-full" style={{ fontFamily: "poppins" }}>
         {/* Ini Kiri */}
         <div className="flex flex-initial w-[100%] sm:w-[60%]">
           <div className="flex flex-col justify-center items-center h-screen w-full">
             <div className="flex flex-col w-[300px] lg:w-[452px]">
               <form onSubmit={handleRegister}>
-                <div
-                  className="text-start text-2xl font-bold text-[#6148FF]"
-                  style={{ fontFamily: "sans-serif" }}
-                >
+                <div className="text-start text-2xl font-bold text-[#6148FF]" style={{ fontFamily: "sans-serif" }}>
                   Daftar
                 </div>
                 {/* Username */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Username</div>
-                  <input
-                    type="text"
-                    value={name}
-                    className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2"
-                    placeholder="Username"
-                    onChange={(e) => setName(e.target.value)}
-                  />
+                  <input type="text" value={name} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Username" onChange={(e) => setName(e.target.value)} />
                 </div>
                 {/* Email */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Email</div>
-                  <input
-                    type="email"
-                    value={email}
-                    className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2"
-                    placeholder="Contoh: johndee@gmail.com"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+                  <input type="email" value={email} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Contoh: johndee@gmail.com" onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 {/* Nomor Telepon */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Nomor Telepon</div>
-                  <input
-                    type="text"
-                    value={no_telp}
-                    className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2"
-                    placeholder="Nomor Telepon"
-                    onChange={(e) => setNoTelp(e.target.value)}
-                    autoComplete="new-phone-number"
-                  />
+                  <input type="text" value={no_telp} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Nomor Telepon" onChange={(e) => setNoTelp(e.target.value)} autoComplete="new-phone-number" />
                 </div>
                 {/* Buat Password */}
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Buat Password</div>
-                  <input
-                    type="password"
-                    value={password}
-                    className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2"
-                    placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="new-password"
-                  />
+                  <input type="password" value={password} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" />
                 </div>
                 {/* Daftar */}
                 <div className="flex flex-col mt-4">
-                  <button
-                    className="bg-[#6148FF] text-white rounded-xl p-2"
-                    type="submit"
-                  >
+                  <button className="bg-[#6148FF] text-white rounded-xl p-2" type="submit">
                     Daftar
                   </button>
                 </div>

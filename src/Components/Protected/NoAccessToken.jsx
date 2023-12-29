@@ -14,6 +14,13 @@ const NoAccessToken = ({ children }) => {
           return;
         }
 
+<<<<<<< HEAD
+        await axios.get(`https://fpbejs-production.up.railway.app/api/v1/auth/me`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+=======
         await axios.get(
           `https://fpbejs-production.up.railway.app/api/v1/auth/me`,
           {
@@ -22,6 +29,7 @@ const NoAccessToken = ({ children }) => {
             },
           }
         );
+>>>>>>> 20cefc9dccc662830b3ca5fc3bae1668e5edb039
         navigate("/");
       } catch (error) {
         return;
