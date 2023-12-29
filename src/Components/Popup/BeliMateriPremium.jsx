@@ -1,4 +1,3 @@
-import exit from "../../assets/img/BeliPremium/exit.png";
 import arrowright from "../../assets/img/BeliPremium/arrowright.png";
 import star from "../../assets/img/Card/star.png";
 import levelBadge from "../../assets/img/Card/levelBadge.png";
@@ -7,9 +6,11 @@ import time from "../../assets/img/Card/time.png";
 import premium from "../../assets/img/Card/premium.png";
 import PropType from "prop-types";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
   const [change, setChange] = useState(false);
+  const navigate = useNavigate();
 
   const formattedLevel = level
     ? level.charAt(0).toUpperCase() + level.slice(1)
@@ -26,20 +27,13 @@ const BeliMateriPremium = ({ name, level, price, isPremium, category }) => {
   };
 
   if (change == true) {
-    return;
+    return navigate("/pembayaran");
   }
 
   return (
     <>
-      <div className="fixed z-20 flex justify-center items-center w-full h-full bg-black/[.70]">
+      <div className="fixed z-20 flex justify-center items-center w-full h-full bg-black/[.85]">
         <div className="flex items-center flex-col relative w-[320px] h-[350px] md:w-[420px] md:h-[385px] bg-[#fff] rounded-xl">
-          <button className="absolute right-3 top-3" onClick={handleChange}>
-            <img
-              className="w-[14px] h-[14px] md:w-[18px] md:h-[18px]"
-              src={exit}
-              alt=""
-            />
-          </button>
           <div className="flex flex-col w-full mt-3 pt-2 items-center">
             <div className="font-bold text-sm md:text-xl ">
               Selangkah lagi menuju

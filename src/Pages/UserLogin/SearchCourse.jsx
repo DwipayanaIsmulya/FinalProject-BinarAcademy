@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { getSearchCourse } from "../../redux/actions/searchAction";
 import { useSearchParams } from "react-router-dom";
-import NavbarBlankComponent from "../../Components/UserLogin/NavbarBlankComponent";
+import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
 import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 import CardKelasComponent from "../../Components/CardKelasComponent";
 import arrowPurple from "../../assets/img/UserLogin/arrowpurple.png";
@@ -36,10 +36,10 @@ const SearchCourse = () => {
 
   return (
     <>
-      <div className=" h-full bg-[#EBF3FC] pb-32 md:w-screen ">
+      <div className=" h-screen bg-[#EBF3FC] pb-32 md:w-screen ">
         {/* Navbar */}
         <div className="hidden md:block">
-          <NavbarBlankComponent />
+          <NavbarComponent />
         </div>
         <div className="md:hidden">
           <MobileNavbar />

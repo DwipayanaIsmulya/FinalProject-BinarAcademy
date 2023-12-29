@@ -206,7 +206,7 @@ const Beranda = () => {
               </Link>
             </div>
             <div className="w-[20%] flex items-center flex-initial sm:visible md:w-[70%]">
-              <form action="post md:flex md:text-md">
+              <form action="post" className="md:flex md:text-md">
                 <input
                   className="hidden py-5 px-8 w-[526px] h-[62px] rounded-2xl md:flex md:text-md md:visible"
                   type="text"

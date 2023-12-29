@@ -16,7 +16,7 @@ const MulaiBelajar = () => {
 
   return (
     <>
-      <div className="fixed z-20 flex justify-center items-center w-full h-full bg-black/[.70]">
+      <div className="fixed z-20 flex justify-center items-center w-full h-full bg-black/[.85]">
         <div className="flex items-center flex-col relative w-[320px] h-[350px] md:w-[430px] md:h-[395px] bg-[#fff] rounded-xl p-4">
           <button className="absolute right-3 top-3" onClick={handleChange}>
             <img
