@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import digilearn_banner from "../../assets/img/Digilearn/digilearn_banner.png";
 import { register } from "../../redux/actions/authAction";
-import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -19,9 +18,6 @@ const Register = () => {
     e.preventDefault();
 
     dispatch(register(name, email, password, no_telp, navigate, setErrors, errors));
-    toast.success("Registrasi berhasil!", {
-      duration: 3000,
-    });
   };
 
   return (
