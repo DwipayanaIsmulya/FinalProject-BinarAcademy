@@ -62,7 +62,7 @@ const PembayaranPage = () => {
             </Link>
           </div>
           <div className="w-[80%] mx-auto">
-            <div className="bg-[#FF0000] text-white text-center my-14 py-2 rounded-xl md:py-4 md:text-xl">Selesaikan Pembayaran sampai 10 Maret 2023 12:00</div>
+            <div className="bg-[#FF0000] text-white text-center my-14 py-2 rounded-xl md:py-4 md:text-xl">Selesaikan Pembayaran sebelum 10 Maret 2023 12:00</div>
           </div>
           <form onSubmit={handleTransaction}>
             <div className="w-[90%] mx-auto">
@@ -110,8 +110,6 @@ const PembayaranPage = () => {
                             <input className="mb-4 py-2 border-b-2" type="text" placeholder="Date" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} />
                           </div>
                         </div>
-                        <div className="font-medium md:text-xl">Belajar Web Design dengan Figma</div>
-                        <div className="font-medium text-sm md:pt-2">By Angela Doe</div>
                       </div>
                     </div>
                   </div>
@@ -119,8 +117,8 @@ const PembayaranPage = () => {
                 <div id="Class Buy" className=" md:ml-16">
                   <div className="border-2 border-[#6148FF] rounded-xl my-5 p-4 md:my-0">
                     <div className=" mx-auto">
-                      <div className="bg-white w-full h-[200px] rounded-xl shadow-xl md:w-[440px] md:h-[280px] md:mx-auto">
-                        <div className=" bg-gray-500 w-full h-[40%] rounded-t-xl">
+                      <div className="bg-white w-full h-[200px] rounded-xl shadow-xl md:w-[440px] md:h-[200px] md:mx-auto">
+                        <div className=" bg-gray-500 w-full h-[50%] rounded-t-xl">
                           <img className="w-full h-full" src={banner} />
                         </div>
                         <div className="p-2">
