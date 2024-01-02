@@ -1,5 +1,6 @@
 import levelBadge from "../assets/img/Card/levelBadge.png";
 import { Link } from "react-router-dom";
+import banner from "../assets/img/Card/banner.png";
 import PropType from "prop-types";
 
 const CardRiwayatPembayaranComponent = ({ id, name, level, category }) => {
@@ -11,7 +12,7 @@ const CardRiwayatPembayaranComponent = ({ id, name, level, category }) => {
       <Link to={`/detailks/${id}`}>
         <div className="bg-white w-full h-[195px] rounded-xl shadow-xl md:w-[440px] md:h-[280px]">
           <div className=" w-full h-[40%] rounded-t-xl">
-            <img className="w-full h-full" src="" alt="" />
+            <img className="w-full h-full" src={banner} alt="" />
           </div>
           <div className="p-2">
             <div className="flex justify-between w-full">
