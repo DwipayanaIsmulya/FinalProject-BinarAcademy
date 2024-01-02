@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import { setMyCourse } from "../reducers/ksCourseReducer";
 
 export const getMyCourse = () => async (dispatch, getState) => {
@@ -13,6 +14,6 @@ export const getMyCourse = () => async (dispatch, getState) => {
     const { data } = response.data;
     dispatch(setMyCourse(data));
   } catch (error) {
-    alert(error.message);
+    toast.error(error.message);
   }
 };
