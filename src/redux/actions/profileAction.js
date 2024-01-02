@@ -36,7 +36,7 @@ export const updateMyProfile = (updatedData) => async (dispatch, getState) => {
     });
 
     dispatch(setUpdateProfile(response));
-    toast.success("Profile berhasil diupdate!", {
+    toast.success("New profile updated!", {
       duration: 3000,
     });
   } catch (error) {

@@ -16,6 +16,9 @@ import { getDetailsCourse } from "../../redux/actions/detailAction";
 import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 import MulaiBelajar from "../../Components/Popup/MulaiBelajar";
 import BeliMateriPremium from "../../Components/Popup/BeliMateriPremium";
+import { Modal, Container } from "react-bootstrap";
+import axios from "axios";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const DetailKelas = () => {
   const dispatch = useDispatch();
@@ -29,9 +32,45 @@ const DetailKelas = () => {
 
   const { courseId } = useParams();
 
+  const [showCourse, setShowCourse] = useState(false);
+  const [CourseKey, setCourseKey] = useState(null);
+
   useEffect(() => {
     dispatch(getDetailsCourse(courseId, setErrors, errors));
   }, []);
+
+  const openCourseModal = async (details) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      if (details) {
+        setCourseKey(details.videoUrl);
+        setShowCourse(true);
+      } else {
+        setShowCourse(false);
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setErrors({
+          ...errors,
+          isError: true,
+          message: error?.response?.data?.message || error?.message,
+        });
+      } else {
+        alert(error?.message);
+        setErrors({
+          ...errors,
+          isError: true,
+          message: error?.message,
+        });
+      }
+    }
+  };
+
+  const closeCourseModal = () => {
+    setShowCourse(false);
+  };
 
   if (details.price == 0) {
     return (
@@ -123,15 +162,24 @@ const DetailKelas = () => {
               </div>
             </div>
             <div className="flex md:ms-4 mt-3 aspect-video xl:w-[700px] xl:h-[330px] bg-[#000000D9] md:rounded-xl">
-              <div className="flex w-full relative items-center justify-center">
-                <img className="w-[63px] h-[63px]" src={oval} alt="" />
-                <img className="w-[26px] h-[20px] absolute" src={play} alt="" />
-              </div>
+              <button
+                className="flex w-full relative items-center justify-center"
+                onClick={() => openCourseModal(details)}
+              >
+                <div className="flex w-full relative items-center justify-center">
+                  <img className="w-[63px] h-[63px]" src={oval} alt="" />
+                  <img
+                    className="w-[26px] h-[20px] absolute"
+                    src={play}
+                    alt=""
+                  />
+                </div>
+              </button>
             </div>
             <div className="flex flex-col m-4">
               <div className="flex text-xl font-bold">Tentang Kelas</div>
               <div className="flex p-1 indent-3 text-justify">
-                {details.about}
+                {details.description}
               </div>
               <div className="flex text-xl font-bold mt-1">
                 Kelas Ini Ditujukan Untuk
@@ -181,13 +229,39 @@ const DetailKelas = () => {
             </div>
           </div>
         </div>
+        <Container fluid="0">
+          <Modal show={showCourse} onHide={closeCourseModal} size="lg" centered>
+            <Modal.Header closeButton>
+              <Modal.Title>{details?.name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <iframe
+                width="100%"
+                height="315"
+                src={CourseKey}
+                frameBorder="0"
+                allowFullScreen
+                title="Movie Trailer"
+              ></iframe>
+            </Modal.Body>
+            <Modal.Footer></Modal.Footer>
+          </Modal>
+        </Container>
       </>
     );
   }
 
   return (
     <>
-      <BeliMateriPremium />
+      <BeliMateriPremium
+        name={details.name}
+        category={details.category}
+        level={details.level}
+        price={details.price}
+        isPremium={details.isPremium}
+        mentor={details.mentor}
+        duration={details.duration}
+      />
       <div className="flex w-full flex-col" key={details.id}>
         {/* Navbar */}
         <div className="hidden md:block">
@@ -198,7 +272,6 @@ const DetailKelas = () => {
         </div>
         {/* Content */}
         <div className="flex flex-col w-full h-full lg:w-[55%] md:w-[50%]">
-          {console.log(details)}
           <div className="flex flex-col w-full h-[250px]">
             <div className="flex absolute -z-10 w-full h-[250px] bg-[#EBF3FC]"></div>
             {/* Left Content */}
@@ -273,10 +346,15 @@ const DetailKelas = () => {
             </div>
           </div>
           <div className="flex md:ms-4 mt-3 aspect-video xl:w-[700px] xl:h-[330px] bg-[#000000D9] md:rounded-xl">
-            <div className="flex w-full relative items-center justify-center">
-              <img className="w-[63px] h-[63px]" src={oval} alt="" />
-              <img className="w-[26px] h-[20px] absolute" src={play} alt="" />
-            </div>
+            <button
+              className="flex w-full relative items-center justify-center"
+              onClick={() => openCourseModal(details)}
+            >
+              <div className="flex w-full relative items-center justify-center">
+                <img className="w-[63px] h-[63px]" src={oval} alt="" />
+                <img className="w-[26px] h-[20px] absolute" src={play} alt="" />
+              </div>
+            </button>
           </div>
           <div className="flex flex-col m-4">
             <div className="flex text-xl font-bold">Tentang Kelas</div>

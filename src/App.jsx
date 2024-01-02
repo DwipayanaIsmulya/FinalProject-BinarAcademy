@@ -21,6 +21,7 @@ import ResetPassword from "./Pages/Reset/ResetPassword";
 import SearchCourse from "./Pages/UserLogin/SearchCourse";
 import Protected from "./Components/Protected/Protected";
 import NoAccessToken from "./Components/Protected/NoAccessToken";
+import ProgressCardKelasComponent from "./Components/ProgressCardKelasComponent";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
                 </Protected>
               }
             />
+            <Route path="progress" element={<ProgressCardKelasComponent />} />
             <Route
               path="admindashboard"
               element={
