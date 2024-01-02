@@ -22,6 +22,7 @@ import SearchCourse from "./Pages/UserLogin/SearchCourse";
 import Protected from "./Components/Protected/Protected";
 import NoAccessToken from "./Components/Protected/NoAccessToken";
 import ProgressCardKelasComponent from "./Components/ProgressCardKelasComponent";
+import DetailKelasSaya from "./Pages/UserLogin/DetailKelasSaya";
 
 function App() {
   return (
@@ -87,6 +88,14 @@ function App() {
               element={
                 <Protected>
                   <DetailKelas />
+                </Protected>
+              }
+            />
+            <Route
+              path="/detailks/:courseId"
+              element={
+                <Protected>
+                  <DetailKelasSaya />
                 </Protected>
               }
             />

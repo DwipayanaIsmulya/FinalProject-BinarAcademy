@@ -59,30 +59,77 @@ const EditProfileComponent = () => {
       <div className="py-2">
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Nama</p>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Nama Lengkap" />
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="border-2 rounded-xl py-3 px-3 w-full"
+            placeholder="Nama Lengkap"
+          />
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Username</p>
-          <input type="text" name="username" value={formData.username} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Username" disabled />
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            className="border-2 rounded-xl py-3 px-3 w-full"
+            placeholder="Username"
+            disabled
+          />
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Email</p>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Email" disabled />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="border-2 rounded-xl py-3 px-3 w-full"
+            placeholder="Email"
+            disabled
+          />
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Nomor Telepon</p>
-          <input type="text" name="no_telp" value={formData.no_telp} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Nomor Telepon" />
+          <input
+            type="text"
+            name="no_telp"
+            value={formData.no_telp}
+            onChange={handleChange}
+            className="border-2 rounded-xl py-3 px-3 w-full"
+            placeholder="Nomor Telepon"
+          />
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Negara</p>
-          <input type="text" name="country" value={formData.country} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Negara" />
+          <input
+            type="text"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+            className="border-2 rounded-xl py-3 px-3 w-full"
+            placeholder="Negara"
+          />
         </div>
         <div className="text-xs md:text-base py-2">
           <p className="pb-2 font-medium">Kota</p>
-          <input type="text" name="city" value={formData.city} onChange={handleChange} className="border-2 rounded-xl py-3 px-3 w-full" placeholder="Kota" />
+          <input
+            type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            className="border-2 rounded-xl py-3 px-3 w-full"
+            placeholder="Kota"
+          />
         </div>
         <div className="py-2">
-          <button onClick={handleSubmit} className="bg-[#6148FF] text-white py-2 px-2 w-full rounded-2xl">
+          <button
+            onClick={handleSubmit}
+            className="bg-[#6148FF] text-white py-2 px-2 w-full rounded-2xl"
+          >
             Simpan Profil Saya
           </button>
         </div>

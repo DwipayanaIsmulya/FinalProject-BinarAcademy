@@ -11,7 +11,7 @@ const ProgressCardKelasComponent = ({ id, name, level, category, rating, duratio
   const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
   return (
     <>
-      <Link to={`/detail/${id}`}>
+      <Link to={`/detailks/${id}`}>
         <div className="bg-[#FFFFFF] w-[350px] h-[225px] rounded-xl shadow-xl md:w-[440px] md:h-[270px]">
           <div className="w-full h-[40%] rounded-t-xl">
             <img className="w-full h-full" src={banner} alt="" />

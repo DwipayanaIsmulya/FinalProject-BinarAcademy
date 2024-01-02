@@ -7,8 +7,19 @@ import banner from "../assets/img/Card/banner.png";
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 
-const CardKelasComponent = ({ id, name, level, price, isPremium, category, rating, duration }) => {
-  const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
+const CardKelasComponent = ({
+  id,
+  name,
+  level,
+  price,
+  isPremium,
+  category,
+  rating,
+  duration,
+}) => {
+  const formattedLevel = level
+    ? level.charAt(0).toUpperCase() + level.slice(1)
+    : "";
 
   const formatNumber = (num) => {
     return num.toLocaleString("id-ID");
@@ -24,7 +35,9 @@ const CardKelasComponent = ({ id, name, level, price, isPremium, category, ratin
           </div>
           <div className="p-2">
             <div className="flex justify-between w-full">
-              <div className="font-medium text-[#6148FF] md:text-xl">{category}</div>
+              <div className="font-medium text-[#6148FF] md:text-xl">
+                {category}
+              </div>
               <div className="flex">
                 <div className=" my-auto">
                   <img src={star} className="" />
@@ -39,7 +52,9 @@ const CardKelasComponent = ({ id, name, level, price, isPremium, category, ratin
                 <div className="my-auto pr-1">
                   <img src={levelBadge} />
                 </div>
-                <div className="text-sm font-medium text-[#6148FF]">{formattedLevel} Level</div>
+                <div className="text-sm font-medium text-[#6148FF]">
+                  {formattedLevel} Level
+                </div>
               </div>
               <div className="flex text-sm">
                 <div className="my-auto pr-1">
@@ -55,12 +70,20 @@ const CardKelasComponent = ({ id, name, level, price, isPremium, category, ratin
               </div>
             </div>
             <div className="py-1 text-md">
-              <div className={`${isPremium ? "bg-[#489CFF] flex w-fit px-3 rounded-xl" : "bg-[#6148FF] flex w-fit px-3 rounded-xl"} `}>
+              <div
+                className={`${
+                  isPremium
+                    ? "bg-[#489CFF] flex w-fit px-3 rounded-xl"
+                    : "bg-[#6148FF] flex w-fit px-3 rounded-xl"
+                } `}
+              >
                 <div className="my-auto px-1">
                   <img src={isPremium ? premium : null} />
                 </div>
 
-                <div className="text-white">{isPremium ? `Rp ${formattedPrice}` : "Mulai Kelas"}</div>
+                <div className="text-white">
+                  {isPremium ? `Rp ${formattedPrice}` : "Mulai Kelas"}
+                </div>
               </div>
             </div>
           </div>
