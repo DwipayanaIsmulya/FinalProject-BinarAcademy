@@ -1,4 +1,5 @@
-import NavbarBlankComponent from "../../Components/UserLogin/NavbarBlankComponent";
+import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
+import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 import arrow from "../../assets/img/UserLogin/arrow.png";
 import done from "../../assets/img/UserLogin/paymentdone.png";
 
@@ -6,7 +7,13 @@ const PembayaranDonePage = () => {
   return (
     <>
       <div className=" h-full bg-[#FFFF] pb-32 md:w-full ">
-        <NavbarBlankComponent />
+        {/* Navbar */}
+        <div className="hidden md:block">
+          <NavbarComponent />
+        </div>
+        <div className="md:hidden">
+          <MobileNavbar />
+        </div>
 
         <div className="md:w-[80%] md:mx-auto">
           <div className="flex pt-4">

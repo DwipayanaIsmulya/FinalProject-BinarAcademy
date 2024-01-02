@@ -5,6 +5,7 @@ import authReducer from "./authReducer";
 import profileReducer from "./profileReducer";
 import searchReducer from "./searchReducer";
 import { ksCourseReducer } from "./ksCourseReducer";
+import { myTransactionReducer } from "./myTransactionReducer";
 
 export default combineReducers({
   auth: authReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   ksCourse: ksCourseReducer,
   detail: detailReducer,
   search: searchReducer,
+  myTransaction: myTransactionReducer,
 });
