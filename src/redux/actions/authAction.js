@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import { setToken, setUser } from "../reducers/authReducer";
 
 // Login
@@ -12,10 +13,19 @@ export const login = (email, password, navigate) => async (dispatch) => {
     const { token } = data;
     dispatch(setToken(token));
     navigate("/");
+    toast.success("Hello, welcome back!", {
+      duration: 3000,
+    });
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      alert(error);
+      toast.error(error?.response?.data?.message, {
+        duration: 3000,
+      });
+      return;
     }
+    toast.error(error?.message, {
+      duration: 3000,
+    });
   }
 };
 
@@ -44,12 +54,19 @@ export const register = (username, email, password, no_telp, navigate, setErrors
 
     dispatch(setToken(token));
     setErrors({ ...errors, isError: false });
+    toast.success("Welcome to Digilearn Academy!", {
+      duration: 3000,
+    });
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      alert(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message, {
+        duration: 3000,
+      });
       return;
     }
-    alert(error?.message);
+    toast.error(error?.message, {
+      duration: 3000,
+    });
   }
 };
 
@@ -74,7 +91,6 @@ export const getMe = (navigate, navigatePathSuccess, navigatePathError) => async
     if (navigatePathSuccess) navigate(navigatePathSuccess);
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      // If token is not valid
       if (error.response.status === 401) {
         dispatch(logout());
 

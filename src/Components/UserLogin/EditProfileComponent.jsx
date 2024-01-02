@@ -48,7 +48,7 @@ const EditProfileComponent = () => {
 
   const handleSubmit = async () => {
     try {
-      dispatch(updateMyProfile(formData)); // Pass formData to updateMyProfile action
+      dispatch(updateMyProfile(formData));
     } catch (error) {
       console.error("Profile update failed:", error);
     }
