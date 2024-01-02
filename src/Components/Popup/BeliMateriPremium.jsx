@@ -54,7 +54,7 @@ const BeliMateriPremium = ({
           {/* CardComponent */}
           <div className="bg-white w-[275px] h-[225px] rounded-xl shadow-xl md:w-[350px] md:h-[240px] mt-1">
             <div className=" bg-gray-500 w-full h-[40%] rounded-t-xl">
-              <img className="w-full h-full" src={banner} />
+              <img src={banner} alt="" />
             </div>
             <div className="p-2">
               <div className="flex justify-between w-full">
