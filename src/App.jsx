@@ -40,7 +40,14 @@ function App() {
             />
 
             {/* The page for not found url path */}
-            <Route path="*" element={<h1 className="d-flex flex-row justify-content-center align-items-center vh-100">404 Page Not Found</h1>} />
+            <Route
+              path="*"
+              element={
+                <h1 className="d-flex flex-row justify-content-center align-items-center vh-100">
+                  404 Page Not Found
+                </h1>
+              }
+            />
             <Route
               path="adminkelolakelas"
               element={

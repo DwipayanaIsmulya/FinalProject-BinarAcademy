@@ -47,13 +47,27 @@ const SearchCourse = () => {
         <div className="flex py-4 md:pl-48">
           <img src={arrowPurple} />
           <Link to="/">
-            <p className="md:text-xl pl-2 text-[#6148FF] font-bold">Kembali ke Beranda</p>
+            <p className="md:text-xl pl-2 text-[#6148FF] font-bold">
+              Kembali ke Beranda
+            </p>
           </Link>
         </div>
         <div className="md:grid grid-cols-2 md:gap-7 pt-6">
           {search.map((course) => (
-            <div className="py-2 flex justify-around hover:scale-105 duration-300" key={course.id}>
-              <CardKelasComponent id={course.id} name={course.name} level={course.level} price={course.price} isPremium={course.isPremium} category={course.category} rating={course.rating} duration={course.duration} />
+            <div
+              className="py-2 flex justify-around hover:scale-105 duration-300"
+              key={course.id}
+            >
+              <CardKelasComponent
+                id={course.id}
+                name={course.name}
+                level={course.level}
+                price={course.price}
+                isPremium={course.isPremium}
+                category={course.category}
+                rating={course.rating}
+                duration={course.duration}
+              />
             </div>
           ))}
         </div>
