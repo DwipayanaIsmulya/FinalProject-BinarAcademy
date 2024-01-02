@@ -7,17 +7,8 @@ import progress from "../assets/img/Card/progress.png";
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 
-const ProgressCardKelasComponent = ({
-  id,
-  name,
-  level,
-  category,
-  rating,
-  duration,
-}) => {
-  const formattedLevel = level
-    ? level.charAt(0).toUpperCase() + level.slice(1)
-    : "";
+const ProgressCardKelasComponent = ({ id, name, level, category, rating, duration, mentor }) => {
+  const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
   return (
     <>
       <Link to={`/detailks/${id}`}>
@@ -27,9 +18,7 @@ const ProgressCardKelasComponent = ({
           </div>
           <div className="p-2">
             <div className="flex justify-between w-full">
-              <div className="font-medium text-[#6148FF] md:text-xl">
-                {category}
-              </div>
+              <div className="font-medium text-[#6148FF] md:text-xl">{category}</div>
               <div className="flex">
                 <div className=" my-auto">
                   <img src={star} className="" />
@@ -38,15 +27,13 @@ const ProgressCardKelasComponent = ({
               </div>
             </div>
             <div className="font-medium md:text-xl">{name}</div>
-            <div className="font-medium text-sm md:pt-2">By Angela Doe</div>
+            <div className="font-medium text-sm md:pt-2">By {mentor}</div>
             <div className="flex justify-between md:py-1">
               <div className="flex text-sm">
                 <div className="my-auto pr-1">
                   <img src={levelBadge} />
                 </div>
-                <div className="text-sm font-medium text-[#6148FF]">
-                  {formattedLevel}
-                </div>
+                <div className="text-sm font-medium text-[#6148FF]">{formattedLevel}</div>
               </div>
               <div className="flex text-sm">
                 <div className="my-auto pr-1">
@@ -88,6 +75,7 @@ ProgressCardKelasComponent.propTypes = {
   category: PropType.any,
   rating: PropType.any,
   duration: PropType.any,
+  mentor: PropType.any,
 };
 
 export default ProgressCardKelasComponent;

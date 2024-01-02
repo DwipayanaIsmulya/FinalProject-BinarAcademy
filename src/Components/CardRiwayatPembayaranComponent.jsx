@@ -1,52 +1,64 @@
-import star from "../assets/img/Card/star.png";
 import levelBadge from "../assets/img/Card/levelBadge.png";
-import book from "../assets/img/Card/book.png";
-import time from "../assets/img/Card/time.png";
+import banner from "../assets/img/card/banner.png";
+import { Link } from "react-router-dom";
+import PropType from "prop-types";
 
-const CardRiwayatPembayaranComponent = () => {
+const CardRiwayatPembayaranComponent = ({ id, name, level, category }) => {
+  const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
   return (
     <>
-      <div className="bg-white w-full h-[195px] rounded-xl shadow-xl md:w-[440px] md:h-[280px]">
-        <div className=" bg-gray-500 w-full h-[40%] rounded-t-xl"></div>
-        <div className="p-2">
-          <div className="flex justify-between w-full">
-            <div className="font-medium text-[#6148FF] text-xs md:text-xl">UI/UX Design</div>
-            <div className="flex">
-              <div className=" my-auto ">
-                <img src={star} className="" />
-              </div>
-              <div className="text-xs md:text-base">4.7</div>
-            </div>
+      <Link to={`/detailks/${id}`}>
+        <div className="bg-white w-full h-[195px] rounded-xl shadow-xl md:w-[440px] md:h-[280px]">
+          <div className=" w-full h-[40%] rounded-t-xl">
+            <img className="w-full h-full" src={banner} alt="" />
           </div>
-          <div className="font-medium text-xs md:text-xl">Belajar Web Designer dengan Figma </div>
-          <div className="font-medium text-xs md:pt-2">By Angela Doe</div>
-          <div className="flex justify-between md:py-1">
-            <div className="flex text-sm">
-              <div className="my-auto pr-1">
-                <img src={levelBadge} />
+          <div className="p-2">
+            <div className="flex justify-between w-full">
+              <div className="font-medium text-[#6148FF] text-xs md:text-xl">{category}</div>
+              <div className="flex">
+                <div className=" my-auto ">
+                  <img src="" className="" />
+                </div>
+                <div className="text-xs md:text-base"></div>
               </div>
-              <div className="text-xs font-medium text-[#6148FF]">Advanced Level</div>
             </div>
-            <div className="flex text-xs md:text-base">
-              <div className="my-auto pr-1">
-                <img src={book} />
+            <div className="font-medium text-xs md:text-xl">{name}</div>
+            <div className="font-medium text-xs md:pt-2"></div>
+            <div className="flex justify-between md:py-1">
+              <div className="flex text-sm">
+                <div className="my-auto pr-1">
+                  <img src={levelBadge} />
+                </div>
+                <div className="text-xs font-medium text-[#6148FF]">{formattedLevel}</div>
               </div>
-              <div className="text-xs font-medium md:text-base">10 Modul</div>
-            </div>
-            <div className="flex text-sm">
-              <div className="my-auto pr-1">
-                <img src={time} />
+              <div className="flex text-xs md:text-base">
+                <div className="my-auto pr-1">
+                  <img src="" />
+                </div>
+                <div className="text-xs font-medium md:text-base"></div>
               </div>
-              <div className="text-xs font-medium md:text-base">120 Menit</div>
+              <div className="flex text-sm">
+                <div className="my-auto pr-1">
+                  <img src="" />
+                </div>
+                <div className="text-xs font-medium md:text-base"></div>
+              </div>
             </div>
-          </div>
-          <div className="py-1 w-[50%] text-center">
-            <div className="bg-[#FF0000] text-white text-xs md:text-base py-1 rounded-xl">Waiting for payment</div>
+            <div className="py-1 w-[50%] text-center mt-4">
+              <div className="bg-[#73CA5C] text-white text-xs md:text-base py-1 rounded-xl">Paid</div>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
+};
+
+CardRiwayatPembayaranComponent.propTypes = {
+  id: PropType.any,
+  name: PropType.string,
+  level: PropType.any,
+  category: PropType.any,
 };
 
 export default CardRiwayatPembayaranComponent;

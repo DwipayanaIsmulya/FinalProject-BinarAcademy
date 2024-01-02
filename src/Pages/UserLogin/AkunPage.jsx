@@ -45,7 +45,7 @@ const AkunPage = () => {
 
   return (
     <>
-      <div className={`${passwordSettings ? "h-screen" : "h-full"} bg-[#EBF3FC] pb-32 md:w-full`}>
+      <div className={`h-screen bg-[#EBF3FC] pb-32 md:w-full`}>
         <div className="hidden md:block">
           <NavbarComponent />
         </div>
