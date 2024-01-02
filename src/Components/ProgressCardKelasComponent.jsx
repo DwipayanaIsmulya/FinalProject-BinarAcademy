@@ -7,7 +7,7 @@ import progress from "../assets/img/Card/progress.png";
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 
-const ProgressCardKelasComponent = ({ id, name, level, category, rating, duration }) => {
+const ProgressCardKelasComponent = ({ id, name, level, category, rating, duration, mentor }) => {
   const formattedLevel = level ? level.charAt(0).toUpperCase() + level.slice(1) : "";
   return (
     <>
@@ -27,7 +27,7 @@ const ProgressCardKelasComponent = ({ id, name, level, category, rating, duratio
               </div>
             </div>
             <div className="font-medium md:text-xl">{name}</div>
-            <div className="font-medium text-sm md:pt-2">By Angela Doe</div>
+            <div className="font-medium text-sm md:pt-2">By {mentor}</div>
             <div className="flex justify-between md:py-1">
               <div className="flex text-sm">
                 <div className="my-auto pr-1">
@@ -75,6 +75,7 @@ ProgressCardKelasComponent.propTypes = {
   category: PropType.any,
   rating: PropType.any,
   duration: PropType.any,
+  mentor: PropType.any,
 };
 
 export default ProgressCardKelasComponent;
