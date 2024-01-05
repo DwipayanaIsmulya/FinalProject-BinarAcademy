@@ -2,6 +2,7 @@ import NavbarComponent from "../../Components/UserLogin/NavbarComponent";
 import MobileNavbar from "../../Components/UserLogin/MobileNavbar";
 import arrow from "../../assets/img/UserLogin/arrow.png";
 import done from "../../assets/img/UserLogin/paymentdone.png";
+import { Link } from "react-router-dom";
 
 const PembayaranDonePage = () => {
   return (
@@ -34,10 +35,14 @@ const PembayaranDonePage = () => {
               <div className="text-center pt-10 font-bold">Transaksi pembayaran kelas premium berhasil!</div>
               <div className="text-center font-medium">E-receipt telah dikirimkan ke email.</div>
               <div className="pt-24 text-center">
-                <button className=" bg-[#6148FF]  px-24 py-2 rounded-2xl text-center text-white font-medium">Mulai Belajar</button>
+                <Link to="/kelassaya">
+                  <button className=" bg-[#6148FF]  px-24 py-2 rounded-2xl text-center text-white font-medium">Lihat Kelas Saya</button>
+                </Link>
               </div>
               <div className="text-center">
-                <button className=" bg-white  px-24 py-2 rounded-2xl text-center text-[#489CFF] font-medium">Kembali ke Beranda</button>
+                <Link to="/">
+                  <button className=" bg-white  px-24 py-2 rounded-2xl text-center text-[#489CFF] font-medium">Kembali ke Beranda</button>
+                </Link>
               </div>
             </div>
           </div>

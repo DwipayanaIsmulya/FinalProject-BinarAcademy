@@ -190,7 +190,9 @@ const BerandaKelasSayaPage = () => {
                     </div>
                   </div>
                   <div className="pt-5 pb-3 text-center">
-                    <button className="text-[#FF0000] hover:text-[#ff0000]">Hapus Filter</button>
+                    <button className="text-[#FF0000] hover:text-[#ff0000]">
+                      Hapus Filter
+                    </button>
                   </div>
                 </div>
               </div>

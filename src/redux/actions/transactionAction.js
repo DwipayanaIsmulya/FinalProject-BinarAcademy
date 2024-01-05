@@ -1,8 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export const transaction = (courseId, paymentMethod, cardNumber, cardHolderName, cvv, expiryDate, total, setErrors, errors, token) => async () => {
-  
+export const transaction = (courseId, paymentMethod, cardNumber, cardHolderName, cvv, expiryDate, total, setErrors, errors, token, navigate) => async () => {
   try {
     let data = JSON.stringify({
       courseId,
@@ -19,7 +18,7 @@ export const transaction = (courseId, paymentMethod, cardNumber, cardHolderName,
       url: "https://fpbejs-production.up.railway.app/api/v1/transaction/create",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       data: data,
     };
@@ -30,6 +29,7 @@ export const transaction = (courseId, paymentMethod, cardNumber, cardHolderName,
     toast.success("Your Transaction Done!", {
       duration: 3000,
     });
+    navigate("/pembayarandone");
   } catch (error) {
     if (axios.isAxiosError(error)) {
       toast.error(error?.response?.data?.message, {
@@ -41,4 +41,4 @@ export const transaction = (courseId, paymentMethod, cardNumber, cardHolderName,
       duration: 3000,
     });
   }
-  };
+};
