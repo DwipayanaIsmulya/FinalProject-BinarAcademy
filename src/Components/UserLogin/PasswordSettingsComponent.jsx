@@ -93,10 +93,17 @@ const PasswordSettingsComponent = () => {
             }))
           }
         />
-        {confirmPasswordError && <div className="text-red-500 text-xs mt-1">{confirmPasswordError}</div>}
+        {confirmPasswordError && (
+          <div className="text-red-500 text-xs mt-1">
+            {confirmPasswordError}
+          </div>
+        )}
       </div>
       <div className="py-2">
-        <button className="bg-[#6148FF] text-white py-2 px-2 w-full rounded-2xl" onClick={handleChangePassword}>
+        <button
+          className="bg-[#6148FF] text-white py-2 px-2 w-full rounded-2xl"
+          onClick={handleChangePassword}
+        >
           Simpan Ubah Password
         </button>
       </div>
