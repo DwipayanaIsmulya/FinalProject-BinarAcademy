@@ -10,9 +10,17 @@ const PasswordSettingsComponent = () => {
     new_password: "",
     confirm_password: "",
   });
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const handleChangePassword = async () => {
     try {
+      // Validasi konfirmasi password
+      if (formData.new_password !== formData.confirm_password) {
+        setConfirmPasswordError("Password tidak sesuai");
+        return;
+      } else {
+        setConfirmPasswordError(""); // Reset error jika konfirmasi password sesuai
+      }
       const response = await axios.put(
         "https://fpbejs-production.up.railway.app/api/v1/profile/reset-my-password",
         {
@@ -43,7 +51,7 @@ const PasswordSettingsComponent = () => {
         <input
           type="password"
           className="border-2 rounded-xl py-3 px-3 w-full"
-          placeholder="password lama"
+          placeholder="Password lama"
           value={formData.current_password}
           onChange={(e) =>
             setFormData((prevData) => ({
@@ -58,8 +66,9 @@ const PasswordSettingsComponent = () => {
         <input
           type="password"
           className="border-2 rounded-xl py-3 px-3 w-full"
-          placeholder="password baru"
+          placeholder="Password baru"
           value={formData.new_password}
+          autoComplete="new-password"
           onChange={(e) =>
             setFormData((prevData) => ({
               ...prevData,
@@ -68,12 +77,14 @@ const PasswordSettingsComponent = () => {
           }
         />
       </div>
+      {/* Ulangi Password Baru */}
       <div className="text-xs md:text-base py-2">
         <p className="pb-2 font-medium">Ulangi Password Baru</p>
         <input
           type="password"
           className="border-2 rounded-xl py-3 px-3 w-full"
-          placeholder="ulangi password baru"
+          placeholder="Ulangi password baru"
+          autoComplete="new-password"
           value={formData.confirm_password}
           onChange={(e) =>
             setFormData((prevData) => ({
@@ -82,6 +93,7 @@ const PasswordSettingsComponent = () => {
             }))
           }
         />
+        {confirmPasswordError && <div className="text-red-500 text-xs mt-1">{confirmPasswordError}</div>}
       </div>
       <div className="py-2">
         <button className="bg-[#6148FF] text-white py-2 px-2 w-full rounded-2xl" onClick={handleChangePassword}>

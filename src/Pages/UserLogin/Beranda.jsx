@@ -232,11 +232,7 @@ const Beranda = () => {
       <div className="flex relative flex-wrap flex-initial w-[100%] h-[300px]">
         {/* left main-content */}
         <div className="flex">
-          <img
-            className="absolute top-0 right-0 left-0 bottom-0"
-            src={mainImage}
-            alt=""
-          />
+          <img className="absolute top-0 right-0 left-0 bottom-0" src={mainImage} alt="" />
         </div>
         {/* right main-content */}
         <div className="flex md:z-10 w-[100%] items-center justify-center pt-14 flex-initial md:bg-gradient-to-l from-[#6148FF] from-35% to-85%">
