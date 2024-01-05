@@ -11,11 +11,21 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [no_telp, setNoTelp] = useState("");
   const [errors, setErrors] = useState(null);
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    // Validasi konfirmasi password
+    // Validasi konfirmasi password
+    if (password !== passwordConfirm) {
+      setConfirmPasswordError("Konfirmasi password tidak sesuai");
+      return;
+    } else {
+      setConfirmPasswordError(""); // Reset error jika konfirmasi password sesuai
+    }
 
     dispatch(register(name, email, password, no_telp, navigate, setErrors, errors));
   };
@@ -50,6 +60,12 @@ const Register = () => {
                 <div className="flex flex-col mt-4">
                   <div className="text-start text-xs">Buat Password</div>
                   <input type="password" value={password} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" />
+                </div>
+                {/* Konfirmasi Password*/}
+                <div className="flex flex-col mt-4">
+                  <div className="text-start text-xs">Konfirmasi Password</div>
+                  <input type="password" value={passwordConfirm} className="mt-1 p-2 w-full rounded-xl text-black border-solid border-2" placeholder="Konfirmasi Password" onChange={(e) => setPasswordConfirm(e.target.value)} />
+                  {confirmPasswordError && <div className="text-red-500 text-xs mt-1">{confirmPasswordError}</div>}
                 </div>
                 {/* Daftar */}
                 <div className="flex flex-col mt-4">
