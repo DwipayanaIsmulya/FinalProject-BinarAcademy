@@ -1,6 +1,6 @@
 import levelBadge from "../assets/img/Card/levelBadge.png";
-import banner from "../assets/img/card/banner.png";
 import { Link } from "react-router-dom";
+import banner from "../assets/img/Card/banner.png";
 import PropType from "prop-types";
 
 const CardRiwayatPembayaranComponent = ({ id, name, level, category }) => {
