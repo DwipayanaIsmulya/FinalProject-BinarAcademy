@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import banner from "../../assets/img/Card/banner.png";
 import { transaction } from "../../redux/actions/transactionAction";
+import { useNavigate } from "react-router-dom";
 
 const PembayaranPage = () => {
   const [toggleBankTransfer, setToggleBankTransfer] = useState(false);
@@ -15,6 +16,7 @@ const PembayaranPage = () => {
 
   const { details } = useSelector((state) => state.detail);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [paymentMethod, setPaymentMethod] = useState("Transfer Bank");
   const [cardNumber, setCardNumber] = useState("");
@@ -39,7 +41,8 @@ const PembayaranPage = () => {
         details.price + (details.price * 11) / 100,
         setErrors,
         errors,
-        token
+        token,
+        navigate
       )
     );
   };
